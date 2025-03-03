@@ -152,9 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61181f95545e3c946b849f97745cdf4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 5
-  gravity: -9.81
+  moveSpeed: 10
+  jumpForce: 1
+  gravity: -1000
   groundCheck: {fileID: 29368640}
   groundDistance: 0.4
   groundMask:
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 29368643}
   - component: {fileID: 29368642}
   - component: {fileID: 29368641}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
