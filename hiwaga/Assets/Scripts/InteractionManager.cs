@@ -4,11 +4,14 @@ public class InteractionManager : MonoBehaviour
 {
     private GameObject interactTarget;
     private bool IsInRange = false;
+    [SerializeField]
+    private GameObject dialoguePanel;
 
     private void Update()
     {
         if (Input.GetButtonDown("Confirm") && interactTarget && IsInRange)
         {
+            dialoguePanel.SetActive(true);
             Interact();
         }
     }

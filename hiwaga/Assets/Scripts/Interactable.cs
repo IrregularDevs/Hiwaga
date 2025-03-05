@@ -27,8 +27,6 @@ public class Interactable : MonoBehaviour
 
     public void interactPrompt()
     {
-        //Show the dialogue box
-        panel.SetActive(true);
         //Show the name of the character
         nameText.text = dialogueManager.character_name;
         Debug.Log(dialogueManager.dialogue);
