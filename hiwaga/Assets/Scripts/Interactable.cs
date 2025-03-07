@@ -51,8 +51,4 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    private void interaction()
-    {
-        //This is where the interaction happens
-    }
 }
