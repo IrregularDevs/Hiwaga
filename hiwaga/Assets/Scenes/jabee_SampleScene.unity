@@ -1018,8 +1018,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -182.46559, y: 69.364716}
-  m_SizeDelta: {x: 78.8688, y: 72.5294}
+  m_AnchoredPosition: {x: -356.46, y: 129}
+  m_SizeDelta: {x: 171.0055, y: 157.2602}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626838955
 MonoBehaviour:
@@ -1499,8 +1499,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6335, y: -0.6634}
-  m_SizeDelta: {x: 452.1329, y: 76.9268}
+  m_AnchoredPosition: {x: 2.2074, y: -36.9894}
+  m_SizeDelta: {x: 820.5477, y: 150.9057}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1061078040
 MonoBehaviour:
@@ -1549,7 +1549,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.9
+  m_fontSize: 66.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1931,11 +1931,11 @@ RectTransform:
   - {fileID: 2038997388}
   m_Father: {fileID: 26443109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -87}
-  m_SizeDelta: {x: 0, y: -174}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 82}
+  m_SizeDelta: {x: 883.918, y: 262.5074}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1487915691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2118,7 +2118,11 @@ MonoBehaviour:
   enterString: 
   exitString: 
   interactString: 
-  dialogueManager: {fileID: 11400000, guid: 14f136754f1e9864ab01eab2f8c8f3cc, type: 2}
+  dialogueManagers:
+  - {fileID: 11400000, guid: 14f136754f1e9864ab01eab2f8c8f3cc, type: 2}
+  - {fileID: 11400000, guid: 9bd6abfe205f68d42ad0fedae828960d, type: 2}
+  - {fileID: 11400000, guid: 206b86152bad6d743883c6ae6230f40c, type: 2}
+  - {fileID: 11400000, guid: 75e17225a842792459f2bfb912b1c830, type: 2}
   dialogueText: {fileID: 1061078040}
   nameText: {fileID: 969656233}
   panel: {fileID: 1487915689}
@@ -2485,8 +2489,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -93.6, y: 45.768}
-  m_SizeDelta: {x: 87.3213, y: 25.3364}
+  m_AnchoredPosition: {x: -195, y: 111.58}
+  m_SizeDelta: {x: 135.6086, y: 39.347}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2038997389
 MonoBehaviour:
