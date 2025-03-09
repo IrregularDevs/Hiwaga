@@ -14,4 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portrait: {fileID: 0}
   character_name: Justin
-  dialogue: Any comments, suggestions, violent reactions? okay end meeting
+  dialogues:
+  - Hello I'm Justin
+  - I am a game developer part of the game dev group
+  - Called IrregDevs!
+  - I whip my members
+  requiredItem: 0
+  noRequiredItemDialogue: 
+  requiredItemDialogue: 
+  questItem: {fileID: 0}

@@ -7,7 +7,7 @@ public class Interactable : MonoBehaviour
     [SerializeField]
     private string enterString, exitString, interactString;
     [SerializeField]
-    private List<DialogueManager> dialogueManagers; // List of DialogueManager
+    private DialogueManager dialogueManager; // Single DialogueManager containing a list of dialogues
     [SerializeField]
     private TextMeshProUGUI dialogueText, nameText;
     [SerializeField]
@@ -17,7 +17,7 @@ public class Interactable : MonoBehaviour
 
     public void enterPrompt()
     {
-        Debug.Log($"Hi I'm {dialogueManagers[currentDialogueIndex].character_name} nice to meet you");
+        Debug.Log($"Hi I'm {dialogueManager.character_name} nice to meet you");
         //Show an indicator to the player that they can interact with the object
     }
 
@@ -30,15 +30,15 @@ public class Interactable : MonoBehaviour
 
     public void interactPrompt()
     {
-        if (currentDialogueIndex < dialogueManagers.Count)
+        if (currentDialogueIndex < dialogueManager.dialogues.Count)
         {
             //Show the dialogue box
             panel.SetActive(true);
             //Show the name of the character
-            nameText.text = dialogueManagers[currentDialogueIndex].character_name;
-            Debug.Log(dialogueManagers[currentDialogueIndex].dialogue);
+            nameText.text = dialogueManager.character_name;
+            Debug.Log(dialogueManager.dialogues[currentDialogueIndex]);
             //Make the UI Show the Text Corresponding to the character
-            dialogueText.text = dialogueManagers[currentDialogueIndex].dialogue;
+            dialogueText.text = dialogueManager.dialogues[currentDialogueIndex];
 
             // Move to the next dialogue
             currentDialogueIndex++;
@@ -50,5 +50,4 @@ public class Interactable : MonoBehaviour
             currentDialogueIndex = 0; // Reset the index if needed
         }
     }
-
 }

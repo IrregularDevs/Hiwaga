@@ -2118,11 +2118,7 @@ MonoBehaviour:
   enterString: 
   exitString: 
   interactString: 
-  dialogueManagers:
-  - {fileID: 11400000, guid: 14f136754f1e9864ab01eab2f8c8f3cc, type: 2}
-  - {fileID: 11400000, guid: 9bd6abfe205f68d42ad0fedae828960d, type: 2}
-  - {fileID: 11400000, guid: 206b86152bad6d743883c6ae6230f40c, type: 2}
-  - {fileID: 11400000, guid: 75e17225a842792459f2bfb912b1c830, type: 2}
+  dialogueManager: {fileID: 11400000, guid: 14f136754f1e9864ab01eab2f8c8f3cc, type: 2}
   dialogueText: {fileID: 1061078040}
   nameText: {fileID: 969656233}
   panel: {fileID: 1487915689}
