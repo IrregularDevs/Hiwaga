@@ -1,15 +1,15 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class CharacterController3D : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     public float gravity = -9.81f;
-    public float fallMultiplier = 2.5f; // Increases gravity when falling
-    public float lowJumpMultiplier = 2f; // Increases gravity when jump button is released early
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
     public LayerMask groundMask;
+    public float rotationSpeed = 10f; // Speed of turning
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -22,26 +22,36 @@ public class CharacterController3D : MonoBehaviour
 
     void Update()
     {
-        // Ground check using CharacterController's built-in isGrounded
+        // Ground check
         bool isGrounded = controller.isGrounded;
 
         if (isGrounded)
         {
-            velocity.y = -0.1f; // Prevents hovering effect
-            canJump = true; // Reset jump ability when grounded
+            velocity.y = -0.1f;
+            canJump = true;
         }
 
-        // Movement
+        // Get movement input
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        Vector3 moveDirection = new Vector3(moveX, 0, moveZ).normalized; // Ensure movement is consistent
+
+        // Rotate character to face movement direction
+        if (moveDirection.magnitude > 0.1f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+
+        // Move character forward in the direction it is facing
+        Vector3 forwardMove = transform.forward * moveSpeed * Time.deltaTime;
+        controller.Move(forwardMove * moveDirection.magnitude); // Prevents diagonal speed boost
 
         // Jumping
         if (isGrounded && canJump && Input.GetButtonDown("Jump"))
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-            canJump = false; // Disable jumping until grounded again
+            canJump = false;
         }
 
         // Apply gravity with smooth jump and fall
