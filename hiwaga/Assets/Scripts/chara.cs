@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class CharacterController3D : MonoBehaviour
@@ -32,20 +31,21 @@ public class CharacterController3D : MonoBehaviour
         }
 
         // Get movement input
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
-        Vector3 moveDirection = new Vector3(moveX, 0, moveZ).normalized; // Ensure movement is consistent
+        float moveX = Input.GetAxisRaw("Horizontal"); // Use GetAxisRaw for instant stop
+        float moveZ = Input.GetAxisRaw("Vertical");
+        Vector3 moveDirection = new Vector3(moveX, 0, moveZ).normalized;
 
-        // Rotate character to face movement direction
+        // Stop movement if no input is detected
         if (moveDirection.magnitude > 0.1f)
         {
+            // Rotate character to face movement direction
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-        }
 
-        // Move character forward in the direction it is facing
-        Vector3 forwardMove = transform.forward * moveSpeed * Time.deltaTime;
-        controller.Move(forwardMove * moveDirection.magnitude); // Prevents diagonal speed boost
+            // Move character in the direction it is facing
+            Vector3 forwardMove = transform.forward * moveSpeed * Time.deltaTime;
+            controller.Move(forwardMove * moveDirection.magnitude); // Prevent diagonal speed boost
+        }
 
         // Jumping
         if (isGrounded && canJump && Input.GetButtonDown("Jump"))

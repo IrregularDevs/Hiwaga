@@ -8,16 +8,17 @@ public class CutsceneTrigger : MonoBehaviour
     public KeyCode interactKey = KeyCode.E; // Key to start cutscene
     public KeyCode skipKey = KeyCode.Space; // Key to skip cutscene
     public GameObject player; // Player reference
+    public float interactionDistance = 3f; // Required distance to interact
     public float transitionSpeed = 2f; // Speed of transition
 
     private bool isCutsceneActive = false;
-    private CharacterController3D playerController; // movement script
+    private CharacterController3D playerController; // Movement script
 
     void Start()
     {
         if (player != null)
         {
-            playerController = player.GetComponent<CharacterController3D>(); 
+            playerController = player.GetComponent<CharacterController3D>();
         }
 
         // Ensure only the player camera is active at the start
@@ -27,9 +28,12 @@ public class CutsceneTrigger : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(interactKey) && !isCutsceneActive)
+        if (Vector3.Distance(player.transform.position, transform.position) <= interactionDistance)
         {
-            StartCoroutine(StartCutscene());
+            if (Input.GetKeyDown(interactKey) && !isCutsceneActive)
+            {
+                StartCoroutine(StartCutscene());
+            }
         }
 
         if (isCutsceneActive && Input.GetKeyDown(skipKey))
@@ -48,8 +52,7 @@ public class CutsceneTrigger : MonoBehaviour
             playerController.enabled = false;
         }
 
-        // Activate cutscene camera and smoothly transition
-        cutsceneCamera.gameObject.SetActive(true);
+        // Smooth transition to cutscene camera
         yield return StartCoroutine(SmoothCameraTransition(MainCamera, cutsceneCamera));
 
         // Wait until the player presses space
@@ -60,11 +63,10 @@ public class CutsceneTrigger : MonoBehaviour
 
     IEnumerator EndCutscene()
     {
-        // Smoothly transition back to the player camera
+        // Smooth transition back to the player camera
         yield return StartCoroutine(SmoothCameraTransition(cutsceneCamera, MainCamera));
 
-        // Disable cutscene camera and re-enable player movement
-        cutsceneCamera.gameObject.SetActive(false);
+        // Enable player movement
         if (playerController != null)
         {
             playerController.enabled = true;
@@ -76,6 +78,8 @@ public class CutsceneTrigger : MonoBehaviour
     IEnumerator SmoothCameraTransition(Camera fromCamera, Camera toCamera)
     {
         float t = 0f;
+        float duration = 1f / transitionSpeed; // Smooth transition duration
+
         Vector3 startPosition = fromCamera.transform.position;
         Quaternion startRotation = fromCamera.transform.rotation;
         float startFOV = fromCamera.fieldOfView;
@@ -84,9 +88,11 @@ public class CutsceneTrigger : MonoBehaviour
         Quaternion targetRotation = toCamera.transform.rotation;
         float targetFOV = toCamera.fieldOfView;
 
+        toCamera.gameObject.SetActive(true);
+
         while (t < 1f)
         {
-            t += Time.deltaTime * transitionSpeed;
+            t += Time.deltaTime / duration;
             fromCamera.transform.position = Vector3.Lerp(startPosition, targetPosition, t);
             fromCamera.transform.rotation = Quaternion.Slerp(startRotation, targetRotation, t);
             fromCamera.fieldOfView = Mathf.Lerp(startFOV, targetFOV, t);
@@ -100,6 +106,5 @@ public class CutsceneTrigger : MonoBehaviour
 
         // Disable the starting camera when transition completes
         fromCamera.gameObject.SetActive(false);
-        toCamera.gameObject.SetActive(true);
     }
 }
