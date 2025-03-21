@@ -4,16 +4,18 @@ using System.Collections.Generic;
 
 public class Interactable : MonoBehaviour
 {
-    [SerializeField]
-    private string enterString, exitString, interactString;
-    [SerializeField]
-    private DialogueManager dialogueManager; // Single DialogueManager containing a list of dialogues
-    [SerializeField]
-    private TextMeshProUGUI dialogueText, nameText;
-    [SerializeField]
-    private GameObject panel;
+    [SerializeField] private string enterString, exitString, interactString;
+    [SerializeField] private DialogueManager dialogueManager; // Single DialogueManager containing a list of dialogues
+    [SerializeField] private TextMeshProUGUI dialogueText, nameText;
+    [SerializeField] private GameObject panel;
+    private AudioSource audioSource;
 
     private int currentDialogueIndex = 0;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public void enterPrompt()
     {
@@ -32,6 +34,7 @@ public class Interactable : MonoBehaviour
     {
         if (currentDialogueIndex < dialogueManager.dialogues.Count)
         {
+            audioSource.Play();
             //Show the dialogue box
             panel.SetActive(true);
             //Show the name of the character
