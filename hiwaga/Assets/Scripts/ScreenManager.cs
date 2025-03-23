@@ -15,4 +15,10 @@ public class ScreenManager : MonoBehaviour
     {
         Debug.Log("Scene does not exist.");
     }
+
+    public void ExitGame()
+    {
+        Debug.Log("Game has been exited.");
+        Application.Quit();
+    }
 }
