@@ -1,5 +1,12 @@
 using UnityEngine;
 
+interface IInteractable
+{
+    public void Interact();
+    public void enterPrompt();
+    public void exitPrompt();
+}
+
 public class InteractionManager : MonoBehaviour
 {
     private GameObject interactTarget;
@@ -9,7 +16,7 @@ public class InteractionManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Confirm") && interactTarget && IsInRange)
         {
-            Interact();
+            interactTarget.GetComponent<IInteractable>().Interact();
         }
     }
 
@@ -17,7 +24,7 @@ public class InteractionManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Interactable"))
         {
-            other.gameObject.GetComponent<Interactable>().enterPrompt();
+            other.gameObject.GetComponent<IInteractable>().enterPrompt();
             interactTarget = other.gameObject;
             IsInRange = true;
         }
@@ -39,14 +46,9 @@ public class InteractionManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Interactable"))
         {
-            other.gameObject.GetComponent<Interactable>().exitPrompt();
+            other.gameObject.GetComponent<IInteractable>().exitPrompt();
             interactTarget = null;
             IsInRange = false;
         }
-    }
-
-    private void Interact()
-    {
-        interactTarget.GetComponent<Interactable>().interactPrompt();
     }
 }

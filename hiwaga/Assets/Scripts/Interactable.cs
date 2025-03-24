@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 
-public class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour, IInteractable
 {
     [SerializeField] private string enterString, exitString, interactString;
     [SerializeField] private DialogueManager dialogueManager; // Single DialogueManager containing a list of dialogues
@@ -30,7 +30,7 @@ public class Interactable : MonoBehaviour
         panel.SetActive(false);
     }
 
-    public void interactPrompt()
+    public void Interact()
     {
         if (currentDialogueIndex < dialogueManager.dialogues.Count)
         {
