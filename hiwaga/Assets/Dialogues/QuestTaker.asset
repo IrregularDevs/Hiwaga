@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2195816fd749d13459e3e2f5ed98a7d6, type: 3}
-  m_Name: Justin 1
+  m_Name: QuestTaker
   m_EditorClassIdentifier: 
-  portrait: {fileID: 21300000, guid: a72ddfb0f4f86e34baa39f7eecd0a2c3, type: 3}
-  character_name: Justin
+  portrait: {fileID: 21300000, guid: f17e24f199c0b77478cf98731cd0da1f, type: 3}
+  character_name: Mr. Quest Man!
   dialogues:
-  - Hello I'm Justin
-  - I am a game developer part of the game dev group
-  - Called IrregDevs!
-  - I whip my members
-  requiredItem: 0
+  - I am Mr. Quest Man!
+  - Bring d
+  requiredItem: 1
   noRequiredItemDialogue: 
   requiredItemDialogue: 
-  questItem: {fileID: 0}
+  questItem: {fileID: 11400000, guid: f4207587146a98a42bafe9a1f51f1e0a, type: 2}

@@ -10,5 +10,13 @@ public class InventoryItem : MonoBehaviour
     {
         item = newItem;
         image.sprite = newItem.image;
+        gameObject.SetActive(true);
+    }
+
+    public void ClearItem()
+    {
+        item = null;
+        image.sprite = null;
+        gameObject.SetActive(false);
     }
 }

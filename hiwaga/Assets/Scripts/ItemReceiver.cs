@@ -1,8 +1,6 @@
 using UnityEngine;
-using TMPro;
-using System.Collections.Generic;
 
-public class ItemSource : MonoBehaviour, IInteractable
+public class ItemReceiver : MonoBehaviour, IInteractable
 {
     [SerializeField] private string enterString, exitString, interactString;
     [SerializeField] private Item item;
@@ -38,7 +36,7 @@ public class ItemSource : MonoBehaviour, IInteractable
         }
         else
         {
-            inventoryManager.AddItem(item);
+            inventoryManager.RemoveItem(item);
             used = true;
         }
     }

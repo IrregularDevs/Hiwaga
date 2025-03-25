@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77bbc02c5820d3449aa36e0cc19f2980, type: 3}
-  m_Name: Cat
+  m_Script: {fileID: 11500000, guid: 2195816fd749d13459e3e2f5ed98a7d6, type: 3}
+  m_Name: Librarian
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: a72ddfb0f4f86e34baa39f7eecd0a2c3, type: 3}
-  Name: Cat
+  portrait: {fileID: 0}
+  character_name: 
+  dialogues: []
+  requiredItem: 0
+  noRequiredItemDialogue: 
+  requiredItemDialogue: 
+  questItem: {fileID: 0}

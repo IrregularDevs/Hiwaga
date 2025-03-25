@@ -18,6 +18,6 @@ public class DialogueManager : ScriptableObject
     [Tooltip("The dialogue if the character has the required item")]
     public string requiredItemDialogue;
     [Tooltip("The item required for the dialogue")]
-    public GameObject questItem;
+    public Item questItem;
 }
 

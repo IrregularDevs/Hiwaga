@@ -1,13 +1,15 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
-public class Interactable : MonoBehaviour, IInteractable
+public class Actor : MonoBehaviour, IInteractable
 {
     [SerializeField] private string enterString, exitString, interactString;
     [SerializeField] private DialogueManager dialogueManager; // Single DialogueManager containing a list of dialogues
     [SerializeField] private TextMeshProUGUI dialogueText, nameText;
     [SerializeField] private GameObject panel;
+    [SerializeField] private Image portrait;
     private AudioSource audioSource;
 
     private int currentDialogueIndex = 0;
@@ -37,6 +39,7 @@ public class Interactable : MonoBehaviour, IInteractable
             audioSource.Play();
             //Show the dialogue box
             panel.SetActive(true);
+           portrait.sprite = dialogueManager.portrait;
             //Show the name of the character
             nameText.text = dialogueManager.character_name;
             Debug.Log(dialogueManager.dialogues[currentDialogueIndex]);
