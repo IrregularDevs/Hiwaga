@@ -28,6 +28,10 @@ public class InteractionManager : MonoBehaviour
             interactTarget = other.gameObject;
             IsInRange = true;
         }
+        else
+        {
+            return;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -49,6 +53,10 @@ public class InteractionManager : MonoBehaviour
             other.gameObject.GetComponent<IInteractable>().exitPrompt();
             interactTarget = null;
             IsInRange = false;
+        }
+        else
+        {
+            return;
         }
     }
 }

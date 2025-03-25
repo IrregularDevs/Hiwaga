@@ -6,11 +6,13 @@ public class ItemSource : MonoBehaviour, IInteractable
 {
     [SerializeField] private string enterString, exitString, interactString;
     [SerializeField] private Item item;
+    [SerializeField] private InventoryManager inventoryManager;
     private AudioSource audioSource;
 
-    private void Start()
+    private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        inventoryManager = FindAnyObjectByType<InventoryManager>();
     }
 
     public void enterPrompt()
@@ -28,5 +30,6 @@ public class ItemSource : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log(interactString);
+        inventoryManager.AddItem(item);
     }
 }
