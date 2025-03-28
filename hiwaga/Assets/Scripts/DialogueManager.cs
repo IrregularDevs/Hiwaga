@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using UnityEditor.EditorTools;
+// using UnityEditor.EditorTools;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DialogueManager", menuName = "Scriptable Objects/DialogueManager")]
