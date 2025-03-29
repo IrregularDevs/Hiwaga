@@ -1977,7 +1977,7 @@ GameObject:
   - component: {fileID: 482872559}
   - component: {fileID: 482872558}
   - component: {fileID: 482872557}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TreeHouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2134,6 +2134,73 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 448608219}
   m_SourcePrefab: {fileID: 100100000, guid: d321a63501771c04898b2b39e4b2bcd5, type: 3}
+--- !u!1 &513352459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513352462}
+  - component: {fileID: 513352461}
+  - component: {fileID: 513352460}
+  m_Layer: 0
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &513352460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513352459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b93200fd7d02644cb22bf63c352fbf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraScript: {fileID: 961739754}
+--- !u!65 &513352461
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513352459}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 19.49086, y: 4.1342635, z: 16.298578}
+  m_Center: {x: -5.620431, y: 1.5671318, z: 1.1070604}
+--- !u!4 &513352462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513352459}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.28705317, y: 11.698387, z: -0.08377326}
+  m_LocalScale: {x: 0.05, y: 21.782835, z: 0.2631579}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1554674958}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &522517083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4087,8 +4154,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1931060337}
-  offset: {x: 0, y: 2, z: -5}
+  defaultOffset: {x: 0, y: 2, z: -4}
+  zoomedOutOffset: {x: 0, y: 5, z: -10}
   smoothSpeed: 1000
+  zoomSpeed: 2
+  collisionRadius: 0.3
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 192
 --- !u!1001 &969251903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6394,7 +6467,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6465,7 +6538,8 @@ Transform:
   m_LocalPosition: {x: -13.718, y: 0.022953868, z: 18.311554}
   m_LocalScale: {x: 20, y: 0.04590771, z: 3.8}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 513352462}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1565101190
@@ -7536,6 +7610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entrance_to_TreeHouse
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0484e0d3ebf5dcc45ab9817a9907190c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8356,9 +8434,10 @@ GameObject:
   - component: {fileID: 1931060340}
   - component: {fileID: 1931060339}
   - component: {fileID: 1931060338}
+  - component: {fileID: 1931060343}
   m_Layer: 0
   m_Name: w
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8416,10 +8495,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 2
+  jumpForce: 1
   gravity: -9.81
   fallMultiplier: 2.5
-  lowJumpMultiplier: 1
+  lowJumpMultiplier: 2
   groundMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8500,6 +8579,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931060336}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1931060343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931060336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f7fcf9929601b47bd7a6a15746d6e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallThreshold: -15
 --- !u!1 &1938403917 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e14b374ce2720df4184d43baaf205db2, type: 3}
@@ -8804,6 +8896,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2cf01913a87f7e04f97cce8999308b45, type: 3}
       propertyPath: m_Name
       value: shape-cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2cf01913a87f7e04f97cce8999308b45, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
