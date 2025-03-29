@@ -8,11 +8,13 @@ public class CharacterController3D : MonoBehaviour
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
     public LayerMask groundMask;
-    public float rotationSpeed = 10f; // Speed of turning
+    public float rotationSpeed = 10f;
 
     private CharacterController controller;
     private Vector3 velocity;
-    private bool canJump = true;
+    private bool isGrounded;
+    private bool jumpRequest = false; // Store jump request
+    private float groundCheckDistance = 0.2f; // Small buffer for ground detection
 
     void Start()
     {
@@ -21,40 +23,41 @@ public class CharacterController3D : MonoBehaviour
 
     void Update()
     {
-        // Ground check
-        bool isGrounded = controller.isGrounded;
+        // Ground detection with a small buffer
+        isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
 
-        if (isGrounded)
+        if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -0.1f;
-            canJump = true;
+            velocity.y = -0.1f; // Small downward force to keep grounded
+        }
+
+        // Capture jump input to avoid missing frames
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            jumpRequest = true;
         }
 
         // Get movement input
-        float moveX = Input.GetAxisRaw("Horizontal"); // Use GetAxisRaw for instant stop
+        float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
         Vector3 moveDirection = new Vector3(moveX, 0, moveZ).normalized;
 
-        // Stop movement if no input is detected
+        // Rotate and move
         if (moveDirection.magnitude > 0.1f)
         {
-            // Rotate character to face movement direction
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-
-            // Move character in the direction it is facing
-            Vector3 forwardMove = transform.forward * moveSpeed * Time.deltaTime;
-            controller.Move(forwardMove * moveDirection.magnitude); // Prevent diagonal speed boost
+            controller.Move(transform.forward * moveSpeed * Time.deltaTime * moveDirection.magnitude);
         }
 
-        // Jumping
-        if (isGrounded && canJump && Input.GetButtonDown("Jump"))
+        // Apply jump when requested
+        if (jumpRequest)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-            canJump = false;
+            jumpRequest = false; // Reset jump request
         }
 
-        // Apply gravity with smooth jump and fall
+        // Smooth falling mechanics
         if (velocity.y < 0)
         {
             velocity.y += gravity * (fallMultiplier - 1) * Time.deltaTime;
@@ -64,6 +67,7 @@ public class CharacterController3D : MonoBehaviour
             velocity.y += gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
 
+        // Apply gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
