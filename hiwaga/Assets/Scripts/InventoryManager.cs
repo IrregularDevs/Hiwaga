@@ -3,16 +3,29 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    public int maxStackedItems;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
 
     public void AddItem(Item item)
     {
-        for(int i = 0; i < inventorySlots.Length; i++)
+        for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if(itemInSlot == null)
+            if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < maxStackedItems && itemInSlot.item.stackable == true)
+            {
+                itemInSlot.count++;
+                itemInSlot.RefreshCount();
+                return;
+            }
+        }
+
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot == null || itemInSlot.item == null)
             {
                 SpawnItem(item, slot);
                 return;
@@ -30,7 +43,15 @@ public class InventoryManager : MonoBehaviour
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null && itemInSlot.item == item)
             {
-                TakeItem(itemInSlot);
+                itemInSlot.count--;
+                if (itemInSlot.item.stackable == true)
+                {
+                    itemInSlot.RefreshCount();
+                }
+                if(itemInSlot.count <= 0)
+                {
+                    TakeItem(itemInSlot);
+                }
                 return;
             }
         }
@@ -41,18 +62,14 @@ public class InventoryManager : MonoBehaviour
 
     public void SpawnItem(Item item, InventorySlot slot)
     {
-        InventoryItem inventoryItem;
-        if (slot.GetComponent<InventoryItem>() == null)
+        InventoryItem inventoryItem = slot.GetComponentInChildren<InventoryItem>();
+        if (inventoryItem == null)
         {
             GameObject newItem = Instantiate(inventoryItemPrefab, slot.transform);
             inventoryItem = newItem.GetComponent<InventoryItem>();
-            inventoryItem.InitializeItem(item);
         }
-        else
-        {
-            inventoryItem = slot.GetComponent<InventoryItem>();
-            inventoryItem.InitializeItem(item);
-        }
+        inventoryItem.InitializeItem(item);
+        inventoryItem.RefreshCount();
     }
 
     public void TakeItem(InventoryItem itemInSlot)

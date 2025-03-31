@@ -5,8 +5,9 @@ public class ItemReceiver : MonoBehaviour, IInteractable
     [SerializeField] private string enterString, exitString, interactString;
     [SerializeField] private Item item;
     [SerializeField] private InventoryManager inventoryManager;
-    [SerializeField] private bool oneTime;
-    private bool used = false;
+    [SerializeField] private bool hasLimit;
+    [SerializeField] private int maxUses;
+    private int uses = 0;
     private AudioSource audioSource;
 
     private void Awake()
@@ -30,14 +31,17 @@ public class ItemReceiver : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log(interactString);
-        if (used == true && oneTime == true)
+        if (hasLimit == true && uses >= maxUses)
         {
             return;
         }
         else
         {
+            Debug.Log($"Item Receiver used {uses} times before counting.");
+            uses++;
             inventoryManager.RemoveItem(item);
-            used = true;
+            Debug.Log($"Item Receiver used {uses} times after counting.");
+            return;
         }
     }
 }

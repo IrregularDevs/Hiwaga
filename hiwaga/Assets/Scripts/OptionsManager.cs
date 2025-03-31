@@ -56,5 +56,4 @@ public class OptionsManager : MonoBehaviour
         PlayerPrefs.SetFloat("Vol_SFX", sfxVol.value);
         PlayerPrefs.Save();
     }
-
 }

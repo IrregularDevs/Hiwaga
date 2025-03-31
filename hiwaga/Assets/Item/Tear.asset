@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77bbc02c5820d3449aa36e0cc19f2980, type: 3}
-  m_Name: ChoccyMilk
+  m_Name: Tear
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 8db43aafda2d7e242b689b7f2d99d547, type: 3}
-  Name: ChoccyMilk
-  stackable: 0
+  image: {fileID: 21300000, guid: 67ccdea8dc4705646beca10e24ad4c86, type: 3}
+  Name: Tear
+  stackable: 1
