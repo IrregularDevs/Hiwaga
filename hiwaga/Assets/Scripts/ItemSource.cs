@@ -12,7 +12,7 @@ public class ItemSource : MonoBehaviour, IInteractable
     private int uses = 0;
     private AudioSource audioSource;
 
-    private void Awake()
+    private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         inventoryManager = FindAnyObjectByType<InventoryManager>();
@@ -39,11 +39,19 @@ public class ItemSource : MonoBehaviour, IInteractable
         }
         else
         {
+            if(inventoryManager == null)
+            {
+                inventoryManager = FindAnyObjectByType<InventoryManager>();
+            }
             Debug.Log($"Item Source used {uses} times before counting.");
-            uses++;
-            inventoryManager.AddItem(item);
+            inventoryManager.AddItem(item, this.gameObject);
             Debug.Log($"Item Source used {uses} times after counting.");
             return;
         }
+    }
+
+    public void ChangeUses(int i)
+    {
+        uses += i;
     }
 }

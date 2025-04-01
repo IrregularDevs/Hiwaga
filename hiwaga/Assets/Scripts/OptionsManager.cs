@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class OptionsManager : MonoBehaviour
 {
-    [SerializeField] private GameObject btnPause;
-    [SerializeField] private GameObject panelSettings;
+    [SerializeField] private GameObject mainMenu, inGameMenu, volumeMenu;
     [SerializeField] private Slider masterVol, musicVol, sfxVol;
     [SerializeField] private AudioMixer mainAudioMixer;
 
@@ -24,16 +24,14 @@ public class OptionsManager : MonoBehaviour
         sfxVol.value = PlayerPrefs.GetFloat("Vol_SFX", 1.0f);
     }
 
-    public void ShowSettings()
+    public void ShowGameObject(GameObject element)
     {
-        panelSettings.SetActive(true);
-        btnPause.SetActive(false);
+        element.SetActive(true);
     }
 
-    public void HideSettings()
+    public void HideGameObject(GameObject element)
     {
-        panelSettings.SetActive(false);
-        btnPause.SetActive(true);
+        element.SetActive(false);
     }
 
     public void ChangeMasterVol()

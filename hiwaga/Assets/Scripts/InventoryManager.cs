@@ -1,5 +1,6 @@
 // using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class InventoryManager : MonoBehaviour
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
 
-    public void AddItem(Item item)
+    public void AddItem(Item item, GameObject source)
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
@@ -17,6 +18,7 @@ public class InventoryManager : MonoBehaviour
             {
                 itemInSlot.count++;
                 itemInSlot.RefreshCount();
+                source.GetComponent<ItemSource>().ChangeUses(1);
                 return;
             }
         }
@@ -28,6 +30,7 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot == null || itemInSlot.item == null)
             {
                 SpawnItem(item, slot);
+                source.GetComponent<ItemSource>().ChangeUses(1);
                 return;
             }
         }
@@ -35,7 +38,7 @@ public class InventoryManager : MonoBehaviour
         return;
     }
 
-    public void RemoveItem(Item item)
+    public void RemoveItem(Item item, GameObject receiver)
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
@@ -52,6 +55,7 @@ public class InventoryManager : MonoBehaviour
                 {
                     TakeItem(itemInSlot);
                 }
+                receiver.GetComponent<ItemReceiver>().ChangeUses(1);
                 return;
             }
         }

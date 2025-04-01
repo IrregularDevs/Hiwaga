@@ -2,9 +2,19 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    private void Start()
+    private static GameObject[] persistentObjects = new GameObject[10];
+    public int objectIndex;
+
+    private void Awake()
     {
-        Debug.Log("GameObject will not be destroyed.");
-        DontDestroyOnLoad(gameObject);
+        if (persistentObjects[objectIndex] == null)
+        {
+            persistentObjects[objectIndex] = gameObject;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (persistentObjects[objectIndex] != gameObject)
+        {
+            Destroy(gameObject);
+        }
     }
 }

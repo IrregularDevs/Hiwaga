@@ -10,7 +10,7 @@ public class ItemReceiver : MonoBehaviour, IInteractable
     private int uses = 0;
     private AudioSource audioSource;
 
-    private void Awake()
+    private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         inventoryManager = FindAnyObjectByType<InventoryManager>();
@@ -37,11 +37,17 @@ public class ItemReceiver : MonoBehaviour, IInteractable
         }
         else
         {
-            Debug.Log($"Item Receiver used {uses} times before counting.");
-            uses++;
-            inventoryManager.RemoveItem(item);
-            Debug.Log($"Item Receiver used {uses} times after counting.");
+            if (inventoryManager == null)
+            {
+                inventoryManager = FindAnyObjectByType<InventoryManager>();
+            }
+            inventoryManager.RemoveItem(item, this.gameObject);
             return;
         }
+    }
+
+    public void ChangeUses(int i)
+    {
+        uses += i;
     }
 }
