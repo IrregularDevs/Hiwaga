@@ -13,8 +13,10 @@ public class CharacterController3D : MonoBehaviour
     private CharacterController controller;
     private Vector3 velocity;
     private bool isGrounded;
-    private bool jumpRequest = false; // Store jump request
-    private float groundCheckDistance = 0.2f; // Small buffer for ground detection
+    private bool jumpRequest = false;
+    private float groundCheckDistance = 0.2f;
+
+    public bool canMove = true; // ?? Movement Lock
 
     void Start()
     {
@@ -23,15 +25,21 @@ public class CharacterController3D : MonoBehaviour
 
     void Update()
     {
+        if (!canMove)
+        {
+            controller.Move(Vector3.zero); // ?? Stop Player Movement
+            return;
+        }
+
         // Ground detection with a small buffer
         isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -0.1f; // Small downward force to keep grounded
+            velocity.y = -0.1f;
         }
 
-        // Capture jump input to avoid missing frames
+        // Capture jump input
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             jumpRequest = true;
@@ -50,11 +58,11 @@ public class CharacterController3D : MonoBehaviour
             controller.Move(transform.forward * moveSpeed * Time.deltaTime * moveDirection.magnitude);
         }
 
-        // Apply jump when requested
+        // Apply jump
         if (jumpRequest)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-            jumpRequest = false; // Reset jump request
+            jumpRequest = false;
         }
 
         // Smooth falling mechanics
