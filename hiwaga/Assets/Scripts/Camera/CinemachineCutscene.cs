@@ -10,6 +10,7 @@ public class AreaCameraTransition : MonoBehaviour
     public float cutsceneDuration = 5.0f; // Duration of the cutscene (adjust as needed)
 
     private CharacterController3D playerController;
+    private bool hasTriggered = false; // Flag to ensure one-time execution
 
     private void Start()
     {
@@ -22,8 +23,9 @@ public class AreaCameraTransition : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!hasTriggered && other.CompareTag("Player"))
         {
+            hasTriggered = true; // Set flag to prevent re-triggering
             StartCoroutine(TransitionToAreaView());
         }
     }
@@ -32,7 +34,7 @@ public class AreaCameraTransition : MonoBehaviour
     {
         if (playerController != null)
         {
-            playerController.canMove = false; // 🛑 Disable Movement
+            playerController.canMove = false; // Disable Movement
         }
 
         // Switch to area camera
@@ -48,7 +50,7 @@ public class AreaCameraTransition : MonoBehaviour
 
         if (playerController != null)
         {
-            playerController.canMove = true; // ✅ Re-enable Movement
+            playerController.canMove = true; // Re-enable Movement
         }
     }
 }
