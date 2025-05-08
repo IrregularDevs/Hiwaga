@@ -1,23 +1,32 @@
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class CharacterController3D : MonoBehaviour
 {
+    [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     public float gravity = -9.81f;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
+
+    [Header("Ground Check")]
     public LayerMask groundMask;
-    public float rotationSpeed = 10f;
-    public Transform model; // Assign the model to rotate independently
+    public float groundCheckDistance = 0.2f;
+    public DebugDisplay debugDisplay;
+    [Header("Jump Cooldown")]
+    public float jumpCooldown = 0.5f;
+    private float jumpCooldownTimer = 0f;
+
+    [Header("Control Flags")]
+    public bool canMove = true;
+
+    public Vector3 CurrentMoveDirection { get; private set; }
 
     private CharacterController controller;
     private Vector3 velocity;
     private bool isGrounded;
     private bool jumpRequest = false;
-    private float groundCheckDistance = 0.2f;
-
-    public bool canMove = true;
 
     void Start()
     {
@@ -32,29 +41,32 @@ public class CharacterController3D : MonoBehaviour
             return;
         }
 
+        if (jumpCooldownTimer > 0f)
+            jumpCooldownTimer -= Time.deltaTime;
+
         isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0f)
         {
             velocity.y = -0.1f;
+            debugDisplay.SetText("Player is grounded");
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && jumpCooldownTimer <= 0f)
         {
             jumpRequest = true;
+            jumpCooldownTimer = jumpCooldown;
+            debugDisplay.SetText("Space key was pressed");
         }
 
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
-        Vector3 moveDirection = new Vector3(moveX, 0, moveZ).normalized;
+        Vector3 moveDirection = new Vector3(moveX, 0f, moveZ).normalized;
+        CurrentMoveDirection = moveDirection;
 
-        if (moveDirection.magnitude > 0.1f)
+        if (moveDirection.magnitude >= 0.1f)
         {
             controller.Move(moveDirection * moveSpeed * Time.deltaTime);
-
-            // Rotate only the model to face movement direction
-            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
-            model.rotation = Quaternion.Slerp(model.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
 
         if (jumpRequest)
@@ -63,16 +75,17 @@ public class CharacterController3D : MonoBehaviour
             jumpRequest = false;
         }
 
-        if (velocity.y < 0)
+        if (velocity.y < 0f)
         {
-            velocity.y += gravity * (fallMultiplier - 1) * Time.deltaTime;
+            velocity.y += gravity * (fallMultiplier - 1f) * Time.deltaTime;
         }
-        else if (!Input.GetButton("Jump") && velocity.y > 0)
+        else if (!Input.GetButton("Jump") && velocity.y > 0f)
         {
-            velocity.y += gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
+            velocity.y += gravity * (lowJumpMultiplier - 1f) * Time.deltaTime;
         }
 
         velocity.y += gravity * Time.deltaTime;
+
         controller.Move(velocity * Time.deltaTime);
     }
 }
