@@ -1,22 +1,12 @@
 using UnityEngine;
-using TMPro;
-using System.Collections.Generic;
 
-public class ItemSource : MonoBehaviour, IInteractable
+public class ItemReceiver : MonoBehaviour, IInteractable
 {
     [SerializeField] private string enterString, exitString, interactString;
     [SerializeField] private Item item;
-    [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private bool hasLimit;
     [SerializeField] private int maxUses;
     private int uses = 0;
-    private AudioSource audioSource;
-
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-        inventoryManager = FindAnyObjectByType<InventoryManager>();
-    }
 
     public void enterPrompt()
     {
@@ -39,13 +29,11 @@ public class ItemSource : MonoBehaviour, IInteractable
         }
         else
         {
-            if(inventoryManager == null)
+            if (InventoryManager.Instance == null)
             {
-                inventoryManager = FindAnyObjectByType<InventoryManager>();
+                Debug.LogError("InventoryManager not found.");
             }
-            Debug.Log($"Item Source used {uses} times before counting.");
-            inventoryManager.AddItem(item, this.gameObject);
-            Debug.Log($"Item Source used {uses} times after counting.");
+            InventoryManager.Instance.RemoveItem(item, this.gameObject);
             return;
         }
     }

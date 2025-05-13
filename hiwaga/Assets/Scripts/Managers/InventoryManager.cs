@@ -1,12 +1,28 @@
 // using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
+using System.Collections;
 using static Unity.VisualScripting.Member;
 
 public class InventoryManager : MonoBehaviour
 {
+    private static InventoryManager instance;
+    public static InventoryManager Instance => instance;
+
     public int maxStackedItems;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
+
+    private void Awake()
+    {
+        StartCoroutine(AwakeAsync());
+    }
+
+    IEnumerator AwakeAsync()
+    {
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+        yield return null;
+    }
 
     public void AddItem(Item item, GameObject source)
     {

@@ -5,8 +5,23 @@ using System.Collections;
 
 public class ScreenManager : MonoBehaviour
 {
+    private static ScreenManager instance;
+    public static ScreenManager Instance => instance;
+
     [SerializeField] private Slider loadingBarFill;
     [SerializeField] private GameObject loadingScreen;
+
+    private void Awake()
+    {
+        StartCoroutine(AwakeAsync());
+    }
+
+    IEnumerator AwakeAsync()
+    {
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+        yield return null;
+    }
 
     private void Start()
     {

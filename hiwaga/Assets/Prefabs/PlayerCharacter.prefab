@@ -229,8 +229,8 @@ GameObject:
   - component: {fileID: 1966042771815286163}
   - component: {fileID: 6586207872546150763}
   - component: {fileID: 7971570632833568731}
+  - component: {fileID: 3109421208356949122}
   - component: {fileID: 3690861211266216058}
-  - component: {fileID: 2282138773735708902}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -351,7 +351,22 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  rotationSpeed: 10
+  groundCheckDistance: 0.2
+  debugDisplay: {fileID: 0}
+  jumpCooldown: 0.5
+  canMove: 1
+--- !u!114 &3109421208356949122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513402286920311723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a15db8e4d30d9c49a9b18f3122db5c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &3690861211266216058
 CharacterController:
   m_ObjectHideFlags: 0
@@ -377,15 +392,3 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2282138773735708902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5513402286920311723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d66bdc83c0d3dc428e8c071468b3eaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

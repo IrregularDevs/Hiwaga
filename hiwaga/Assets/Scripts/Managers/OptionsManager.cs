@@ -1,13 +1,29 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using System.Collections;
 using static UnityEngine.Rendering.DebugUI;
 
 public class OptionsManager : MonoBehaviour
 {
+    private static OptionsManager instance;
+    public static OptionsManager Instance => instance;
+
     [SerializeField] private GameObject mainMenu, inGameMenu, volumeMenu;
     [SerializeField] private Slider masterVol, musicVol, sfxVol;
     [SerializeField] private AudioMixer mainAudioMixer;
+
+    private void Awake()
+    {
+        StartCoroutine(AwakeAsync());
+    }
+
+    IEnumerator AwakeAsync()
+    {
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+        yield return null;
+    }
 
     private float ClampLog(float vol)
     {

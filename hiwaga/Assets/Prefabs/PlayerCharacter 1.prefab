@@ -976,10 +976,9 @@ GameObject:
   - component: {fileID: 8270437396830955642}
   - component: {fileID: 4432593355875064000}
   - component: {fileID: 6575296026321269516}
-  - component: {fileID: 2677404552298297276}
   - component: {fileID: 7024915264695123654}
-  - component: {fileID: 6122766466807304093}
-  - component: {fileID: -1198120529364905272}
+  - component: {fileID: 2677404552298297276}
+  - component: {fileID: 3766857875178561519}
   m_Layer: 0
   m_Name: PlayerCharacter 1
   m_TagString: Player
@@ -1082,29 +1081,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2677404552298297276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6776251908991724784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61181f95545e3c946b849f97745cdf4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 7
-  jumpForce: 2
-  gravity: -10
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
-  rotationSpeed: 10
-  model: {fileID: 4349569348317970427}
-  canMove: 1
 --- !u!143 &7024915264695123654
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1130,7 +1106,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6122766466807304093
+--- !u!114 &2677404552298297276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1139,10 +1115,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 6776251908991724784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d66bdc83c0d3dc428e8c071468b3eaf, type: 3}
+  m_Script: {fileID: 11500000, guid: 61181f95545e3c946b849f97745cdf4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-1198120529364905272
+  moveSpeed: 7
+  jumpForce: 2
+  gravity: -10
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
+  groundCheckDistance: 0.2
+  debugDisplay: {fileID: 0}
+  jumpCooldown: 0.5
+  canMove: 1
+--- !u!114 &3766857875178561519
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1151,10 +1139,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6776251908991724784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8f42407914aaf144b2d6556d8a82013, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a15db8e4d30d9c49a9b18f3122db5c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectIndex: 0
 --- !u!1 &7336457866413473533
 GameObject:
   m_ObjectHideFlags: 0
