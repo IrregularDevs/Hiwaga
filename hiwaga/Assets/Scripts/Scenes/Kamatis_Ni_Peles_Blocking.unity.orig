@@ -16623,6 +16623,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145875398}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream
+=======
 --- !u!1001 &28599594389236538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16680,6 +16682,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada975f55ed06bc40a7ef64ea65455f4, type: 3}
+>>>>>>> Stashed changes
 --- !u!4 &1303116197224770687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4349569348317970427, guid: b51208d5b1a748648a54b771981a9a27, type: 3}
@@ -16819,4 +16822,7 @@ SceneRoots:
   - {fileID: 651024746}
   - {fileID: 750517338}
   - {fileID: 92596818}
+<<<<<<< Updated upstream
+=======
   - {fileID: 28599594389236538}
+>>>>>>> Stashed changes
