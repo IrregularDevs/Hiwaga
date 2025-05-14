@@ -16750,11 +16750,11 @@ PrefabInstance:
       value: mcrigged
       objectReference: {fileID: 0}
     - target: {fileID: 5260651286652083928, guid: 23944b0067a8cb54b8c1ed871104d805, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f1679951e73766b448468ab31094f824, type: 2}
     - target: {fileID: 5260651286652083928, guid: 23944b0067a8cb54b8c1ed871104d805, type: 3}
-      propertyPath: m_Materials.Array.data[1]
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: ff6fa193081d0874aa62ccf241ebfa6a, type: 2}
     m_RemovedComponents: []
@@ -16896,5 +16896,8 @@ SceneRoots:
   - {fileID: 651024746}
   - {fileID: 750517338}
   - {fileID: 92596818}
-  - {fileID: 28599594389236538}
+<<<<<<< HEAD
   - {fileID: 6058156640442810066}
+=======
+  - {fileID: 28599594389236538}
+>>>>>>> Apol-Branch
