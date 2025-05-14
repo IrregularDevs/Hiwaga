@@ -690,7 +690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &114556158
 RectTransform:
   m_ObjectHideFlags: 0
@@ -965,7 +965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &169382232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5622,7 +5622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questPrefab: {fileID: 3924874391331195618, guid: 052fbeb5cac5f3849ae979e79ed810c8, type: 3}
-  questList: {fileID: 2030967639}
+  questTracker: {fileID: 2030967639}
+  quests: []
 --- !u!4 &1732478842
 Transform:
   m_ObjectHideFlags: 0
@@ -6046,7 +6047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a9f6658c6aefe49b6f2a08cab2346a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: MainMenu_SampleScene
+  sceneName: Kamatis_Ni_Peles_Blocking
 --- !u!114 &1869518140
 MonoBehaviour:
   m_ObjectHideFlags: 0

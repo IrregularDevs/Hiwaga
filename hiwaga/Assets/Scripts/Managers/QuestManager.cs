@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 
 public class QuestManager : MonoBehaviour
@@ -8,7 +9,8 @@ public class QuestManager : MonoBehaviour
     public static QuestManager Instance => instance;
 
     [SerializeField] private GameObject questPrefab;
-    [SerializeField] private GameObject questList;
+    [SerializeField] private GameObject questTracker;
+    [SerializeField] private List<GameObject> quests;
 
     private void Awake()
     {
@@ -22,10 +24,24 @@ public class QuestManager : MonoBehaviour
         yield return null;
     }
 
+    public bool FindQuest(string title)
+    {
+        return quests.Exists(x => x.transform.Find("Title").GetComponent<TMP_Text>().text == title);
+    }
+
     public void AddQuest(Quest quest)
     {
-        GameObject newQuest = Instantiate(questPrefab, questList.transform);
-        newQuest.transform.Find("Title").GetComponent<TMP_Text>().text = quest.title;
-        newQuest.transform.Find("Description").GetComponent<TMP_Text>().text = quest.description;
+        if(FindQuest(quest.title))
+        {
+            return;
+        }
+        else
+        {
+            GameObject newQuest = Instantiate(questPrefab, questTracker.transform);
+            newQuest.transform.Find("Title").GetComponent<TMP_Text>().text = quest.title;
+            newQuest.transform.Find("Description").GetComponent<TMP_Text>().text = quest.description;
+            quests.Add(newQuest);
+            Player.Instance.quest.Add(quest);
+        }
     }
 }

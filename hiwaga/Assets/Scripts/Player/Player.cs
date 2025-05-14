@@ -1,10 +1,24 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
+    private static Player instance;
+    public static Player Instance => instance;
+
+    public List<Quest> quest = new List<Quest>();
+
     private void Awake()
     {
+        StartCoroutine(AwakeAsync());
+    }
+
+    IEnumerator AwakeAsync()
+    {
+        instance = this;
         DontDestroyOnLoad(this.gameObject);
+        yield return null;
     }
 
     private void Update()

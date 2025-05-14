@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 using System.Collections.Generic;
 
 public class ItemSource : MonoBehaviour, IInteractable
@@ -12,17 +13,16 @@ public class ItemSource : MonoBehaviour, IInteractable
 
     public void enterPrompt()
     {
-        Debug.Log(enterString);
+
     }
 
     public void exitPrompt()
     {
-        Debug.Log(exitString);
+
     }
 
     public void Interact()
     {
-        Debug.Log(interactString);
         if (hasLimit == true && uses >= maxUses)
         {
             return;
@@ -34,6 +34,15 @@ public class ItemSource : MonoBehaviour, IInteractable
                 Debug.LogError("InventoryManager is missing.");
             }
             InventoryManager.Instance.AddItem(item, this.gameObject);
+            if(Player.Instance.quest.Exists(x => x.goal.goalType == GoalType.Fetch))
+            {
+                Quest quest = Player.Instance.quest.Find(x => x.goal.goalType == GoalType.Fetch);
+                quest.goal.ItemFetched();
+                if(quest.goal.IsReached())
+                {
+                    quest.Complete();
+                }
+            }
             return;
         }
     }

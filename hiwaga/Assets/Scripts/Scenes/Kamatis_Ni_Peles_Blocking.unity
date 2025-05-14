@@ -3777,8 +3777,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quest:
+    isActive: 0
     title: GIVE SEED NOW
     description: Give the Mysterious Figure 5 Tomato Seeds
+    goal:
+      goalType: 0
+      requiredAmount: 5
+      currentAmount: 0
 --- !u!1 &788939083
 GameObject:
   m_ObjectHideFlags: 0
