@@ -2,24 +2,29 @@ using UnityEngine;
 
 public class ModelRotator : MonoBehaviour
 {
-    public Transform model; // Assign your 3D model (child of the player object)
-    public float rotationSpeed = 10f;
+    public Transform targetRoot; // The root GameObject that holds movement (usually the player)
+    public float turnSpeed = 10f;
 
-    private CharacterController3D movementController;
+    private Vector3 lastPosition;
 
     void Start()
     {
-        movementController = GetComponent<CharacterController3D>();
+        if (targetRoot == null)
+            targetRoot = transform.parent;
+
+        lastPosition = targetRoot.position;
     }
 
     void Update()
     {
-        Vector3 moveDir = movementController.CurrentMoveDirection;
+        Vector3 movementDirection = targetRoot.position - lastPosition;
 
-        if (moveDir.magnitude >= 0.1f)
+        if (movementDirection.magnitude > 0.01f)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(moveDir);
-            model.rotation = Quaternion.Slerp(model.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            Quaternion targetRotation = Quaternion.LookRotation(movementDirection.normalized);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
         }
+
+        lastPosition = targetRoot.position;
     }
 }
