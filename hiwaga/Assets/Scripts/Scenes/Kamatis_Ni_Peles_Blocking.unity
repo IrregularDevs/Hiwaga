@@ -10437,7 +10437,6 @@ Transform:
   m_Father: {fileID: 2111112849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &2145875398
 GameObject:
   m_ObjectHideFlags: 0
@@ -10515,8 +10514,6 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 --- !u!1001 &28599594389236538
 =======
-=======
->>>>>>> Stashed changes
 --- !u!4 &1303116197224770687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4349569348317970427, guid: b51208d5b1a748648a54b771981a9a27, type: 3}
@@ -10701,12 +10698,9 @@ SceneRoots:
   - {fileID: 322728069}
   - {fileID: 651024746}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   - {fileID: 750517338}
   - {fileID: 92596818}
   - {fileID: 28599594389236538}
 =======
-=======
->>>>>>> Stashed changes
   - {fileID: 6058156640442810066}
 >>>>>>> Stashed changes
