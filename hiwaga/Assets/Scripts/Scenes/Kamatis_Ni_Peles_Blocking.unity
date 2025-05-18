@@ -3776,14 +3776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f68a5d8a286e74fa8424add134dee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest:
-    isActive: 0
-    title: GIVE SEED NOW
-    description: Give the Mysterious Figure 5 Tomato Seeds
-    goal:
-      goalType: 0
-      requiredAmount: 5
-      currentAmount: 0
+  quest: {fileID: 11400000, guid: 22003ee29eca88748865082c72d07196, type: 2}
 --- !u!1 &788939083
 GameObject:
   m_ObjectHideFlags: 0
@@ -6905,6 +6898,7 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 620cd79f3bcdab7479503be0acad7150, type: 2}
   hasLimit: 1
   maxUses: 5
+  amountTaken: 1
 --- !u!65 &1527596803
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8326,6 +8320,7 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 620cd79f3bcdab7479503be0acad7150, type: 2}
   hasLimit: 1
   maxUses: 5
+  amountGiven: 2
 --- !u!65 &1698713504
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 // using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
 using static Unity.VisualScripting.Member;
 
@@ -24,7 +25,7 @@ public class InventoryManager : MonoBehaviour
         yield return null;
     }
 
-    public void AddItem(Item item, GameObject source)
+    public void AddItem(Item item, ItemSource source)
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
@@ -32,9 +33,10 @@ public class InventoryManager : MonoBehaviour
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < maxStackedItems && itemInSlot.item.stackable == true)
             {
-                itemInSlot.count++;
+                ClampValue(itemInSlot.count += source.amountGiven);
                 itemInSlot.RefreshCount();
-                source.GetComponent<ItemSource>().ChangeUses(1);
+                Player.onInventoryUpdate(item, itemInSlot.count);
+                source.ChangeUses(1);
                 return;
             }
         }
@@ -46,7 +48,15 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot == null || itemInSlot.item == null)
             {
                 SpawnItem(item, slot);
-                source.GetComponent<ItemSource>().ChangeUses(1);
+                itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+                if(itemInSlot == null)
+                {
+                    Debug.Log("What the fuck");
+                }
+                ClampValue(itemInSlot.count += source.amountGiven - 1);
+                itemInSlot.RefreshCount();
+                Player.onInventoryUpdate(item, itemInSlot.count);
+                source.ChangeUses(1);
                 return;
             }
         }
@@ -54,7 +64,7 @@ public class InventoryManager : MonoBehaviour
         return;
     }
 
-    public void RemoveItem(Item item, GameObject receiver)
+    public void RemoveItem(Item item, ItemReceiver receiver)
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
@@ -62,16 +72,17 @@ public class InventoryManager : MonoBehaviour
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null && itemInSlot.item == item)
             {
-                itemInSlot.count--;
+                ClampValue(itemInSlot.count -= receiver.amountTaken);
+                Player.onInventoryUpdate(item, itemInSlot.count);
                 if (itemInSlot.item.stackable == true)
                 {
                     itemInSlot.RefreshCount();
                 }
-                if(itemInSlot.count <= 0)
+                if (itemInSlot.count <= 0)
                 {
                     TakeItem(itemInSlot);
                 }
-                receiver.GetComponent<ItemReceiver>().ChangeUses(1);
+                receiver.ChangeUses(1);
                 return;
             }
         }
@@ -95,5 +106,10 @@ public class InventoryManager : MonoBehaviour
     public void TakeItem(InventoryItem itemInSlot)
     {
         itemInSlot.ClearItem();
+    }
+
+    public void ClampValue(int count)
+    {
+        Mathf.Clamp(count, 0, maxStackedItems);
     }
 }

@@ -10,7 +10,7 @@ public class QuestManager : MonoBehaviour
 
     [SerializeField] private GameObject questPrefab;
     [SerializeField] private GameObject questTracker;
-    [SerializeField] private List<GameObject> quests;
+    [SerializeField] private List<GameObject> quests = new List<GameObject>();
 
     private void Awake()
     {
@@ -41,7 +41,8 @@ public class QuestManager : MonoBehaviour
             newQuest.transform.Find("Title").GetComponent<TMP_Text>().text = quest.title;
             newQuest.transform.Find("Description").GetComponent<TMP_Text>().text = quest.description;
             quests.Add(newQuest);
-            Player.Instance.quest.Add(quest);
+            Player.Instance.quests.Add(quest);
+            Player.onInventoryUpdate += quest.onFetch;
         }
     }
 }

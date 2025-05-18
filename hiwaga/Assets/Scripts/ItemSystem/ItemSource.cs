@@ -9,6 +9,7 @@ public class ItemSource : MonoBehaviour, IInteractable
     [SerializeField] private Item item;
     [SerializeField] private bool hasLimit;
     [SerializeField] private int maxUses;
+    public int amountGiven;
     private int uses = 0;
 
     public void enterPrompt()
@@ -33,8 +34,8 @@ public class ItemSource : MonoBehaviour, IInteractable
             {
                 Debug.LogError("InventoryManager is missing.");
             }
-            InventoryManager.Instance.AddItem(item, this.gameObject);
-            if(Player.Instance.quest.Exists(x => x.goal.goalType == GoalType.Fetch))
+            InventoryManager.Instance.AddItem(item, this);
+            /*if(Player.Instance.quest.Exists(x => x.goal.goalType == GoalType.Fetch))
             {
                 Quest quest = Player.Instance.quest.Find(x => x.goal.goalType == GoalType.Fetch);
                 quest.goal.ItemFetched();
@@ -42,7 +43,7 @@ public class ItemSource : MonoBehaviour, IInteractable
                 {
                     quest.Complete();
                 }
-            }
+            }*/
             return;
         }
     }

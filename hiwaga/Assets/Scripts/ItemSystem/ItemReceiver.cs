@@ -6,6 +6,7 @@ public class ItemReceiver : MonoBehaviour, IInteractable
     [SerializeField] private Item item;
     [SerializeField] private bool hasLimit;
     [SerializeField] private int maxUses;
+    public int amountTaken;
     private int uses = 0;
 
     public void enterPrompt()
@@ -33,7 +34,7 @@ public class ItemReceiver : MonoBehaviour, IInteractable
             {
                 Debug.LogError("InventoryManager not found.");
             }
-            InventoryManager.Instance.RemoveItem(item, this.gameObject);
+            InventoryManager.Instance.RemoveItem(item, this);
             return;
         }
     }

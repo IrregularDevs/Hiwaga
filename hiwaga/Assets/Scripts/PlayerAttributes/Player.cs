@@ -7,7 +7,11 @@ public class Player : MonoBehaviour
     private static Player instance;
     public static Player Instance => instance;
 
-    public List<Quest> quest = new List<Quest>();
+    public List<Quest> quests = new List<Quest>();
+    public Dictionary<Item, int> items = new Dictionary<Item, int>();
+
+    public delegate void InventoryUpdateCallback(Item item, int count);
+    public static InventoryUpdateCallback onInventoryUpdate;
 
     private void Awake()
     {
@@ -31,7 +35,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Interactable"))
+        if (other.gameObject.GetComponent<IInteractable>() != null)
         {
             other.gameObject.GetComponent<IInteractable>().enterPrompt();
             InteractionManager.Instance.interactTarget = other.gameObject;
@@ -45,7 +49,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Interactable"))
+        if (other.gameObject.GetComponent<IInteractable>() != null)
         {
             if (InteractionManager.Instance.interactTarget == null)
             {
@@ -69,4 +73,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void UpdateInventory(Item item, int count)
+    {
+        if(count <= 0 && items.ContainsKey(item))
+        {
+            items.Remove(item);
+        }
+        if (items.ContainsKey(item))
+        {
+            items[item] = count;
+        }
+        else
+        {
+            items.Add(item, count);
+        }
+        onInventoryUpdate(item, items[item]);
+    }
 }

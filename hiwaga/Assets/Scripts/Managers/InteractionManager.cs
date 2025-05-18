@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
 
 public class InteractionManager : MonoBehaviour
@@ -8,6 +9,8 @@ public class InteractionManager : MonoBehaviour
 
     public GameObject interactTarget;
     public bool IsInRange = false;
+
+    public UnityEvent OnInteract;
 
     private void Awake()
     {
