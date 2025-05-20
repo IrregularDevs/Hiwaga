@@ -10,7 +10,7 @@ public class CharacterController3D : MonoBehaviour
     [Header("Ground Check")]
     public LayerMask groundMask;
     public float groundCheckDistance = 0.2f;
-    public DebugDisplay debugDisplay;
+    //public DebugDisplay debugDisplay;
 
     [Header("Control Flags")]
     public bool canMove = true;
@@ -40,7 +40,7 @@ public class CharacterController3D : MonoBehaviour
         if (isGrounded && velocity.y < 0f)
         {
             velocity.y = -0.1f; // Stick to ground
-            debugDisplay.SetText("Player is grounded");
+            //debugDisplay.SetText("Player is grounded");
         }
 
         // Movement
