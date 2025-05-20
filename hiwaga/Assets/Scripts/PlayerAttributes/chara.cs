@@ -1,18 +1,16 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
 public class CharacterController3D : MonoBehaviour
 {
-    [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float gravity = -9.81f;
+    public float rotationSpeed = 10f;
 
-    [Header("Ground Check")]
+    public Transform cameraTransform;
+
     public LayerMask groundMask;
     public float groundCheckDistance = 0.2f;
-    //public DebugDisplay debugDisplay;
 
-    [Header("Control Flags")]
     public bool canMove = true;
 
     public Vector3 CurrentMoveDirection { get; private set; }
@@ -24,6 +22,9 @@ public class CharacterController3D : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        if (cameraTransform == null && Camera.main != null)
+            cameraTransform = Camera.main.transform;
     }
 
     void Update()
@@ -34,30 +35,37 @@ public class CharacterController3D : MonoBehaviour
             return;
         }
 
-        // Check if grounded
         isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
 
         if (isGrounded && velocity.y < 0f)
-        {
-            velocity.y = -0.1f; // Stick to ground
-            //debugDisplay.SetText("Player is grounded");
-        }
+            velocity.y = -0.1f;
 
-        // Movement
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
-        Vector3 moveDirection = new Vector3(moveX, 0f, moveZ).normalized;
-        CurrentMoveDirection = moveDirection;
+        Vector3 inputDirection = new Vector3(moveX, 0f, moveZ).normalized;
 
-        if (moveDirection.magnitude >= 0.1f)
+        if (inputDirection.magnitude >= 0.1f)
         {
+            Vector3 camForward = cameraTransform.forward;
+            Vector3 camRight = cameraTransform.right;
+            camForward.y = 0f;
+            camRight.y = 0f;
+
+            Vector3 moveDirection = (camForward * inputDirection.z + camRight * inputDirection.x).normalized;
+
+            CurrentMoveDirection = moveDirection;
+
             controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+        else
+        {
+            CurrentMoveDirection = Vector3.zero;
         }
 
-        // Apply gravity
         velocity.y += gravity * Time.deltaTime;
-
-        // Apply movement based on velocity
         controller.Move(velocity * Time.deltaTime);
     }
 }
