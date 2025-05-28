@@ -14,7 +14,7 @@ public class InventoryItem : MonoBehaviour
     {
         item = newItem;
         image.sprite = newItem.image;
-        count = 1;
+        count = 0;
         countText.text = count.ToString();
         gameObject.SetActive(true);
     }

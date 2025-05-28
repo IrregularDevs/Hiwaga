@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ece3e148f3a6134c934277f1833c475, type: 3}
-  m_Name: SampleCollectQuest
+  m_Name: CollectRiceQuest
   m_EditorClassIdentifier: 
-  title: GIVE ME SEED
-  description: Collect 5 tomato seeds
+  title: Help Anthony harvest rice
+  description: Collect 5 Rice
   goal:
     goalType: 0
     completed: 0
     requiredAmount: 5
     currentAmount: 0
-  requiredItem: {fileID: 11400000, guid: 620cd79f3bcdab7479503be0acad7150, type: 2}
+  requiredItem: {fileID: 11400000, guid: f4207587146a98a42bafe9a1f51f1e0a, type: 2}

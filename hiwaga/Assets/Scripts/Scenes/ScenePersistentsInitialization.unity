@@ -6050,7 +6050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a9f6658c6aefe49b6f2a08cab2346a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Kamatis_Ni_Peles_Blocking
+  sceneName: Gallery_Stage_Blocking1
 --- !u!114 &1869518140
 MonoBehaviour:
   m_ObjectHideFlags: 0

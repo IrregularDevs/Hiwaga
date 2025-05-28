@@ -3,15 +3,8 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 
-public class ItemSource : MonoBehaviour, IInteractable
+public class ItemSource : ItemHolder, IInteractable
 {
-    [SerializeField] private string enterString, exitString, interactString;
-    [SerializeField] private Item item;
-    [SerializeField] private bool hasLimit;
-    [SerializeField] private int maxUses;
-    public int amountGiven;
-    private int uses = 0;
-
     public void enterPrompt()
     {
 
@@ -33,23 +26,14 @@ public class ItemSource : MonoBehaviour, IInteractable
             if(InventoryManager.Instance == null)
             {
                 Debug.LogError("InventoryManager is missing.");
+                return;
             }
-            InventoryManager.Instance.AddItem(item, this);
-            /*if(Player.Instance.quest.Exists(x => x.goal.goalType == GoalType.Fetch))
+            foreach(KeyValuePair<Item, int> item in items)
             {
-                Quest quest = Player.Instance.quest.Find(x => x.goal.goalType == GoalType.Fetch);
-                quest.goal.ItemFetched();
-                if(quest.goal.IsReached())
-                {
-                    quest.Complete();
-                }
-            }*/
+                InventoryManager.Instance.AddItem(item.Key, this, item.Value);
+            }
+            ChangeUses(1);
             return;
         }
-    }
-
-    public void ChangeUses(int i)
-    {
-        uses += i;
     }
 }

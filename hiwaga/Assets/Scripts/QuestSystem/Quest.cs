@@ -20,7 +20,6 @@ public class Quest
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using static CollectQuest;
 using static Player;
 
 public class Quest : ScriptableObject

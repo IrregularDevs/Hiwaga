@@ -87,6 +87,9 @@ public class Player : MonoBehaviour
         {
             items.Add(item, count);
         }
-        onInventoryUpdate(item, items[item]);
+        if(onInventoryUpdate!=null)
+        {
+            onInventoryUpdate(item, items[item]);
+        }
     }
 }
