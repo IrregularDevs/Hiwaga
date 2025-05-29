@@ -7,7 +7,7 @@ public class QuestGiver : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        foreach(Quest quest in quest)
+        foreach (Quest quest in quest)
         {
             QuestManager.Instance.AddQuest(quest);
         }
@@ -21,5 +21,9 @@ public class QuestGiver : MonoBehaviour, IInteractable
     public void exitPrompt()
     {
 
+    }
+    public bool canInteract()
+    {
+        return true; // Always allow interaction
     }
 }

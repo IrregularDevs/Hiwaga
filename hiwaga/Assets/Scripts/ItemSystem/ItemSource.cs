@@ -14,6 +14,10 @@ public class ItemSource : ItemHolder, IInteractable
     {
 
     }
+    public bool canInteract()
+    {
+        return true;
+    }
 
     public void Interact()
     {
@@ -23,12 +27,12 @@ public class ItemSource : ItemHolder, IInteractable
         }
         else
         {
-            if(InventoryManager.Instance == null)
+            if (InventoryManager.Instance == null)
             {
                 Debug.LogError("InventoryManager is missing.");
                 return;
             }
-            foreach(KeyValuePair<Item, int> item in items)
+            foreach (KeyValuePair<Item, int> item in items)
             {
                 InventoryManager.Instance.AddItem(item.Key, this, item.Value);
             }

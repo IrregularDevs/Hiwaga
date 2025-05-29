@@ -18,4 +18,8 @@ public class SceneSwitcher : MonoBehaviour, IInteractable
     {
         Debug.Log("SceneSwitcher exited.");
     }
+    public bool canInteract()
+    {
+        return true; // Always allow interaction
+    }
 }

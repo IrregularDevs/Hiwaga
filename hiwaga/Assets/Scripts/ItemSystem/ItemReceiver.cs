@@ -15,6 +15,10 @@ public class ItemReceiver : ItemHolder,IInteractable
     {
 
     }
+    public bool canInteract()
+    {
+        return true;
+    }
 
     public void Interact()
     {
