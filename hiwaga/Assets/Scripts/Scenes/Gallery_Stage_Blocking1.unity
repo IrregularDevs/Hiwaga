@@ -207,13 +207,13 @@ MonoBehaviour:
   enterString: 
   exitString: 
   interactString: 
-  itemToAdd:
-  - itemAdded: {fileID: 11400000, guid: f935c1b09ba01ff42b1d5d1baad55e38, type: 2}
-    amountAdded: 1
-  - itemAdded: {fileID: 11400000, guid: 620cd79f3bcdab7479503be0acad7150, type: 2}
-    amountAdded: 2
-  - itemAdded: {fileID: 11400000, guid: f4207587146a98a42bafe9a1f51f1e0a, type: 2}
-    amountAdded: 3
+  itemsHeld:
+  - item: {fileID: 11400000, guid: f935c1b09ba01ff42b1d5d1baad55e38, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: 620cd79f3bcdab7479503be0acad7150, type: 2}
+    count: 3
+  - item: {fileID: 11400000, guid: f4207587146a98a42bafe9a1f51f1e0a, type: 2}
+    count: 2
   hasLimit: 1
   maxUses: 5
   uses: 0
@@ -3719,6 +3719,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4958721361897610006, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
+      propertyPath: quests.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2004436980215199403, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: m_IsTrigger
       value: 0

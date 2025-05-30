@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ItemReceiver : ItemHolder,IInteractable
+public class ItemReceiver : ItemHolder, IInteractable
 {
     public void enterPrompt()
     {
@@ -33,11 +33,7 @@ public class ItemReceiver : ItemHolder,IInteractable
                 Debug.LogError("InventoryManager is missing.");
                 return;
             }
-            foreach (KeyValuePair<Item, int> item in items)
-            {
-                InventoryManager.Instance.RemoveItem(item.Key, this, item.Value);
-            }
-            ChangeUses(1);
+            InventoryManager.Instance.RemoveItem(this);
             return;
         }
     }

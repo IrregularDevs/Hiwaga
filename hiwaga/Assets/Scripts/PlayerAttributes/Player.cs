@@ -2,13 +2,20 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
+[System.Serializable]
+public class PlayerInventory
+{
+    public Item item;
+    public int count;
+}
+
 public class Player : MonoBehaviour
 {
     private static Player instance;
     public static Player Instance => instance;
 
     public List<Quest> quests = new List<Quest>();
-    public Dictionary<Item, int> items = new Dictionary<Item, int>();
+    public List<PlayerInventory> items = new List<PlayerInventory>();
 
     public delegate void InventoryUpdateCallback(Item item, int count);
     public static InventoryUpdateCallback onInventoryUpdate;
@@ -73,23 +80,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void UpdateInventory(Item item, int count)
+    public void UpdateInventory(Item newItem, int amount)
     {
-        if(count <= 0 && items.ContainsKey(item))
+        if(items.Contains(items.Find(x=>x.item==newItem)))
         {
-            items.Remove(item);
-        }
-        if (items.ContainsKey(item))
-        {
-            items[item] = count;
+            Debug.Log("Item exists in PlayerInventory");
+            items.Find(x=>x.item == newItem).count += amount;
         }
         else
         {
-            items.Add(item, count);
-        }
-        if(onInventoryUpdate!=null)
-        {
-            onInventoryUpdate(item, items[item]);
+            Debug.Log("Item does not yet exist in PlayerInventory");
+            items.Add(new PlayerInventory() { item = newItem, count = amount });
         }
     }
 }
