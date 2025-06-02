@@ -140,6 +140,7 @@ public class InventoryManager : MonoBehaviour
                         Debug.Log($"Slot {i} doesn't have enough items, moving to other slots.");
                         int leftover;
                         leftover = itemInSlot.count;
+                        Debug.Log($"Leftover is {leftover}");
                         itemInSlot.count = ClampValue(itemInSlot.count);
                         itemInSlot.RefreshCount();
                         if (itemInSlot.count <= 0)
@@ -153,7 +154,7 @@ public class InventoryManager : MonoBehaviour
                             itemInSlot = slot.GetComponentInChildren<InventoryItem>();
                             if (itemInSlot != null && itemInSlot.item == item)
                             {
-                                itemInSlot.count -= leftover;
+                                itemInSlot.count += leftover;
                                 itemInSlot.count = ClampValue(itemInSlot.count);
                                 itemInSlot.RefreshCount();
                                 if (itemInSlot.count <= 0)
