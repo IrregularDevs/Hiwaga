@@ -21,7 +21,7 @@ public class ItemHolder : MonoBehaviour
         uses += i;
     }
 
-    public List<ItemHeld> GetItemsToAdd()
+    public List<ItemHeld> GetItems()
     {
         return itemsHeld;
     }

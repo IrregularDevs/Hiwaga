@@ -29,10 +29,10 @@ public class InventoryManager : MonoBehaviour
     public void AddItem(ItemSource source)
     {
         List<ItemHeld> itemsToAdd = new List<ItemHeld>();
-        itemsToAdd = source.GetItemsToAdd();
+        itemsToAdd = source.GetItems();
         bool isItemAdded = false;
 
-        if(AvailableInventorySpace() < itemsToAdd.Count)
+        if(CheckAvailableInventorySpace() < itemsToAdd.Count)
         {
             Debug.Log("Inventory is full.");
             return;
@@ -40,18 +40,15 @@ public class InventoryManager : MonoBehaviour
 
         foreach(ItemHeld itemHeld in itemsToAdd)
         {
-            Debug.Log($"Now adding {itemHeld.count} {itemHeld.item.name}.");
             Item item = itemHeld.item;
             int amountGiven = itemHeld.count;
             isItemAdded = false;
             for (int i = 0; i < inventorySlots.Length; i++)
             {
-                Debug.Log($"Checking slot {i + 1}");
                 InventorySlot slot = inventorySlots[i];
                 InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
                 if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < maxStackedItems && itemInSlot.item.stackable == true)
                 {
-                    Debug.Log("Added item exists in current Inventory.");
                     itemInSlot.count += amountGiven;
                     itemInSlot.RefreshCount();
                     Player.Instance.UpdateInventory(item, amountGiven);
@@ -87,7 +84,6 @@ public class InventoryManager : MonoBehaviour
                     InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
                     if (itemInSlot == null || itemInSlot.item == null)
                     {
-                        Debug.Log($"Slot found at {i + 1}. Adding item there.");
                         SpawnItem(item, slot);
                         itemInSlot = slot.GetComponentInChildren<InventoryItem>();
                         if (itemInSlot == null)
@@ -117,31 +113,64 @@ public class InventoryManager : MonoBehaviour
     public void RemoveItem(ItemReceiver receiver)
     {
         List<ItemHeld> itemsToAdd = new List<ItemHeld>();
-        itemsToAdd = receiver.GetItemsToAdd();
+        itemsToAdd = receiver.GetItems();
         bool isItemRemoved = false;
+
+        if(!CheckItemsToRemove(receiver))
+        {
+            return;
+        }
+
         foreach(ItemHeld itemHeld in itemsToAdd)
         {
+            Debug.Log($"Removing {itemHeld.item.name}");
             Item item = itemHeld.item;
             int amountTaken = itemHeld.count;
-            for (int i = 0; i < inventorySlots.Length; i++)
+            for (int i = inventorySlots.Length - 1; i > 0; i--)
             {
+                Debug.Log($"Checking slot {i+1}");
                 InventorySlot slot = inventorySlots[i];
                 InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-                if (itemInSlot.count > amountTaken)
-                {
-                    break;
-                }
                 if (itemInSlot != null && itemInSlot.item == item)
                 {
+                    Debug.Log("Item taken.");
                     itemInSlot.count -= amountTaken;
+                    if(itemInSlot.count < 0)
+                    {
+                        Debug.Log($"Slot {i} doesn't have enough items, moving to other slots.");
+                        int leftover;
+                        leftover = itemInSlot.count;
+                        itemInSlot.count = ClampValue(itemInSlot.count);
+                        itemInSlot.RefreshCount();
+                        if (itemInSlot.count <= 0)
+                        {
+                            itemInSlot.ClearItem();
+                        }
+                        for (int o = inventorySlots.Length - 1; o > 0; o--)
+                        {
+                            Debug.Log($"Checking slot {o + 1}");
+                            slot = inventorySlots[o];
+                            itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+                            if (itemInSlot != null && itemInSlot.item == item)
+                            {
+                                itemInSlot.count -= leftover;
+                                itemInSlot.count = ClampValue(itemInSlot.count);
+                                itemInSlot.RefreshCount();
+                                if (itemInSlot.count <= 0)
+                                {
+                                    itemInSlot.ClearItem();
+                                }
+                            }
+                        }
+                    }
                     itemInSlot.count = ClampValue(itemInSlot.count);
-                    Player.Instance.UpdateInventory(item, amountTaken);
                     itemInSlot.RefreshCount();
                     if (itemInSlot.count <= 0)
                     {
                         itemInSlot.ClearItem();
                     }
                     isItemRemoved = true;
+                    Player.Instance.UpdateInventory(item, -amountTaken);
                     break;
                 }
             }
@@ -175,7 +204,7 @@ public class InventoryManager : MonoBehaviour
         return Mathf.Clamp(count, 0, maxStackedItems);
     }
 
-    public int AvailableInventorySpace()
+    public int CheckAvailableInventorySpace()
     {
         int m = 0;
         for(int i = 0; i < inventorySlots.Length; i++)
@@ -188,5 +217,19 @@ public class InventoryManager : MonoBehaviour
             }
         }
         return m;
+    }
+
+    public bool CheckItemsToRemove(ItemReceiver receiver)
+    {
+        List<ItemHeld> itemsToRemove = new List<ItemHeld>();
+        itemsToRemove = receiver.GetItems();
+        foreach(ItemHeld itemHeld in itemsToRemove)
+        {
+            if(Player.Instance.items.Exists(x => x.item == itemHeld.item) && Player.Instance.items.Find(x => x.item == itemHeld.item).count < itemHeld.count)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
