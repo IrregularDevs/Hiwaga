@@ -9,10 +9,25 @@ public class CollectQuest : Quest
 {
     public Item requiredItem;
 
-    private void Awake()
+    public void ProgressUpdate()
     {
-        onFetch += ItemCheck;
-        onFetch += ProgressUpdate;
+        if (goal.currentAmount >= goal.requiredAmount)
+        {
+            goal.completed = true;
+            FinishQuest();
+        }
+    }
+
+    public void AcceptQuest()
+    {
+        foreach (PlayerInventory playerInventory in Player.Instance.items)
+        {
+            if (playerInventory.item == requiredItem)
+            {
+                goal.currentAmount = playerInventory.count;
+                ProgressUpdate();
+            }
+        }
     }
 
     public void ItemCheck(Item item, int count)
@@ -20,15 +35,36 @@ public class CollectQuest : Quest
         if (item == requiredItem)
         {
             goal.currentAmount = count;
+            ProgressUpdate();
         }
     }
 
-    public void ProgressUpdate(Item item, int count)
+    public override void InitializeQuest()
     {
-        if(goal.currentAmount >= goal.requiredAmount)
+        Debug.Log("InitializeQuest override method called.");
+        Player.onQuestAdd = AcceptQuest;
+        Player.onInventoryUpdate += ItemCheck;
+        if(Player.onQuestAdd == null)
         {
-            goal.completed = true;
-            FinishQuest();
+            Debug.Log("onQuestAdd is empty.");
+        }
+        if (Player.onInventoryUpdate == null)
+        {
+            Debug.Log("onInventoryUpdate is empty.");
+        }
+    }
+
+    public override void EmptyQuest()
+    {
+        Debug.Log("EmptyQuest override method called.");
+        Player.onInventoryUpdate -= ItemCheck;
+        if (Player.onQuestAdd == null)
+        {
+            Debug.Log("onQuestAdd is empty.");
+        }
+        if (Player.onInventoryUpdate == null)
+        {
+            Debug.Log("onInventoryUpdate is empty.");
         }
     }
 }

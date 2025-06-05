@@ -2,16 +2,26 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
+[System.Serializable]
+public class PlayerInventory
+{
+    public Item item;
+    public int count;
+}
+
 public class Player : MonoBehaviour
 {
     private static Player instance;
     public static Player Instance => instance;
 
     public List<Quest> quests = new List<Quest>();
-    public Dictionary<Item, int> items = new Dictionary<Item, int>();
+    public List<PlayerInventory> items = new List<PlayerInventory>();
 
     public delegate void InventoryUpdateCallback(Item item, int count);
     public static InventoryUpdateCallback onInventoryUpdate;
+
+    public delegate void QuestUpdateCallback();
+    public static QuestUpdateCallback onQuestAdd;
 
     private void Awake()
     {
@@ -73,23 +83,23 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void UpdateInventory(Item item, int count)
+    public void UpdateInventory(Item newItem, int amount)
     {
-        if(count <= 0 && items.ContainsKey(item))
+        if(items.Contains(items.Find(x=>x.item==newItem)))
         {
-            items.Remove(item);
-        }
-        if (items.ContainsKey(item))
-        {
-            items[item] = count;
+            items.Find(x=>x.item == newItem).count += amount;
         }
         else
         {
-            items.Add(item, count);
+            items.Add(new PlayerInventory() { item = newItem, count = amount });
         }
-        if(onInventoryUpdate!=null)
+        if(onInventoryUpdate != null)
         {
-            onInventoryUpdate(item, items[item]);
+            onInventoryUpdate(newItem, items.Find(x => x.item == newItem).count);
+        }
+        else
+        {
+            Debug.Log("onInventoryUpdate is still empty.");
         }
     }
 }

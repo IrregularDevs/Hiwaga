@@ -32,11 +32,7 @@ public class ItemSource : ItemHolder, IInteractable
                 Debug.LogError("InventoryManager is missing.");
                 return;
             }
-            foreach (KeyValuePair<Item, int> item in items)
-            {
-                InventoryManager.Instance.AddItem(item.Key, this, item.Value);
-            }
-            ChangeUses(1);
+            InventoryManager.Instance.AddItem(this);
             return;
         }
     }

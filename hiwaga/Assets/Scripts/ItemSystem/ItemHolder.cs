@@ -2,17 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class ItemToAdd
+public class ItemHeld
 {
-    public Item itemAdded;
-    public int amountAdded;
+    public Item item;
+    public int count;
 }
 
 public class ItemHolder : MonoBehaviour
 {
     [SerializeField] protected string enterString, exitString, interactString;
-    [SerializeField] protected Dictionary<Item, int> items = new Dictionary<Item, int>();
-    [SerializeField] protected List<ItemToAdd> itemToAdd = new List<ItemToAdd>();
+    [SerializeField] protected List<ItemHeld> itemsHeld = new List<ItemHeld>();
     [SerializeField] protected bool hasLimit;
     [SerializeField] protected int maxUses;
     [SerializeField] protected int uses = 0;
@@ -22,11 +21,8 @@ public class ItemHolder : MonoBehaviour
         uses += i;
     }
 
-    protected void Start()
+    public List<ItemHeld> GetItems()
     {
-        foreach(ItemToAdd item in itemToAdd)
-        {
-            items.Add(item.itemAdded, item.amountAdded);
-        }
+        return itemsHeld;
     }
 }
