@@ -123,33 +123,27 @@ public class InventoryManager : MonoBehaviour
 
         foreach(ItemHeld itemHeld in itemsToAdd)
         {
-            Debug.Log($"Removing {itemHeld.item.name}");
             Item item = itemHeld.item;
             int amountTaken = itemHeld.count;
-            for (int i = inventorySlots.Length - 1; i > 0; i--)
+            for (int i = inventorySlots.Length - 1; i >= 0; i--)
             {
-                Debug.Log($"Checking slot {i+1}");
                 InventorySlot slot = inventorySlots[i];
                 InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
                 if (itemInSlot != null && itemInSlot.item == item)
                 {
-                    Debug.Log("Item taken.");
                     itemInSlot.count -= amountTaken;
                     if(itemInSlot.count < 0)
                     {
-                        Debug.Log($"Slot {i} doesn't have enough items, moving to other slots.");
                         int leftover;
                         leftover = itemInSlot.count;
-                        Debug.Log($"Leftover is {leftover}");
                         itemInSlot.count = ClampValue(itemInSlot.count);
                         itemInSlot.RefreshCount();
                         if (itemInSlot.count <= 0)
                         {
                             itemInSlot.ClearItem();
                         }
-                        for (int o = inventorySlots.Length - 1; o > 0; o--)
+                        for (int o = inventorySlots.Length - 1; o >= 0; o--)
                         {
-                            Debug.Log($"Checking slot {o + 1}");
                             slot = inventorySlots[o];
                             itemInSlot = slot.GetComponentInChildren<InventoryItem>();
                             if (itemInSlot != null && itemInSlot.item == item)

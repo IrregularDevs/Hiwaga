@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     public delegate void InventoryUpdateCallback(Item item, int count);
     public static InventoryUpdateCallback onInventoryUpdate;
 
+    public delegate void QuestUpdateCallback();
+    public static QuestUpdateCallback onQuestAdd;
+
     private void Awake()
     {
         StartCoroutine(AwakeAsync());
@@ -84,13 +87,19 @@ public class Player : MonoBehaviour
     {
         if(items.Contains(items.Find(x=>x.item==newItem)))
         {
-            Debug.Log("Item exists in PlayerInventory");
             items.Find(x=>x.item == newItem).count += amount;
         }
         else
         {
-            Debug.Log("Item does not yet exist in PlayerInventory");
             items.Add(new PlayerInventory() { item = newItem, count = amount });
+        }
+        if(onInventoryUpdate != null)
+        {
+            onInventoryUpdate(newItem, items.Find(x => x.item == newItem).count);
+        }
+        else
+        {
+            Debug.Log("onInventoryUpdate is still empty.");
         }
     }
 }

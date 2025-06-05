@@ -6190,7 +6190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 660196f8cf11bc249b3a70cd4d0dbbad, type: 3}
       propertyPath: m_Name
-      value: figurine
+      value: QuestGiver
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6229,6 +6229,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ef67de2cd7bbccf44bff534823585701, type: 2}
   - {fileID: 11400000, guid: 6f03a24bb779c244ea482efd7542b0be, type: 2}
   - {fileID: 11400000, guid: 22003ee29eca88748865082c72d07196, type: 2}
+  repeatable: 0
+  hasFinished: 0
+  timesCompleted: 0
+  maxCompletes: 1
 --- !u!65 &1837855089
 BoxCollider:
   m_ObjectHideFlags: 0

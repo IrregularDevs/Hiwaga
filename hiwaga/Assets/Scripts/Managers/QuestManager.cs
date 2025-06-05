@@ -42,7 +42,32 @@ public class QuestManager : MonoBehaviour
             newQuest.transform.Find("Description").GetComponent<TMP_Text>().text = quest.description;
             quests.Add(newQuest);
             Player.Instance.quests.Add(quest);
-            Player.onInventoryUpdate += quest.onFetch;
+            quest.InitializeQuest();
+            if (Player.onQuestAdd == null)
+            {
+                Debug.Log("onQuestAdd is still empty.");
+            }
+            else
+            {
+                Player.onQuestAdd();
+            }
+        }
+    }
+
+    public void RemoveQuest(Quest quest)
+    {
+        if(FindQuest(quest.title))
+        {
+            GameObject questToRemove = quests.Find(x => x.transform.Find("Title").GetComponent<TMP_Text>().text == quest.title);
+            quest.OnFinish();
+            //Destroy(questToRemove);
+            questToRemove.transform.Find("Title").GetComponent<TMP_Text>().text = "";
+            questToRemove.transform.Find("Description").GetComponent<TMP_Text>().text = "";
+            questToRemove.SetActive(false);
+        }
+        else
+        {
+            return;
         }
     }
 }
