@@ -296,7 +296,7 @@ Material:
     - _NormalTile: 4
     - _Normal_DistanceStrength: 0.2
     - _Normal_Pan: 1.5
-    - _Normal_Scale: 5
+    - _Normal_Scale: 1
     - _Normal_Strength: 0.49
     - _Normal_Tile: 5
     - _ParalaxDepth: 30
