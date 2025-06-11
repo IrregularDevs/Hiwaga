@@ -64,6 +64,7 @@ public class QuestManager : MonoBehaviour
             questToRemove.transform.Find("Title").GetComponent<TMP_Text>().text = "";
             questToRemove.transform.Find("Description").GetComponent<TMP_Text>().text = "";
             questToRemove.SetActive(false);
+            Player.Instance.quests.Remove(quest);
         }
         else
         {

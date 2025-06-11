@@ -23,6 +23,9 @@ public class Player : MonoBehaviour
     public delegate void QuestUpdateCallback();
     public static QuestUpdateCallback onQuestAdd;
 
+    public delegate void CollisionUpdateCallback();
+    public static CollisionUpdateCallback onCollision;
+
     private void Awake()
     {
         StartCoroutine(AwakeAsync());
@@ -45,6 +48,10 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(onCollision!=null)
+        {
+            onCollision();
+        }
         if (other.gameObject.GetComponent<IInteractable>() != null)
         {
             other.gameObject.GetComponent<IInteractable>().enterPrompt();
@@ -59,6 +66,10 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (onCollision != null)
+        {
+            onCollision();
+        }
         if (other.gameObject.GetComponent<IInteractable>() != null)
         {
             if (InteractionManager.Instance.interactTarget == null)
