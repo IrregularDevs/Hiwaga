@@ -19516,15 +19516,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483778398}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 162.5, y: -25.500013, z: 154.1}
+  m_LocalRotation: {x: -0, y: -0.83001643, z: -0, w: 0.557739}
+  m_LocalPosition: {x: 878.328, y: -25.500013, z: 512.18164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1771516004}
   - {fileID: 912966904}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -112.201, z: 0}
 --- !u!1 &491221565
 GameObject:
   m_ObjectHideFlags: 0
@@ -25952,7 +25952,7 @@ MonoBehaviour:
     SplineCurvature: 0.5
   RecenteringTarget: 3
   HorizontalAxis:
-    Value: -90.00002
+    Value: 162.2
     Center: -90.00002
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -26032,8 +26032,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912966898}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10756744, y: -0.69887716, z: 0.1075675, w: 0.6988771}
-  m_LocalPosition: {x: 296.33716, y: 31.97385, z: 329.2}
+  m_LocalRotation: {x: -0.11161819, y: 0.67152816, z: -0.103358, w: -0.72519547}
+  m_LocalPosition: {x: 296.30917, y: 31.97385, z: 328.46823}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40471,8 +40471,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103700176}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10756745, y: -0.69887716, z: 0.10756747, w: 0.6988771}
-  m_LocalPosition: {x: 458.83716, y: 6.473838, z: 483.30002}
+  m_LocalRotation: {x: 0.023535011, y: 0.9764616, z: -0.15029165, w: 0.15290956}
+  m_LocalPosition: {x: 462.24905, y: 6.473838, z: 662.4107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41211,6 +41211,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1259850065}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_UseGraphicAlpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_EffectDistance.x
+      value: 192.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_EffectDistance.y
+      value: 36.56
+      objectReference: {fileID: 0}
     - target: {fileID: 5638949714038909302, guid: 20db1cbb96e94e04a8458c54088da2fb, type: 3}
       propertyPath: m_Name
       value: Palay2
