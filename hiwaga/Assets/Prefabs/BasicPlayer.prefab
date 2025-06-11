@@ -125,6 +125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aea9ac5348b068e48830bf9580f1e04d, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: aea9ac5348b068e48830bf9580f1e04d, type: 3}
       propertyPath: m_Avatar
       value: 
@@ -241,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests: []
+  items: []
 --- !u!65 &2004436980215199403
 BoxCollider:
   m_ObjectHideFlags: 0
