@@ -26,6 +26,9 @@ public class Player : MonoBehaviour
     public delegate void CollisionUpdateCallback();
     public static CollisionUpdateCallback onCollision;
 
+    public delegate void InteractCallback();
+    public static InteractCallback onInteract;
+
     private void Awake()
     {
         StartCoroutine(AwakeAsync());
@@ -42,7 +45,11 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Confirm") && InteractionManager.Instance.interactTarget && InteractionManager.Instance.IsInRange)
         {
-            InteractionManager.Instance.interactTarget.GetComponent<IInteractable>().Interact();
+            //InteractionManager.Instance.interactTarget.GetComponent<IInteractable>().Interact();
+            if(onInteract != null)
+            {
+                onInteract();
+            }
         }
     }
 
@@ -54,9 +61,16 @@ public class Player : MonoBehaviour
         }
         if (other.gameObject.GetComponent<IInteractable>() != null)
         {
+            int i = 0;
             other.gameObject.GetComponent<IInteractable>().enterPrompt();
             InteractionManager.Instance.interactTarget = other.gameObject;
             InteractionManager.Instance.IsInRange = true;
+            foreach(IInteractable interactable in other.gameObject.GetComponents<IInteractable>())
+            {
+                i++;
+                Debug.Log(i);
+                onInteract += interactable.Interact;
+            }
         }
         else
         {
@@ -87,6 +101,7 @@ public class Player : MonoBehaviour
             other.gameObject.GetComponent<IInteractable>().exitPrompt();
             InteractionManager.Instance.interactTarget = null;
             InteractionManager.Instance.IsInRange = false;
+            onInteract -= other.gameObject.GetComponent<IInteractable>().Interact;
         }
         else
         {

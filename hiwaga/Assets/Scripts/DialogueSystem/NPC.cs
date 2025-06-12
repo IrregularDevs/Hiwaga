@@ -20,7 +20,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (dialogueData == null || !isdialogueActive)
+        if (dialogueData == null)
         {
             return;
         }
