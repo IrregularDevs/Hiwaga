@@ -9,9 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77bbc02c5820d3449aa36e0cc19f2980, type: 3}
-  m_Name: Grain
+  m_Script: {fileID: 11500000, guid: e5c23d220d2d0d54183789c3e44b9150, type: 3}
+  m_Name: ApproachAnthonyQuest
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: dfa751d8ab37f0541abbfea73fd7a03d, type: 3}
-  Name: Grain
-  stackable: 1
+  title: Approach the figure
+  description: Who, or what, even, is that?
+  goal:
+    goalType: 1
+    completed: 0
+    requiredAmount: 1
+    currentAmount: 0
+  touchGoal: 1
+  isTouched: 0

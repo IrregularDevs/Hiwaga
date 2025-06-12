@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 2275499346756384137}
   - component: {fileID: 7746223607695264168}
   - component: {fileID: 5284196973927131640}
+  - component: {fileID: 7768934431528233658}
   - component: {fileID: 5305005419361504320}
+  - component: {fileID: -2318186121979553695}
   m_Layer: 0
   m_Name: Wheat
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,6 +114,27 @@ CapsuleCollider:
   m_Height: 2.56
   m_Direction: 1
   m_Center: {x: 0.04434204, y: 0, z: 0}
+--- !u!65 &7768934431528233658
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112069790121471538}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5600007, y: 2.56, z: 2.3578494}
+  m_Center: {x: 0.000000005679445, y: 0, z: -0.072000735}
 --- !u!114 &5305005419361504320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +148,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
+--- !u!114 &-2318186121979553695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112069790121471538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687b7f2970b3bab468f9af10a088a87b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterString: 
+  exitString: 
+  interactString: 
+  itemsHeld:
+  - item: {fileID: 11400000, guid: f935c1b09ba01ff42b1d5d1baad55e38, type: 2}
+    count: 1
+  hasLimit: 1
+  maxUses: 1
+  uses: 0
+  disappears: 1

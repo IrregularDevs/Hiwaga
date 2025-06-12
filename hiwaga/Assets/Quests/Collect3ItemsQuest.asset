@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ece3e148f3a6134c934277f1833c475, type: 3}
+  m_Name: Collect3ItemsQuest
+  m_EditorClassIdentifier: 
+  title: Help Anthony harvest
+  description: Collect 5 Grain, 6 Nut, and 7 Rice
+  goal:
+    goalType: 0
+    completed: 1
+    requiredAmount: 3
+    currentAmount: 0
+  requiredItem:
+  - item: {fileID: 11400000, guid: f935c1b09ba01ff42b1d5d1baad55e38, type: 2}
+    currentCount: 0
+    goalCount: 5
+    isFinished: 0
+  - item: {fileID: 11400000, guid: 620cd79f3bcdab7479503be0acad7150, type: 2}
+    currentCount: 0
+    goalCount: 6
+    isFinished: 0
+  - item: {fileID: 11400000, guid: f4207587146a98a42bafe9a1f51f1e0a, type: 2}
+    currentCount: 0
+    goalCount: 7
+    isFinished: 0

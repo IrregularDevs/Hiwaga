@@ -15,6 +15,7 @@ public class ItemHolder : MonoBehaviour
     [SerializeField] protected bool hasLimit;
     [SerializeField] protected int maxUses;
     [SerializeField] protected int uses = 0;
+    [SerializeField] protected bool disappears;
     
     public void ChangeUses(int i)
     {

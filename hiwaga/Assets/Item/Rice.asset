@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77bbc02c5820d3449aa36e0cc19f2980, type: 3}
   m_Name: Rice
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 8db43aafda2d7e242b689b7f2d99d547, type: 3}
+  image: {fileID: 21300000, guid: 75563812d9c1ee540a172740ad7c286a, type: 3}
   Name: Rice
   stackable: 1

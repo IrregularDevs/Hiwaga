@@ -21,8 +21,9 @@ public class ItemSource : ItemHolder, IInteractable
 
     public void Interact()
     {
-        if (hasLimit == true && uses >= maxUses)
+        if (hasLimit == true && uses >= maxUses && disappears)
         {
+            this.gameObject.SetActive(false);
             return;
         }
         else
@@ -33,6 +34,10 @@ public class ItemSource : ItemHolder, IInteractable
                 return;
             }
             InventoryManager.Instance.AddItem(this);
+            if (hasLimit == true && uses >= maxUses && disappears)
+            {
+                this.gameObject.SetActive(false);
+            }
             return;
         }
     }

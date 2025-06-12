@@ -15,7 +15,7 @@ MonoBehaviour:
   npcName: Anthony (Test)
   npcPortrait: {fileID: 21300000, guid: afc6dc55d264cfb4cae1fe10b3b82595, type: 3}
   dialogueLines:
-  - This is a test
+  - Why, hello there! My name is Anthony the Ant!
   typingSpeed: 0.05
   autoProgressLines: 00
   autoProgressDelay: 2

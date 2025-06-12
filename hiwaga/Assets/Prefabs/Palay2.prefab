@@ -10,11 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7101882205180147631}
   - component: {fileID: 4502038646982276395}
-  - component: {fileID: 8921441530914390100}
   - component: {fileID: 1991764082641721491}
+  - component: {fileID: 1840892934550526130}
+  - component: {fileID: 8921441530914390100}
+  - component: {fileID: 7989131414559651238}
   m_Layer: 0
   m_Name: Palay2
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,19 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8921441530914390100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5638949714038909302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3713f7f4f27d7bf48ac90b2e2ed4485f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
 --- !u!136 &1991764082641721491
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -125,3 +114,59 @@ CapsuleCollider:
   m_Height: 2.56
   m_Direction: 1
   m_Center: {x: -0.12527466, y: 0, z: 0}
+--- !u!65 &1840892934550526130
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638949714038909302}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.77193, y: 2.56, z: 1.4096224}
+  m_Center: {x: -0.103112794, y: 0, z: 0.004521084}
+--- !u!114 &8921441530914390100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638949714038909302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3713f7f4f27d7bf48ac90b2e2ed4485f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
+--- !u!114 &7989131414559651238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638949714038909302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687b7f2970b3bab468f9af10a088a87b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterString: 
+  exitString: 
+  interactString: 
+  itemsHeld:
+  - item: {fileID: 11400000, guid: f4207587146a98a42bafe9a1f51f1e0a, type: 2}
+    count: 1
+  hasLimit: 1
+  maxUses: 1
+  uses: 0
+  disappears: 1

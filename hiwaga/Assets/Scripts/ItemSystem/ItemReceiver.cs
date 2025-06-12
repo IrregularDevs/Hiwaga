@@ -24,6 +24,10 @@ public class ItemReceiver : ItemHolder, IInteractable
     {
         if (hasLimit == true && uses >= maxUses)
         {
+            if (disappears)
+            {
+                this.gameObject.SetActive(false);
+            }
             return;
         }
         else

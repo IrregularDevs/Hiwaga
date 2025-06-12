@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bb31682bedfd82c4da2fcc376f44564f, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -71,6 +75,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bb31682bedfd82c4da2fcc376f44564f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2765074956459694178}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bb31682bedfd82c4da2fcc376f44564f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5209129461786174931}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bb31682bedfd82c4da2fcc376f44564f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 673711615510048602}
   m_SourcePrefab: {fileID: 100100000, guid: bb31682bedfd82c4da2fcc376f44564f, type: 3}
 --- !u!1 &5502253443028162237 stripped
 GameObject:
@@ -98,3 +108,46 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.012499996
   m_Center: {x: 0.00027124255, y: 0.00004068854, z: 0.0045634313}
+--- !u!65 &5209129461786174931
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502253443028162237}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.04235549, y: 0.038325205, z: 0.029097928}
+  m_Center: {x: 0.0016128874, y: 0.00084696145, z: 0.0057998225}
+--- !u!114 &673711615510048602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502253443028162237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687b7f2970b3bab468f9af10a088a87b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterString: 
+  exitString: 
+  interactString: 
+  itemsHeld:
+  - item: {fileID: 11400000, guid: 620cd79f3bcdab7479503be0acad7150, type: 2}
+    count: 1
+  hasLimit: 1
+  maxUses: 1
+  uses: 0
+  disappears: 1

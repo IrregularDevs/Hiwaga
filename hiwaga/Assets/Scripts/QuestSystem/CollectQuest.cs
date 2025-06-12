@@ -1,46 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.UIElements;
+
+[System.Serializable]
+public class RequiredItem
+{
+    public Item item;
+    public int currentCount;
+    public int goalCount;
+    public bool isFinished;
+}
 
 [CreateAssetMenu(fileName = "CollectQuest", menuName = "Scriptable Objects/CollectQuest")]
 public class CollectQuest : Quest
 {
-    public Item requiredItem;
+    public List<RequiredItem> requiredItem = new List<RequiredItem>();
 
     public void ProgressUpdate()
     {
-        if (goal.currentAmount >= goal.requiredAmount)
+        foreach(RequiredItem reqItem in requiredItem)
         {
-            goal.completed = true;
-            FinishQuest();
+            if (reqItem.currentCount >= reqItem.goalCount && !reqItem.isFinished)
+            {
+                goal.currentAmount++;
+                reqItem.isFinished = true;
+            }
+            if (goal.currentAmount >= goal.requiredAmount)
+            {
+                goal.completed = true;
+                FinishQuest();
+            }
         }
     }
 
     public void AcceptQuest()
     {
-        foreach (PlayerInventory playerInventory in Player.Instance.items)
+        foreach(RequiredItem reqItem in requiredItem)
         {
-            if (playerInventory.item == requiredItem)
+            foreach (PlayerInventory playerInventory in Player.Instance.items)
             {
-                goal.currentAmount = playerInventory.count;
-                ProgressUpdate();
+                if (playerInventory.item == reqItem.item)
+                {
+                    reqItem.currentCount = playerInventory.count;
+                    ProgressUpdate();
+                }
             }
         }
     }
 
     public void ItemCheck(Item item, int count)
     {
-        if (item == requiredItem)
+        foreach (RequiredItem reqItem in requiredItem)
         {
-            goal.currentAmount = count;
-            ProgressUpdate();
+            if (item == reqItem.item)
+            {
+                reqItem.currentCount = count;
+                ProgressUpdate();
+            }
         }
     }
 
     public override void InitializeQuest()
     {
+        goal.requiredAmount = requiredItem.Count;
+        goal.currentAmount = 0;
+        foreach (RequiredItem item in requiredItem)
+        {
+            item.currentCount = 0;
+            item.isFinished = false;
+        }
         Debug.Log("InitializeQuest override method called.");
         Player.onQuestAdd = AcceptQuest;
         Player.onInventoryUpdate += ItemCheck;
@@ -58,6 +89,7 @@ public class CollectQuest : Quest
     {
         Debug.Log("EmptyQuest override method called.");
         Player.onInventoryUpdate -= ItemCheck;
+        onQuestComplete = null;
         if (Player.onQuestAdd == null)
         {
             Debug.Log("onQuestAdd is empty.");

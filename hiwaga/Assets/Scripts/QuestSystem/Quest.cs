@@ -8,6 +8,8 @@ public class Quest : ScriptableObject
     public string title;
     public string description;
     public QuestGoal goal;
+    public delegate void QuestFinishCallback();
+    public static QuestFinishCallback onQuestComplete;
 
     public void FinishQuest()
     {
@@ -17,6 +19,10 @@ public class Quest : ScriptableObject
 
     public void OnFinish()
     {
+        if(onQuestComplete!=null)
+        {
+            onQuestComplete();
+        }
         EmptyQuest();
     }
 
