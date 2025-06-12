@@ -10,12 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 155f4c80966429842a894125a411ec78, type: 3}
-  m_Name: Test
+  m_Name: Anthony
   m_EditorClassIdentifier: 
-  npcName: Anthony (Test)
+  npcName: Anthony
   npcPortrait: {fileID: 21300000, guid: afc6dc55d264cfb4cae1fe10b3b82595, type: 3}
   dialogueLines:
-  - Why, hello there! My name is Anthony the Ant!
+  - Why, hello there! My name is Anthony!
+  - Welcome to the rice fields!
+  - A storm is close, you best find yourself some shelter!
+  - Hmm...well, care to lend me a hand with these here plants?
+  - I can offer you shelter and it'd be a nice burden off me!
+  - Thank you for the help, friend!
+  - No need to worry, I can share!
+  - Can't finish these all by myself!
   typingSpeed: 0.05
   autoProgressLines: 00
   autoProgressDelay: 2
