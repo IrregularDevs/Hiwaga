@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 155f4c80966429842a894125a411ec78, type: 3}
-  m_Name: Anthony
+  m_Name: Anthony_Q1_Start
   m_EditorClassIdentifier: 
   npcName: Anthony
-  npcPortrait: {fileID: 21300000, guid: afc6dc55d264cfb4cae1fe10b3b82595, type: 3}
+  npcPortrait: {fileID: 58138736, guid: d71f8deccb684534e9ae411aebeedfea, type: 3}
   dialogueLines:
   - Why, hello there! My name is Anthony!
   - Welcome to the rice fields!
