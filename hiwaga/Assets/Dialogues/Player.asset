@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155f4c80966429842a894125a411ec78, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  npcName: Player
-  npcPortrait: {fileID: 21300000, guid: a72ddfb0f4f86e34baa39f7eecd0a2c3, type: 3}
+  npcName:
+  - Player
+  - Anthony
+  npcPortrait:
+  - {fileID: 21300000, guid: afc6dc55d264cfb4cae1fe10b3b82595, type: 3}
+  - {fileID: 21300000, guid: e320bd66bccc4ca479cacd3dc1b46f74, type: 3}
   dialogueLines:
   - Hi, it's nice to meet you, Anthony!
   - Sorry, I'm a bit lost. I don't have anywhere to stay for the storm.
   - No problem for someone like me!
+  dialogueSwitch: 000000
   typingSpeed: 0.05
   autoProgressLines: 
   autoProgressDelay: 2
