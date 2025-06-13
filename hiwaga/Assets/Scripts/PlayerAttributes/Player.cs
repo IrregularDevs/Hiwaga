@@ -98,10 +98,16 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Interactable"))
         {
+            int i = 0;
             other.gameObject.GetComponent<IInteractable>().exitPrompt();
             InteractionManager.Instance.interactTarget = null;
             InteractionManager.Instance.IsInRange = false;
-            onInteract -= other.gameObject.GetComponent<IInteractable>().Interact;
+            foreach (IInteractable interactable in other.gameObject.GetComponents<IInteractable>())
+            {
+                i++;
+                Debug.Log(i);
+                onInteract -= interactable.Interact;
+            }
         }
         else
         {
