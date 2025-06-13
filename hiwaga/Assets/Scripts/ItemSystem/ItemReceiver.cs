@@ -22,12 +22,9 @@ public class ItemReceiver : ItemHolder, IInteractable
 
     public void Interact()
     {
-        if (hasLimit == true && uses >= maxUses)
+        if (hasLimit == true && uses >= maxUses && disappears)
         {
-            if (disappears)
-            {
-                this.gameObject.SetActive(false);
-            }
+            this.gameObject.SetActive(false);
             return;
         }
         else
@@ -38,7 +35,16 @@ public class ItemReceiver : ItemHolder, IInteractable
                 return;
             }
             InventoryManager.Instance.RemoveItem(this);
+            if (hasLimit == true && uses >= maxUses && disappears)
+            {
+                this.gameObject.SetActive(false);
+            }
             return;
         }
+    }
+
+    public int GetUses()
+    {
+        return uses;
     }
 }

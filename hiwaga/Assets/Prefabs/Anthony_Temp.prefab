@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 2371998476475437785}
   - component: {fileID: 5863140673082795863}
   - component: {fileID: 651513487238857543}
+  - component: {fileID: 4050863419361652530}
   m_Layer: 0
   m_Name: Anthony_Temp
   m_TagString: Interactable
@@ -325,3 +326,18 @@ MonoBehaviour:
   maxUses: 1
   uses: 0
   disappears: 0
+--- !u!114 &4050863419361652530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3391222637799694005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f0fdb0df9d0e540a45be7b9f2bafde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 11400000, guid: a8d650c3ef885494f876ea7edd53e4bc, type: 2}
+  receiver: {fileID: 651513487238857543}
+  goal: 1

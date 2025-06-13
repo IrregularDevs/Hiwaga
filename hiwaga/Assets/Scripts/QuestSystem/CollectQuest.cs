@@ -90,6 +90,10 @@ public class CollectQuest : Quest
         Debug.Log("EmptyQuest override method called.");
         Player.onInventoryUpdate -= ItemCheck;
         onQuestComplete = null;
+        if(!isLastQuest)
+        {
+            QuestManager.Instance.AddQuest(nextQuest);
+        }
         if (Player.onQuestAdd == null)
         {
             Debug.Log("onQuestAdd is empty.");

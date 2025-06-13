@@ -8,13 +8,17 @@ public class Quest : ScriptableObject
     public string title;
     public string description;
     public QuestGoal goal;
+    public Quest nextQuest;
+    public bool isLastQuest;
     public delegate void QuestFinishCallback();
     public static QuestFinishCallback onQuestComplete;
 
     public void FinishQuest()
     {
         Debug.Log($"\"{title}\" is finished.");
+        OnFinish();
         QuestManager.Instance.RemoveQuest(this);
+        EmptyQuest();
     }
 
     public void OnFinish()
@@ -23,7 +27,6 @@ public class Quest : ScriptableObject
         {
             onQuestComplete();
         }
-        EmptyQuest();
     }
 
     public virtual void InitializeQuest()

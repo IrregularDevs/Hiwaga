@@ -41,4 +41,9 @@ public class ItemSource : ItemHolder, IInteractable
             return;
         }
     }
+
+    public int GetUses()
+    {
+        return uses;
+    }
 }

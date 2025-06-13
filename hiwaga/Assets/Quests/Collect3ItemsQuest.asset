@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Collect3ItemsQuest
   m_EditorClassIdentifier: 
   title: Help Anthony harvest
-  description: Collect 5 Grain, 6 Nut, and 7 Rice
+  description: Collect 5 Grain, 6 Nut, and 7 Rice for Anthony
   goal:
     goalType: 0
     completed: 1
     requiredAmount: 3
     currentAmount: 3
+  nextQuest: {fileID: 11400000, guid: a8d650c3ef885494f876ea7edd53e4bc, type: 2}
+  isLastQuest: 0
   requiredItem:
   - item: {fileID: 11400000, guid: f935c1b09ba01ff42b1d5d1baad55e38, type: 2}
     currentCount: 6
