@@ -25,6 +25,7 @@ public class MoveQuest : Quest
         Debug.Log("InitializeQuest override method called.");
         Player.onQuestAdd = ProgressUpdate;
         Player.onCollision += ProgressUpdate;
+        onQuestComplete += ProgressDialogue;
         if (Player.onQuestAdd == null)
         {
             Debug.Log("onQuestAdd is empty.");

@@ -75,6 +75,7 @@ public class CollectQuest : Quest
         Debug.Log("InitializeQuest override method called.");
         Player.onQuestAdd = AcceptQuest;
         Player.onInventoryUpdate += ItemCheck;
+        onQuestComplete += ProgressDialogue;
         if(Player.onQuestAdd == null)
         {
             Debug.Log("onQuestAdd is empty.");

@@ -13,6 +13,11 @@ public class Quest : ScriptableObject
     public delegate void QuestFinishCallback();
     public static QuestFinishCallback onQuestComplete;
 
+    public bool progressesDialogue;
+    public int newIndex;
+    public string npc;
+     
+
     public void FinishQuest()
     {
         Debug.Log($"\"{title}\" is finished.");
@@ -37,5 +42,13 @@ public class Quest : ScriptableObject
     public virtual void EmptyQuest()
     {
         Debug.Log("EmptyQuest virtual method called.");
+    }
+
+    public void ProgressDialogue()
+    {
+        if(progressesDialogue)
+        {
+            DialogueManager.Instance.ChangeIndex(npc, newIndex);
+        }
     }
 }

@@ -2,107 +2,31 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class DialogueData
+{
+    public NPCDialogue dialogue;
+    public int count;
+}
 
 public class NPC : MonoBehaviour, IInteractable
 {
-    public NPCDialogue dialogueData;
-    public GameObject dialoguePanel;
-    public TMP_Text dialogueText, nameText;
-    public Image portraitImage;
+    public List<DialogueData> dialogueData = new List<DialogueData>();
+    public string npcName;
 
-    private int dialogueIndex;
-    public bool isdialogueActive, isTyping;
     
     public bool canInteract()
     {
-        return !isdialogueActive;
+        return !DialogueManager.Instance.isdialogueActive;
     }
 
     public void Interact()
     {
-        if (dialogueData == null)
-        {
-            return;
-        }
-        if (isdialogueActive)
-        {
-            nextLine();
-        }
-        else
-        {
-            StartDialogue();
-        }
+        DialogueManager.Instance.BeginDialogue(this);
     }
 
-    void StartDialogue()
-    {
-        isdialogueActive = true;
-        dialogueIndex = 0;
-        dialoguePanel.SetActive(true);
-        nameText.text = dialogueData.npcName[0];
-        portraitImage.sprite = dialogueData.npcPortrait[0];
-        PauseManager.SetPause(true);
-        StartCoroutine(TypeLine());
-    }
-
-    void nextLine()
-    {
-        if (isTyping)
-        {
-            StopAllCoroutines();
-            dialogueText.text = dialogueData.dialogueLines[dialogueIndex];
-            isTyping = false;
-            return;
-        }
-
-        dialogueIndex++;
-        if (dialogueIndex < dialogueData.dialogueLines.Length)
-        {
-            if(dialogueData.dialogueSwitch[dialogueIndex])
-            {
-                nameText.text = dialogueData.npcName[1];
-                portraitImage.sprite = dialogueData.npcPortrait[1];
-            }
-            else
-            {
-                nameText.text = dialogueData.npcName[0];
-                portraitImage.sprite = dialogueData.npcPortrait[0];
-            }
-            StartCoroutine(TypeLine());
-        }
-        else
-        {
-            EndDialogue();
-        }
-    }
-
-    IEnumerator TypeLine()
-    {
-        isTyping = true;
-        dialogueText.text = "";
-        string line = dialogueData.dialogueLines[dialogueIndex];
-        foreach (char letter in dialogueData.dialogueLines[dialogueIndex])
-        {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(0.05f); // Adjust typing speed here
-        }
-        isTyping = false;
-        if(dialogueData.autoProgressLines.Length > dialogueIndex && dialogueData.autoProgressLines[dialogueIndex])
-        {
-            yield return new WaitForSeconds(dialogueData.autoProgressDelay);
-            nextLine();
-        }
-    }
-
-
-    public void EndDialogue()
-    {
-        StopAllCoroutines();
-        isdialogueActive = false;
-        dialoguePanel.SetActive(false);
-        PauseManager.SetPause(false);
-        dialogueIndex = 0;
-    }
 
 
     public void enterPrompt()

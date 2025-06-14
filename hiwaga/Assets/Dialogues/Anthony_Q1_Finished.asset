@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155f4c80966429842a894125a411ec78, type: 3}
   m_Name: Anthony_Q1_Finished
   m_EditorClassIdentifier: 
-  npcName: Anthony
-  npcPortrait: {fileID: 58138736, guid: d71f8deccb684534e9ae411aebeedfea, type: 3}
+  npcName:
+  - Anthony
+  - Player
+  npcPortrait:
+  - {fileID: 58138736, guid: d71f8deccb684534e9ae411aebeedfea, type: 3}
+  - {fileID: 21300000, guid: 92d167f6887dfe14eabdd4e525d993da, type: 3}
   dialogueLines:
   - Thank you my friend!
   - It is a lot easier to get the job done when being lent a hand, our hard work
     will pay off!
+  dialogueSwitch: 
   typingSpeed: 0.05
   autoProgressLines: 
   autoProgressDelay: 2
