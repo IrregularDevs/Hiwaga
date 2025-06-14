@@ -18,3 +18,4 @@ MonoBehaviour:
   - dialogue: {fileID: 11400000, guid: 80c9d33d8e9210749aa7b86df1aa5e68, type: 2}
     count: 1
   npcName: Anthony
+  currentIndex: 0

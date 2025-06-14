@@ -22,7 +22,7 @@ MonoBehaviour:
   - Thank you my friend!
   - It is a lot easier to get the job done when being lent a hand, our hard work
     will pay off!
-  dialogueSwitch: 
+  dialogueSwitch: 0000
   typingSpeed: 0.05
-  autoProgressLines: 
+  autoProgressLines: 00
   autoProgressDelay: 2

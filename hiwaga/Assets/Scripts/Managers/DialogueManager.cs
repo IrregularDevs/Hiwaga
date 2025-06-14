@@ -33,6 +33,14 @@ public class DialogueManager : MonoBehaviour
         yield return null;
     }
 
+    public void Start()
+    {
+        foreach(DialogueGroup group in dialogueGroup)
+        {
+            group.currentIndex = 0;
+        }
+    }
+
     public void BeginDialogue(NPC npc)
     {
         currentDialogueGroup = dialogueGroup.Find(x => x.npcName == npc.npcName);
