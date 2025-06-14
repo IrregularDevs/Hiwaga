@@ -3,14 +3,13 @@
 public class CharacterController3D : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public float sprintMultiplier = 1.5f; // Sprint speed multiplier
     public float gravity = -9.81f;
     public float rotationSpeed = 10f;
 
     public Transform cameraTransform;
-
     public LayerMask groundMask;
     public float groundCheckDistance = 0.2f;
-
     public bool canMove = true;
 
     public Vector3 CurrentMoveDirection { get; private set; }
@@ -44,6 +43,10 @@ public class CharacterController3D : MonoBehaviour
         float moveZ = Input.GetAxisRaw("Vertical");
         Vector3 inputDirection = new Vector3(moveX, 0f, moveZ).normalized;
 
+        // Detect sprint input
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+        float currentSpeed = isSprinting ? moveSpeed * sprintMultiplier : moveSpeed;
+
         if (inputDirection.magnitude >= 0.1f)
         {
             Vector3 camForward = cameraTransform.forward;
@@ -55,7 +58,7 @@ public class CharacterController3D : MonoBehaviour
 
             CurrentMoveDirection = moveDirection;
 
-            controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+            controller.Move(moveDirection * currentSpeed * Time.deltaTime);
 
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
