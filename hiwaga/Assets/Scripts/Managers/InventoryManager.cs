@@ -118,6 +118,7 @@ public class InventoryManager : MonoBehaviour
 
         if(!CheckItemsToRemove(receiver))
         {
+            Debug.Log("Returning, not enough items.");
             return;
         }
 
@@ -220,11 +221,15 @@ public class InventoryManager : MonoBehaviour
         itemsToRemove = receiver.GetItems();
         foreach(ItemHeld itemHeld in itemsToRemove)
         {
-            if(Player.Instance.items.Exists(x => x.item == itemHeld.item) && Player.Instance.items.Find(x => x.item == itemHeld.item).count < itemHeld.count)
+            Debug.Log($"{itemHeld.item.Name} is being read.");
+            Debug.Log($"{itemHeld.item.Name} returns {Player.Instance.items.Exists(x => x.item == itemHeld.item)}");
+            if(!Player.Instance.items.Exists(x => x.item == itemHeld.item) || Player.Instance.items.Find(x => x.item == itemHeld.item).count < itemHeld.count)
             {
+                Debug.Log("Return False");
                 return false;
             }
         }
+        Debug.Log("Return True");
         return true;
     }
 }

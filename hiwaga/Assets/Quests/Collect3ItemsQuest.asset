@@ -18,19 +18,22 @@ MonoBehaviour:
     goalType: 0
     completed: 1
     requiredAmount: 3
-    currentAmount: 3
+    currentAmount: 0
   nextQuest: {fileID: 11400000, guid: a8d650c3ef885494f876ea7edd53e4bc, type: 2}
   isLastQuest: 0
+  progressesDialogue: 0
+  newIndex: 0
+  npc: 
   requiredItem:
   - item: {fileID: 11400000, guid: f935c1b09ba01ff42b1d5d1baad55e38, type: 2}
-    currentCount: 6
+    currentCount: 0
     goalCount: 5
-    isFinished: 1
+    isFinished: 0
   - item: {fileID: 11400000, guid: 620cd79f3bcdab7479503be0acad7150, type: 2}
-    currentCount: 6
+    currentCount: 0
     goalCount: 6
-    isFinished: 1
+    isFinished: 0
   - item: {fileID: 11400000, guid: f4207587146a98a42bafe9a1f51f1e0a, type: 2}
-    currentCount: 9
+    currentCount: 0
     goalCount: 7
-    isFinished: 1
+    isFinished: 0
