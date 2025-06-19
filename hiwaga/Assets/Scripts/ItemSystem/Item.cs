@@ -8,4 +8,5 @@ public class Item : ScriptableObject
     public Sprite image;
     public string Name;
     public bool stackable;
+    public bool isInvisible;
 }
