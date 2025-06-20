@@ -29,6 +29,12 @@ public class QuestManager : MonoBehaviour
         return quests.Exists(x => x.transform.Find("Title").GetComponent<TMP_Text>().text == title);
     }
 
+    public bool HasQuest(Quest quest)
+    {
+        return Player.Instance.quests.Contains(quest);
+    }
+
+
     public void AddQuest(Quest quest)
     {
         if(FindQuest(quest.title))

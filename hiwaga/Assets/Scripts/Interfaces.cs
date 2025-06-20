@@ -7,3 +7,4 @@ interface IInteractable
     public void exitPrompt();
     public bool canInteract();
 }
+

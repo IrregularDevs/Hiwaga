@@ -1308,6 +1308,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104391349}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &117897823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 117897824}
+  m_Layer: 0
+  m_Name: Hidingspots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &117897824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117897823}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2107398075}
+  - {fileID: 1068925724}
+  - {fileID: 1533832483}
+  m_Father: {fileID: 897737952}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &127838031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18759,10 +18793,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7413953359446234778, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 1771516005}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
 --- !u!4 &410463274 stripped
 Transform:
@@ -19541,6 +19572,79 @@ Transform:
   - {fileID: 912966904}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -112.201, z: 0}
+--- !u!1 &487127453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 487127454}
+  - component: {fileID: 487127456}
+  - component: {fileID: 487127455}
+  m_Layer: 8
+  m_Name: Hopkins_QuestTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &487127454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487127453}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 694652909}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &487127455
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487127453}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &487127456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487127453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b960a571bab5474f970db9a712c5bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideSpots:
+  - {fileID: 2107398075}
+  - {fileID: 1068925724}
+  - {fileID: 1533832483}
+  hideDelay: 1
 --- !u!1 &491221565
 GameObject:
   m_ObjectHideFlags: 0
@@ -22285,10 +22389,10 @@ GameObject:
   - component: {fileID: 694652913}
   - component: {fileID: 694652912}
   - component: {fileID: 694652911}
-  - component: {fileID: 694652910}
+  - component: {fileID: 694652914}
   m_Layer: 0
   m_Name: hopkins Temp
-  m_TagString: Hopkins
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22305,28 +22409,10 @@ Transform:
   m_LocalPosition: {x: 155.72, y: -10.23, z: 2.21}
   m_LocalScale: {x: 2.1079, y: 2.1079, z: 2.1079}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 487127454}
   m_Father: {fileID: 897737952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &694652910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 694652908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9fddd15aab6c4d44b8e7095b69b7076, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hidingSpots:
-  - {fileID: 2107398075}
-  - {fileID: 1068925724}
-  - {fileID: 1533832483}
-  jumpHeight: 2
-  jumpDuration: 0.5
-  totalFindsToWin: 3
 --- !u!136 &694652911
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22403,6 +22489,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694652908}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &694652914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694652908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf1d5bd515b6c848aa830462200686f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questToGive: {fileID: 11400000, guid: ba66dbdc0a394a14abc37e4edb150c7e, type: 2}
+  objectiveToHide: {fileID: 11400000, guid: 690a89bb7f2535546b1acd3fd2a9c556, type: 2}
 --- !u!1001 &695492113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25282,9 +25382,7 @@ Transform:
   m_Children:
   - {fileID: 2118807685}
   - {fileID: 694652909}
-  - {fileID: 2107398075}
-  - {fileID: 1068925724}
-  - {fileID: 1533832483}
+  - {fileID: 117897824}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &899514722
@@ -28081,7 +28179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1068925724}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HopkinsHidingSpot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28097,11 +28195,11 @@ Transform:
   m_GameObject: {fileID: 1068925723}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 180.32, y: -10.23, z: 57.85}
+  m_LocalPosition: {x: 180.32, y: -10.23, z: 57.850006}
   m_LocalScale: {x: 2.1079, y: 2.1079, z: 2.1079}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 897737952}
+  m_Father: {fileID: 117897824}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1074850776
 GameObject:
@@ -31815,11 +31913,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343550259}
   m_Mesh: {fileID: 1282117409599735292, guid: 9d57ef9fd2319164796a4b7827474c07, type: 3}
---- !u!1 &1348078305 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7413953359446234778, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
-  m_PrefabInstance: {fileID: 403130933}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1370620817
 GameObject:
   m_ObjectHideFlags: 0
@@ -33587,7 +33680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1533832483}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HopkinsHidingSpot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33603,11 +33696,11 @@ Transform:
   m_GameObject: {fileID: 1533832482}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 61.1, y: -10.23, z: 144.2}
+  m_LocalPosition: {x: 61.100006, y: -10.23, z: 144.19998}
   m_LocalScale: {x: 2.1079, y: 2.1079, z: 2.1079}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 897737952}
+  m_Father: {fileID: 117897824}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1540668258 stripped
 GameObject:
@@ -36047,20 +36140,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7901697350876990496, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
   m_PrefabInstance: {fileID: 403130933}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1771516005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348078305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e705a5bca7c449479bb16b1d7bb3dda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionRange: 4
-  interactKey: 101
 --- !u!4 &1776442596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2275499346756384137, guid: 4aa017a6a86dbc745842e2b5efdc681d, type: 3}
@@ -40397,7 +40476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2107398075}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HopkinsHidingSpot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40413,11 +40492,11 @@ Transform:
   m_GameObject: {fileID: 2107398074}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 159.6, y: -10.23, z: -27.1}
+  m_LocalPosition: {x: 159.59998, y: -10.23, z: -27.100006}
   m_LocalScale: {x: 2.1079, y: 2.1079, z: 2.1079}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 897737952}
+  m_Father: {fileID: 117897824}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2114095357 stripped
 GameObject:
