@@ -4,33 +4,33 @@ using UnityEngine.UI;
 public class AnimationsUI : MonoBehaviour
 {
     public Animator cameraAnimator;
+    public Animator canvasUI;
     bool clickedNewGame;
     bool clickedOptions;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        cameraAnimator = GetComponent<Animator>();
-    }
 
     public void NewGameButton()
     {
         cameraAnimator.SetBool("clickedNewGame", true);
+        canvasUI.SetBool("clickedNewGame", true);
     }
 
     public void OptionsButton()
     {
         cameraAnimator.SetBool("clickedOptions", true);
+        canvasUI.SetBool("clickedOptions", true);
     }
 
     public void MainMenuButton()
     {
         cameraAnimator.SetBool("clickedNewGame", false);
+        canvasUI.SetBool("clickedNewGame", false);
     }
 
     public void MainMenuButtonO()
     {
         cameraAnimator.SetBool("clickedOptions", false);
+        canvasUI.SetBool("clickedOptions", false);
     }
 
     // Update is called once per frame
