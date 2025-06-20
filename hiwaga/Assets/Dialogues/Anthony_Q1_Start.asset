@@ -12,25 +12,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155f4c80966429842a894125a411ec78, type: 3}
   m_Name: Anthony_Q1_Start
   m_EditorClassIdentifier: 
-  npcName:
-  - Anthony
-  - Player
-  npcPortrait:
-  - {fileID: 58138736, guid: d71f8deccb684534e9ae411aebeedfea, type: 3}
-  - {fileID: 21300000, guid: 92d167f6887dfe14eabdd4e525d993da, type: 3}
+  characters:
+  - character: {fileID: 11400000, guid: 91991f78a633cb641974e2e07c0e10f7, type: 2}
+    id: 0
+  - character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+    id: 1
+  - character: {fileID: 11400000, guid: d77960b3f720cd744b89a2ff8a9c71f8, type: 2}
+    id: 2
   dialogueLines:
-  - Why, hello there! My name is Anthony!
-  - Hi, it's nice to meet you, Anthony!
-  - Welcome to the rice fields!
-  - A storm is close, you best find yourself some shelter!
-  - Sorry, I'm a bit lost. I don't have anywhere to stay for the storm.
-  - Hmm...well, care to lend me a hand with these here plants?
-  - I can offer you shelter and it'd be a nice burden off me!
-  - No problem for someone like me!
-  - Thank you for the help, friend!
-  - No need to worry, I can share!
-  - Can't finish these all by myself!
-  dialogueSwitch: 0001000001000001000000
+  - dialogueLine: Why, hello there, &name!
+    dialogueSwitch: 0
+  - dialogueLine: The name's Anthony! Welcome to my rice fields!
+    dialogueSwitch: 0
+  - dialogueLine: Best find yourself some shelter, storm's brewing.
+    dialogueSwitch: 0
+  - dialogueLine: Oh, e-r-r, I'm a bit lost and I've nowhere to stay for the storm.
+    dialogueSwitch: 1
+  - dialogueLine: Hmm...I have some space to spare in my house, if you'd like to
+      stay for the night!
+    dialogueSwitch: 0
+  - dialogueLine: But I'll need your hands doing some work, you up for it?
+    dialogueSwitch: 0
+  - dialogueLine: No problem, for someone like me!
+    dialogueSwitch: 1
+  - dialogueLine: Perfect! All you have to do is-
+    dialogueSwitch: 0
+  - dialogueLine: Greetings all, Anthony and stranger!
+    dialogueSwitch: 2
+  - dialogueLine: Oh Anthony, working again! Do you ever rest?
+    dialogueSwitch: 2
+  - dialogueLine: Is "a rest" or "a break" even a thing to you?
+    dialogueSwitch: 2
+  - dialogueLine: If not, let me introduce it to you! Let's play a few rounds of
+      good ol' hide and seek!
+    dialogueSwitch: 2
+  - dialogueLine: You've worked yesterday and the day before and even the day before
+      that, it must be more than enough!
+    dialogueSwitch: 2
+  - dialogueLine: No can do, Anthony.
+    dialogueSwitch: 0
+  - dialogueLine: This stranger's staying over at my place for the storm, and we
+      have to be ready.
+    dialogueSwitch: 0
+  - dialogueLine: H-a-a-h, fine, then just find me once you're both done!
+    dialogueSwitch: 2
+  - dialogueLine: We will! Don't jump into a rock, Hopkins!
+    dialogueSwitch: 0
+  - dialogueLine: And don't get stuck in dewdrop, Anthony!
+    dialogueSwitch: 2
+  - dialogueLine: Now, onto business! All you have to do is collect a few grain,
+      nuts, and rice and bring them back here to me.
+    dialogueSwitch: 0
+  - dialogueLine: You can find them all in my garden, stranger!
+    dialogueSwitch: 0
+  - dialogueLine: '"Stranger", huh? I never told you my name.'
+    dialogueSwitch: 1
+  - dialogueLine: Oh for-! Of course! How could I forget!? What should I call you
+      by?
+    dialogueSwitch: 0
+  - dialogueLine: '&name. &name is fine.'
+    dialogueSwitch: 1
+  - dialogueLine: Well then, &name, thank you for your help!
+    dialogueSwitch: 0
   typingSpeed: 0.05
   autoProgressLines: 00
   autoProgressDelay: 2

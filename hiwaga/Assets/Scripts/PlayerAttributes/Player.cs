@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     public delegate void InteractCallback();
     public static InteractCallback onInteract;
 
+    public string playerName;
+
     private void Awake()
     {
         StartCoroutine(AwakeAsync());
@@ -37,6 +39,7 @@ public class Player : MonoBehaviour
     IEnumerator AwakeAsync()
     {
         instance = this;
+        playerName = "Amongus";
         DontDestroyOnLoad(this.gameObject);
         yield return null;
     }

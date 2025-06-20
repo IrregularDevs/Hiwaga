@@ -10,19 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 155f4c80966429842a894125a411ec78, type: 3}
-  m_Name: Player
+  m_Name: Anthony_Q1_During
   m_EditorClassIdentifier: 
-  npcName:
-  - Player
-  - Anthony
-  npcPortrait:
-  - {fileID: 21300000, guid: afc6dc55d264cfb4cae1fe10b3b82595, type: 3}
-  - {fileID: 21300000, guid: e320bd66bccc4ca479cacd3dc1b46f74, type: 3}
+  characters:
+  - character: {fileID: 11400000, guid: 91991f78a633cb641974e2e07c0e10f7, type: 2}
+    id: 0
   dialogueLines:
-  - Hi, it's nice to meet you, Anthony!
-  - Sorry, I'm a bit lost. I don't have anywhere to stay for the storm.
-  - No problem for someone like me!
-  dialogueSwitch: 000000
+  - dialogueLine: How goes the work, &name?
+    dialogueSwitch: 0
+  - dialogueLine: No trouble, I hope.
+    dialogueSwitch: 0
   typingSpeed: 0.05
   autoProgressLines: 
   autoProgressDelay: 2

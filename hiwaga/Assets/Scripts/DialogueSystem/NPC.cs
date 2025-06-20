@@ -9,11 +9,13 @@ public class DialogueData
 {
     public NPCDialogue dialogue;
     public int count;
+    public int nextIndex;
+    public bool loops;
+    public bool isFinished;
 }
 
 public class NPC : MonoBehaviour, IInteractable
 {
-    public List<DialogueData> dialogueData = new List<DialogueData>();
     public string npcName;
 
     

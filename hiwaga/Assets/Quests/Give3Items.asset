@@ -16,11 +16,11 @@ MonoBehaviour:
   description: This should be enough
   goal:
     goalType: 2
-    completed: 0
+    completed: 1
     requiredAmount: 1
-    currentAmount: 0
+    currentAmount: 1
   nextQuest: {fileID: 0}
   isLastQuest: 1
   progressesDialogue: 1
-  newIndex: 1
+  newIndex: 2
   npc: Anthony

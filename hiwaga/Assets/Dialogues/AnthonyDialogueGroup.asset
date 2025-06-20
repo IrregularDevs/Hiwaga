@@ -15,7 +15,18 @@ MonoBehaviour:
   dialogue:
   - dialogue: {fileID: 11400000, guid: 48755b0d6d30b82499e68e14973c0e73, type: 2}
     count: 0
-  - dialogue: {fileID: 11400000, guid: 80c9d33d8e9210749aa7b86df1aa5e68, type: 2}
+    nextIndex: 1
+    loops: 0
+    isFinished: 0
+  - dialogue: {fileID: 11400000, guid: 351ce66d6dc9a0843be54266bef0e81c, type: 2}
     count: 1
+    nextIndex: 0
+    loops: 1
+    isFinished: 0
+  - dialogue: {fileID: 11400000, guid: 80c9d33d8e9210749aa7b86df1aa5e68, type: 2}
+    count: 2
+    nextIndex: 0
+    loops: 1
+    isFinished: 0
   npcName: Anthony
   currentIndex: 0

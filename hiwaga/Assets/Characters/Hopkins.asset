@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c023ca5b3b4eef47af587f9644813bc, type: 3}
+  m_Name: Hopkins
+  m_EditorClassIdentifier: 
+  npcName: Hopkins
+  npcPortrait: {fileID: 21300000, guid: 8db43aafda2d7e242b689b7f2d99d547, type: 3}

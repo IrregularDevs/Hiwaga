@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance => instance;
     public List<DialogueGroup> dialogueGroup = new List<DialogueGroup>();
     public DialogueGroup currentDialogueGroup;
+    public DialogueData currentDialogueData;
     public NPCDialogue currentDialogue;
 
     public GameObject dialoguePanel;
@@ -43,11 +44,12 @@ public class DialogueManager : MonoBehaviour
     public void BeginDialogue(NPC npc)
     {
         currentDialogueGroup = dialogueGroup.Find(x => x.npcName == npc.npcName);
-        if(currentDialogueGroup == null)
+        currentDialogueData = currentDialogueGroup.dialogue.Find(x => x.count == currentDialogueGroup.currentIndex);
+        currentDialogue = currentDialogueGroup.dialogue.Find(x => x.count == currentDialogueGroup.currentIndex).dialogue;
+        if (currentDialogueGroup == null)
         {
             Debug.Log("CurrentDialogueGroup is empty.");
         }
-        currentDialogue = currentDialogueGroup.dialogue.Find(x => x.count == currentDialogueGroup.currentIndex).dialogue;
         if (currentDialogue == null)
         {
             return;
@@ -67,8 +69,9 @@ public class DialogueManager : MonoBehaviour
         isdialogueActive = true;
         dialogueIndex = 0;
         dialoguePanel.SetActive(true);
-        nameText.text = currentDialogue.npcName[0];
-        portraitImage.sprite = currentDialogue.npcPortrait[0];
+        Debug.Log($"Player's name is {Player.Instance.playerName}.");
+        nameText.text = currentDialogue.characters[0].character.npcName.Replace("&name", Player.Instance.playerName);
+        portraitImage.sprite = currentDialogue.characters[0].character.npcPortrait;
         PauseManager.SetPause(true);
         StartCoroutine(TypeLine(npc));
     }
@@ -78,7 +81,7 @@ public class DialogueManager : MonoBehaviour
         if (isTyping)
         {
             StopAllCoroutines();
-            dialogueText.text = currentDialogue.dialogueLines[dialogueIndex];
+            dialogueText.text = currentDialogue.dialogueLines[dialogueIndex].dialogueLine.Replace("&name", Player.Instance.playerName);
             isTyping = false;
             return;
         }
@@ -86,15 +89,15 @@ public class DialogueManager : MonoBehaviour
         dialogueIndex++;
         if (dialogueIndex < currentDialogue.dialogueLines.Length)
         {
-            if (currentDialogue.dialogueSwitch[dialogueIndex])
+            foreach(NPCCharacterNumbered characterNumbered in currentDialogue.characters)
             {
-                nameText.text = currentDialogue.npcName[1];
-                portraitImage.sprite = currentDialogue.npcPortrait[1];
-            }
-            else
-            {
-                nameText.text = currentDialogue.npcName[0];
-                portraitImage.sprite = currentDialogue.npcPortrait[0];
+                if (currentDialogue.dialogueLines[dialogueIndex].dialogueSwitch == characterNumbered.id)
+                {
+                    Debug.Log($"Player's name is {Player.Instance.playerName}.");
+                    nameText.text = characterNumbered.character.npcName.Replace("&name", Player.Instance.playerName);
+                    portraitImage.sprite = characterNumbered.character.npcPortrait;
+                    break;
+                }
             }
             StartCoroutine(TypeLine(npc));
         }
@@ -108,8 +111,9 @@ public class DialogueManager : MonoBehaviour
     {
         isTyping = true;
         dialogueText.text = "";
-        string line = currentDialogue.dialogueLines[dialogueIndex];
-        foreach (char letter in currentDialogue.dialogueLines[dialogueIndex])
+        Debug.Log($"Player's name is {Player.Instance.playerName}.");
+        string line = currentDialogue.dialogueLines[dialogueIndex].dialogueLine.Replace("&name", Player.Instance.playerName);
+        foreach (char letter in currentDialogue.dialogueLines[dialogueIndex].dialogueLine.Replace("&name", Player.Instance.playerName))
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(0.05f); // Adjust typing speed here
@@ -130,6 +134,11 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         PauseManager.SetPause(false);
         dialogueIndex = 0;
+        currentDialogueData.isFinished = true;
+        if(!currentDialogueData.loops && currentDialogueData.isFinished)
+        {
+            currentDialogueGroup.currentIndex = currentDialogueData.nextIndex;
+        }
     }
 
     public void ChangeIndex(string name, int i)
