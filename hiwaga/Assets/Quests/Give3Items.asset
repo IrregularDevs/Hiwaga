@@ -22,5 +22,6 @@ MonoBehaviour:
   nextQuest: {fileID: 0}
   isLastQuest: 1
   progressesDialogue: 1
-  newIndex: 2
-  npc: Anthony
+  questStartIndex: 0
+  questEndIndex: 2
+  dialogueGroup: {fileID: 11400000, guid: ec987183d5f1441429bc1fd59b4a3587, type: 2}

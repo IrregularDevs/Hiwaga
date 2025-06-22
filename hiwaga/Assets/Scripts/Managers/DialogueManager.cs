@@ -4,19 +4,22 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
-
 public class DialogueManager : MonoBehaviour
 {
     private static DialogueManager instance;
     public static DialogueManager Instance => instance;
-    public List<DialogueGroup> dialogueGroup = new List<DialogueGroup>();
+
+    public DialogueGroup[] dialogueGroups;
+    public List<NPC> npcList = new List<NPC>();
     public DialogueGroup currentDialogueGroup;
     public DialogueData currentDialogueData;
     public NPCDialogue currentDialogue;
+    public NPC currentNPC;
 
     public GameObject dialoguePanel;
     public TMP_Text dialogueText, nameText;
     public Image portraitImage;
+
     public int dialogueIndex;
     public int dialogueDataIndex;
     public bool isdialogueActive, isTyping;
@@ -33,50 +36,49 @@ public class DialogueManager : MonoBehaviour
         yield return null;
     }
 
-    public void Start()
-    {
-        foreach(DialogueGroup group in dialogueGroup)
-        {
-            group.currentIndex = 0;
-        }
-    }
-
     public void BeginDialogue(NPC npc)
     {
-        currentDialogueGroup = dialogueGroup.Find(x => x.npcName == npc.npcName);
-        currentDialogueData = currentDialogueGroup.dialogue.Find(x => x.count == currentDialogueGroup.currentIndex);
-        currentDialogue = currentDialogueGroup.dialogue.Find(x => x.count == currentDialogueGroup.currentIndex).dialogue;
+        currentNPC = npc;
+        currentDialogueGroup = npc.GetDialogueGroup();
+        currentDialogueData = currentDialogueGroup.dialogue[npc.GetIndex()];
+        currentDialogue = currentDialogueData.dialogue;
+
         if (currentDialogueGroup == null)
         {
             Debug.Log("CurrentDialogueGroup is empty.");
         }
+        if (currentDialogueData == null)
+        {
+            Debug.Log("CurrentDialogueData is empty.");
+        }
         if (currentDialogue == null)
         {
+            Debug.Log("CurrentDialogueData is empty.");
             return;
         }
         if (isdialogueActive)
         {
-            nextLine(npc);
+            nextLine();
         }
         else
         {
-            StartDialogue(npc);
+            StartDialogue();
         }
     }
 
-    void StartDialogue(NPC npc)
+    void StartDialogue()
     {
         isdialogueActive = true;
         dialogueIndex = 0;
         dialoguePanel.SetActive(true);
         Debug.Log($"Player's name is {Player.Instance.playerName}.");
-        nameText.text = currentDialogue.characters[0].character.npcName.Replace("&name", Player.Instance.playerName);
-        portraitImage.sprite = currentDialogue.characters[0].character.npcPortrait;
+        nameText.text = currentDialogue.dialogueLines[0].character.npcName.Replace("&name", Player.Instance.playerName);
+        portraitImage.sprite = currentDialogue.dialogueLines[0].character.npcPortrait;
         PauseManager.SetPause(true);
-        StartCoroutine(TypeLine(npc));
+        StartCoroutine(TypeLine());
     }
 
-    void nextLine(NPC npc)
+    void nextLine()
     {
         if (isTyping)
         {
@@ -89,25 +91,18 @@ public class DialogueManager : MonoBehaviour
         dialogueIndex++;
         if (dialogueIndex < currentDialogue.dialogueLines.Length)
         {
-            foreach(NPCCharacterNumbered characterNumbered in currentDialogue.characters)
-            {
-                if (currentDialogue.dialogueLines[dialogueIndex].dialogueSwitch == characterNumbered.id)
-                {
-                    Debug.Log($"Player's name is {Player.Instance.playerName}.");
-                    nameText.text = characterNumbered.character.npcName.Replace("&name", Player.Instance.playerName);
-                    portraitImage.sprite = characterNumbered.character.npcPortrait;
-                    break;
-                }
-            }
-            StartCoroutine(TypeLine(npc));
+            Debug.Log($"Player's name is {Player.Instance.playerName}.");
+            nameText.text = currentDialogue.dialogueLines[dialogueIndex].character.npcName.Replace("&name", Player.Instance.playerName);
+            portraitImage.sprite = currentDialogue.dialogueLines[dialogueIndex].character.npcPortrait;
+            StartCoroutine(TypeLine());
         }
         else
         {
-            EndDialogue(npc);
+            EndDialogue();
         }
     }
 
-    IEnumerator TypeLine(NPC npc)
+    IEnumerator TypeLine()
     {
         isTyping = true;
         dialogueText.text = "";
@@ -122,27 +117,32 @@ public class DialogueManager : MonoBehaviour
         if (currentDialogue.autoProgressLines.Length > dialogueIndex && currentDialogue.autoProgressLines[dialogueIndex])
         {
             yield return new WaitForSeconds(currentDialogue.autoProgressDelay);
-            nextLine(npc);
+            nextLine();
         }
     }
 
 
-    public void EndDialogue(NPC npc)
+    public void EndDialogue()
     {
         StopAllCoroutines();
         isdialogueActive = false;
         dialoguePanel.SetActive(false);
         PauseManager.SetPause(false);
         dialogueIndex = 0;
-        currentDialogueData.isFinished = true;
-        if(!currentDialogueData.loops && currentDialogueData.isFinished)
+        if(!currentDialogue.loops)
         {
-            currentDialogueGroup.currentIndex = currentDialogueData.nextIndex;
+            currentNPC.SetIndex(currentDialogueData.nextIndex);
         }
     }
 
-    public void ChangeIndex(string name, int i)
+    public void ChangeIndex(DialogueGroup dGroup, int newIndex)
     {
-        dialogueGroup.Find(x => x.npcName == name).ChangeIndex(i);
+        foreach(NPC npc in npcList)
+        {
+            if(npc.GetDialogueGroup() == dGroup)
+            {
+                npc.SetIndex(newIndex);
+            }
+        }
     }
 }

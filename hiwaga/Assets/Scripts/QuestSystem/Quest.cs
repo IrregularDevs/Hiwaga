@@ -14,8 +14,9 @@ public class Quest : ScriptableObject
     public static QuestFinishCallback onQuestComplete;
 
     public bool progressesDialogue;
-    public int newIndex;
-    public string npc;
+    public int questStartIndex;
+    public int questEndIndex;
+    public DialogueGroup dialogueGroup;
      
 
     public void FinishQuest()
@@ -44,11 +45,19 @@ public class Quest : ScriptableObject
         Debug.Log("EmptyQuest virtual method called.");
     }
 
-    public void ProgressDialogue()
+    public void ProgressDialogueQuestStart()
     {
         if(progressesDialogue)
         {
-            DialogueManager.Instance.ChangeIndex(npc, newIndex);
+            DialogueManager.Instance.ChangeIndex(dialogueGroup, questStartIndex);
+        }
+    }
+
+    public void ProgressDialogueQuestEnd()
+    {
+        if (progressesDialogue)
+        {
+            DialogueManager.Instance.ChangeIndex(dialogueGroup, questEndIndex);
         }
     }
 }

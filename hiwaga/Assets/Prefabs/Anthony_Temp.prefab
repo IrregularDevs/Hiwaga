@@ -260,8 +260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e415e7f0db37241889c0dfea463268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueData: []
+  npcDialogue: {fileID: 11400000, guid: ec987183d5f1441429bc1fd59b4a3587, type: 2}
   npcName: Anthony
+  index: 0
 --- !u!114 &2371998476475437785
 MonoBehaviour:
   m_ObjectHideFlags: 0

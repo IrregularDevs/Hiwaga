@@ -4,21 +4,22 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-[System.Serializable]
-public class DialogueData
-{
-    public NPCDialogue dialogue;
-    public int count;
-    public int nextIndex;
-    public bool loops;
-    public bool isFinished;
-}
-
 public class NPC : MonoBehaviour, IInteractable
 {
-    public string npcName;
+    [SerializeField] private DialogueGroup npcDialogue;
+    [SerializeField] private int index;
 
-    
+    private void Awake()
+    {
+        StartCoroutine(AwakeAsync());
+    }
+
+    IEnumerator AwakeAsync()
+    {
+        DialogueManager.Instance.npcList.Add(this);
+        yield return null;
+    }
+
     public bool canInteract()
     {
         return !DialogueManager.Instance.isdialogueActive;
@@ -29,7 +30,21 @@ public class NPC : MonoBehaviour, IInteractable
         DialogueManager.Instance.BeginDialogue(this);
     }
 
+    public int GetIndex()
+    {
+        return index;
+    }
 
+    public void SetIndex(int i)
+    {
+        Debug.Log("Index changed");
+        index = i;
+    }
+
+    public DialogueGroup GetDialogueGroup()
+    {
+        return npcDialogue;
+    }
 
     public void enterPrompt()
     {

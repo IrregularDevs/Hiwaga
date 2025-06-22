@@ -11,7 +11,7 @@ public class GiveQuest : Quest
     {
         goal.completed = false;
         goal.currentAmount = 0;
-        onQuestComplete += ProgressDialogue;
+        onQuestComplete += ProgressDialogueQuestEnd;
         Debug.Log("InitializeQuest override method called.");
         if (Player.onQuestAdd == null)
         {

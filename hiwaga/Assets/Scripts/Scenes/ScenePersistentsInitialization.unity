@@ -2940,10 +2940,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9472455daff2bfc4d9c855bbce492b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueGroup:
+  dialogueGroups:
   - {fileID: 11400000, guid: ec987183d5f1441429bc1fd59b4a3587, type: 2}
+  npcList: []
   currentDialogueGroup: {fileID: 0}
+  currentDialogueData:
+    dialogue: {fileID: 0}
+    nextIndex: 0
   currentDialogue: {fileID: 0}
+  currentNPC: {fileID: 0}
   dialoguePanel: {fileID: 1276876960}
   dialogueText: {fileID: 1248680612}
   nameText: {fileID: 523264480}

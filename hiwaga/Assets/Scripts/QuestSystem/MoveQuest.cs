@@ -22,10 +22,9 @@ public class MoveQuest : Quest
     {
         isTouched = false;
         goal.currentAmount = 0;
-        Debug.Log("InitializeQuest override method called.");
         Player.onQuestAdd = ProgressUpdate;
         Player.onCollision += ProgressUpdate;
-        onQuestComplete += ProgressDialogue;
+        onQuestComplete += ProgressDialogueQuestEnd;
         if (Player.onQuestAdd == null)
         {
             Debug.Log("onQuestAdd is empty.");
@@ -34,7 +33,6 @@ public class MoveQuest : Quest
 
     public override void EmptyQuest()
     {
-        Debug.Log("EmptyQuest override method called.");
         Player.onCollision -= ProgressUpdate;
         onQuestComplete = null;
         if (!isLastQuest)
