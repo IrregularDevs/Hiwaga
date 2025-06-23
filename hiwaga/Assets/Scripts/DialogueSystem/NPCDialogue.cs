@@ -9,6 +9,4 @@ public class NPCDialogue : ScriptableObject
     public bool[] autoProgressLines;
     public float autoProgressDelay = 2f; // Time in seconds before automatically progressing to the next line
     public bool loops;
-    public bool givesQuest;
-    public Quest questToGive;
 }

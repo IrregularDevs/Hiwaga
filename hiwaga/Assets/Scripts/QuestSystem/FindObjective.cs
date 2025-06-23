@@ -1,19 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class FindQuestObjective : MonoBehaviour, IInteractable
+public class FindObjective : MonoBehaviour, IInteractable
 {
     private bool playerInRange = false;
     private bool isHiding = false;
 
     [SerializeField] private Transform[] hideSpots;
     [SerializeField] private float hideDelay = 1.0f; // Delay before hiding again
-    [SerializeField] private FindQuest findQuest;
 
     private void Start()
     {
         HideInRandomSpot();
-        gameObject.SetActive(false);
     }
 
     public void Interact()
@@ -22,8 +20,7 @@ public class FindQuestObjective : MonoBehaviour, IInteractable
 
         Debug.Log("You found Hopkins!");
 
-        // Progress the quest
-        findQuest.ProgressUpdate();
+        Player.onQuestAdd?.Invoke(); // Progress the quest
 
         StartCoroutine(HideAgain());
     }
@@ -53,10 +50,6 @@ public class FindQuestObjective : MonoBehaviour, IInteractable
         }
 
         int index = Random.Range(0, hideSpots.Length);
-        while(hideSpots[index].position == transform.position)
-        {
-            index = Random.Range(0, hideSpots.Length);
-        }
         transform.position = hideSpots[index].position;
         gameObject.SetActive(true);
         isHiding = false;

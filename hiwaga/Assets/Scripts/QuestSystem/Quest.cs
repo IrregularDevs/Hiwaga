@@ -8,15 +8,10 @@ public class Quest : ScriptableObject
     public string title;
     public string description;
     public QuestGoal goal;
-
     public Quest nextQuest;
     public bool isLastQuest;
-
     public delegate void QuestFinishCallback();
     public static QuestFinishCallback onQuestComplete;
-
-    public delegate void QuestAddCallback();
-    public QuestAddCallback onQuestAccept;
 
     public bool progressesDialogue;
     public int questStartIndex;

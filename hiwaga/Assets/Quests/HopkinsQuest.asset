@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 791c6c70ec343ee41898259d1ccb5ae6, type: 3}
-  m_Name: HideAndSeek
+  m_Name: HopkinsQuest
   m_EditorClassIdentifier: 
-  title: Find Hopkins
-  description: Just try and find me!
+  title: Find Me hehe....
+  description: 
   goal:
-    goalType: 3
+    goalType: 0
     completed: 0
     requiredAmount: 3
     currentAmount: 0
   nextQuest: {fileID: 0}
-  isLastQuest: 1
+  isLastQuest: 0
   progressesDialogue: 1
-  questStartIndex: 0
-  questEndIndex: 0
-  dialogueGroup: {fileID: 11400000, guid: b2f9bd60f32d23e4f90cac0671c26542, type: 2}
+  newIndex: 2
+  npc: Hopkins

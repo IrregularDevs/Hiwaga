@@ -71,5 +71,3 @@ MonoBehaviour:
   autoProgressLines: 00
   autoProgressDelay: 2
   loops: 0
-  givesQuest: 1
-  questToGive: {fileID: 11400000, guid: e298ad6932de3ab4aafb19b4a770a4ba, type: 2}

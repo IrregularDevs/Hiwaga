@@ -19653,7 +19653,6 @@ MonoBehaviour:
   - {fileID: 1068925724}
   - {fileID: 1533832483}
   hideDelay: 1
-  findQuest: {fileID: 0}
 --- !u!1 &491221565
 GameObject:
   m_ObjectHideFlags: 0
@@ -22398,9 +22397,7 @@ GameObject:
   - component: {fileID: 694652913}
   - component: {fileID: 694652912}
   - component: {fileID: 694652911}
-  - component: {fileID: 694652916}
   - component: {fileID: 694652914}
-  - component: {fileID: 694652915}
   m_Layer: 0
   m_Name: hopkins Temp
   m_TagString: Interactable
@@ -41009,10 +41006,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 897737952}
     m_Modifications:
-    - target: {fileID: 2371998476475437785, guid: b6b2eb67db8e82d4faaa55fd4ef4ff09, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2548753878395149971, guid: b6b2eb67db8e82d4faaa55fd4ef4ff09, type: 3}
       propertyPath: m_LocalPosition.x
       value: 40.216675
