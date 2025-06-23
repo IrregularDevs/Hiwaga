@@ -210,7 +210,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 60
-  gravity: -9.81
+  sprintMultiplier: 3
+  jumpForce: 2
+  gravity: -20
   rotationSpeed: 10
   cameraTransform: {fileID: 0}
   groundMask:
@@ -246,6 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quests: []
   items: []
+  playerName: 
 --- !u!65 &2004436980215199403
 BoxCollider:
   m_ObjectHideFlags: 0

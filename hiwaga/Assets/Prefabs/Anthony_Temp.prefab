@@ -123,11 +123,10 @@ GameObject:
   - component: {fileID: 8365162528696733224}
   - component: {fileID: 6933364712244451670}
   - component: {fileID: 6087697736875995711}
-  - component: {fileID: 8062519919027491132}
-  - component: {fileID: 2371998476475437785}
-  - component: {fileID: 5863140673082795863}
   - component: {fileID: 651513487238857543}
   - component: {fileID: 4050863419361652530}
+  - component: {fileID: 5863140673082795863}
+  - component: {fileID: 8062519919027491132}
   m_Layer: 0
   m_Name: Anthony_Temp
   m_TagString: Interactable
@@ -248,54 +247,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.001556, y: 3.5036664, z: 3.6511865}
   m_Center: {x: -0.102541685, y: -0.016869366, z: 0.18197846}
---- !u!114 &8062519919027491132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3391222637799694005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7e415e7f0db37241889c0dfea463268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcDialogue: {fileID: 11400000, guid: ec987183d5f1441429bc1fd59b4a3587, type: 2}
-  npcName: Anthony
-  index: 0
---- !u!114 &2371998476475437785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3391222637799694005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4f68a5d8a286e74fa8424add134dee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest:
-  - {fileID: 11400000, guid: e298ad6932de3ab4aafb19b4a770a4ba, type: 2}
-  repeatable: 0
-  hasFinished: 0
-  timesAccepted: 0
-  maxAccepts: 1
-  autoGive: 0
-  isActive: 0
---- !u!114 &5863140673082795863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3391222637799694005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2c53bd95833bea40bbe5926592e05ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest: {fileID: 11400000, guid: 9b04da2dfb0db294e964da92b91f33bb, type: 2}
 --- !u!114 &651513487238857543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,3 +288,30 @@ MonoBehaviour:
   quest: {fileID: 11400000, guid: a8d650c3ef885494f876ea7edd53e4bc, type: 2}
   receiver: {fileID: 651513487238857543}
   goal: 1
+--- !u!114 &5863140673082795863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3391222637799694005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2c53bd95833bea40bbe5926592e05ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 11400000, guid: 9b04da2dfb0db294e964da92b91f33bb, type: 2}
+--- !u!114 &8062519919027491132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3391222637799694005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e415e7f0db37241889c0dfea463268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcDialogue: {fileID: 11400000, guid: ec987183d5f1441429bc1fd59b4a3587, type: 2}
+  index: 0

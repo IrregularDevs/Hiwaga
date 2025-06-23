@@ -26,6 +26,7 @@ public class GiveQuest : Quest
     public override void EmptyQuest()
     {
         Debug.Log("EmptyQuest override method called.");
+        onQuestComplete -= ProgressDialogueQuestEnd;
         if (!isLastQuest)
         {
             QuestManager.Instance.AddQuest(nextQuest);

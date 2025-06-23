@@ -34,7 +34,7 @@ public class MoveQuest : Quest
     public override void EmptyQuest()
     {
         Player.onCollision -= ProgressUpdate;
-        onQuestComplete = null;
+        onQuestComplete -= ProgressDialogueQuestEnd;
         if (!isLastQuest)
         {
             QuestManager.Instance.AddQuest(nextQuest);

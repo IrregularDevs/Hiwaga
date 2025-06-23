@@ -56,6 +56,7 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("CurrentDialogueData is empty.");
             return;
         }
+
         if (isdialogueActive)
         {
             nextLine();
@@ -70,28 +71,29 @@ public class DialogueManager : MonoBehaviour
     {
         isdialogueActive = true;
         dialogueIndex = 0;
+
         dialoguePanel.SetActive(true);
-        Debug.Log($"Player's name is {Player.Instance.playerName}.");
         nameText.text = currentDialogue.dialogueLines[0].character.npcName.Replace("&name", Player.Instance.playerName);
         portraitImage.sprite = currentDialogue.dialogueLines[0].character.npcPortrait;
+
         PauseManager.SetPause(true);
         StartCoroutine(TypeLine());
     }
 
     void nextLine()
     {
+        StopAllCoroutines();
         if (isTyping)
         {
-            StopAllCoroutines();
             dialogueText.text = currentDialogue.dialogueLines[dialogueIndex].dialogueLine.Replace("&name", Player.Instance.playerName);
             isTyping = false;
+            StartCoroutine(NextLine());
             return;
         }
 
         dialogueIndex++;
         if (dialogueIndex < currentDialogue.dialogueLines.Length)
         {
-            Debug.Log($"Player's name is {Player.Instance.playerName}.");
             nameText.text = currentDialogue.dialogueLines[dialogueIndex].character.npcName.Replace("&name", Player.Instance.playerName);
             portraitImage.sprite = currentDialogue.dialogueLines[dialogueIndex].character.npcPortrait;
             StartCoroutine(TypeLine());
@@ -106,19 +108,17 @@ public class DialogueManager : MonoBehaviour
     {
         isTyping = true;
         dialogueText.text = "";
-        Debug.Log($"Player's name is {Player.Instance.playerName}.");
         string line = currentDialogue.dialogueLines[dialogueIndex].dialogueLine.Replace("&name", Player.Instance.playerName);
+
         foreach (char letter in currentDialogue.dialogueLines[dialogueIndex].dialogueLine.Replace("&name", Player.Instance.playerName))
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(0.05f); // Adjust typing speed here
         }
+
         isTyping = false;
-        if (currentDialogue.autoProgressLines.Length > dialogueIndex && currentDialogue.autoProgressLines[dialogueIndex])
-        {
-            yield return new WaitForSeconds(currentDialogue.autoProgressDelay);
-            nextLine();
-        }
+        yield return new WaitForSeconds(currentDialogue.autoProgressDelayFast);
+        nextLine();
     }
 
 
@@ -129,9 +129,14 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         PauseManager.SetPause(false);
         dialogueIndex = 0;
+
         if(!currentDialogue.loops)
         {
-            currentNPC.SetIndex(currentDialogueData.nextIndex);
+            ChangeIndex(currentDialogueGroup, currentDialogueData.nextIndex);
+            if(currentDialogue.questToGive != null)
+            {
+                QuestManager.Instance.AddQuest(currentDialogue.questToGive);
+            }
         }
     }
 
@@ -144,5 +149,11 @@ public class DialogueManager : MonoBehaviour
                 npc.SetIndex(newIndex);
             }
         }
+    }
+
+    public IEnumerator NextLine()
+    {
+        yield return new WaitForSeconds(currentDialogue.autoProgressDelaySlow);
+        nextLine();
     }
 }

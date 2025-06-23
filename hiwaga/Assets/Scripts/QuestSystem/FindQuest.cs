@@ -16,15 +16,14 @@ public class FindQuest : Quest
     public override void InitializeQuest()
     {
         goal.currentAmount = 0;
-        Player.onQuestAdd = ProgressUpdate;
+        Player.onQuestAdd = onQuestAdd;
         onQuestComplete += ProgressDialogueQuestEnd;
         Debug.Log("FindQuest Initialized");
     }
 
     public override void EmptyQuest()
     {
-        Player.onQuestAdd = null;
-        onQuestComplete = null;
+        onQuestComplete -= ProgressDialogueQuestEnd;
 
         if (!isLastQuest)
         {

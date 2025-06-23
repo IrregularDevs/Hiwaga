@@ -13,7 +13,6 @@ public class GiveQuestObjective : MonoBehaviour
             quest.goal.completed = true;
             quest.goal.currentAmount = 1;
             quest.FinishQuest();
-            quest.EmptyQuest();
         }
     }
 }

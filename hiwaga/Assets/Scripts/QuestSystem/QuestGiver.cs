@@ -56,7 +56,7 @@ public class QuestGiver : MonoBehaviour, IInteractable
         foreach (Quest quest in quest)
         {
             QuestManager.Instance.AddQuest(quest);
-            Quest.onQuestComplete += OnQuestFinish;
+            quest.onQuestComplete += OnQuestFinish;
         }
         timesAccepted++;
         isActive = true;

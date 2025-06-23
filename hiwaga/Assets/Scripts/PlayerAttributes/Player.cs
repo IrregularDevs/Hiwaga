@@ -71,7 +71,6 @@ public class Player : MonoBehaviour
             foreach(IInteractable interactable in other.gameObject.GetComponents<IInteractable>())
             {
                 i++;
-                Debug.Log(i);
                 onInteract += interactable.Interact;
             }
         }
@@ -108,7 +107,6 @@ public class Player : MonoBehaviour
             foreach (IInteractable interactable in other.gameObject.GetComponents<IInteractable>())
             {
                 i++;
-                Debug.Log(i);
                 onInteract -= interactable.Interact;
             }
         }

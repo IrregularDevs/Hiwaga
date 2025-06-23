@@ -8,16 +8,19 @@ public class Quest : ScriptableObject
     public string title;
     public string description;
     public QuestGoal goal;
+
     public Quest nextQuest;
     public bool isLastQuest;
+
     public delegate void QuestFinishCallback();
-    public static QuestFinishCallback onQuestComplete;
+    public QuestFinishCallback onQuestComplete;
 
     public bool progressesDialogue;
     public int questStartIndex;
     public int questEndIndex;
     public DialogueGroup dialogueGroup;
-     
+
+    public QuestUpdateCallback onQuestAdd;
 
     public void FinishQuest()
     {
@@ -55,6 +58,7 @@ public class Quest : ScriptableObject
 
     public void ProgressDialogueQuestEnd()
     {
+        Debug.Log("Progressing Dialogue.");
         if (progressesDialogue)
         {
             DialogueManager.Instance.ChangeIndex(dialogueGroup, questEndIndex);

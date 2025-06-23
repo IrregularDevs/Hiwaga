@@ -1,28 +1,31 @@
 using UnityEngine;
 using System.Collections;
 
-public class FindObjective : MonoBehaviour, IInteractable
+public class FindQuestObjective : MonoBehaviour, IInteractable
 {
     private bool playerInRange = false;
     private bool isHiding = false;
 
     [SerializeField] private Transform[] hideSpots;
     [SerializeField] private float hideDelay = 1.0f; // Delay before hiding again
+    [SerializeField] private FindQuest findQuest;
 
     private void Start()
     {
-        HideInRandomSpot();
+        findQuest.onQuestAdd = HideInRandomSpot;
     }
 
     public void Interact()
     {
-        if (!canInteract()) return;
-
         Debug.Log("You found Hopkins!");
 
-        Player.onQuestAdd?.Invoke(); // Progress the quest
+        if (Player.Instance.quests.Contains(findQuest))
+        {
+            Debug.Log("Progressing quest.");
 
-        StartCoroutine(HideAgain());
+            findQuest.ProgressUpdate(); // Progress the quest
+            StartCoroutine(HideAgain());
+        }
     }
 
     public void enterPrompt()
@@ -62,14 +65,9 @@ public class FindObjective : MonoBehaviour, IInteractable
         // Optional: play a particle effect or disappear animation here
         Debug.Log("Hopkins is hiding again...");
 
-        gameObject.SetActive(false);
-
-        yield return new WaitForSeconds(hideDelay);
-
         // Check if the quest is still incomplete before hiding again
-        Quest currentQuest = Player.Instance.quests.Find(q => q.title == "Find Me hehe....");
 
-        if (currentQuest != null && !currentQuest.goal.completed)
+        if (Player.Instance.quests.Contains(findQuest))
         {
             HideInRandomSpot(); // Hide again in a new place
         }
@@ -77,5 +75,8 @@ public class FindObjective : MonoBehaviour, IInteractable
         {
             Debug.Log("Hopkins has been found enough times. Quest complete.");
         }
+
+        yield return null;
+
     }
 }

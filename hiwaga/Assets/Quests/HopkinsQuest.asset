@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791c6c70ec343ee41898259d1ccb5ae6, type: 3}
   m_Name: HopkinsQuest
   m_EditorClassIdentifier: 
-  title: Find Me hehe....
-  description: 
+  title: Find Hopkins
+  description: He shouldn't have gone too far from where we first spoke.
   goal:
-    goalType: 0
-    completed: 0
+    goalType: 3
+    completed: 1
     requiredAmount: 3
     currentAmount: 0
   nextQuest: {fileID: 0}
-  isLastQuest: 0
+  isLastQuest: 1
   progressesDialogue: 1
-  newIndex: 2
-  npc: Hopkins
+  questStartIndex: 0
+  questEndIndex: 2
+  dialogueGroup: {fileID: 11400000, guid: be64c07e84575174ebc4dcc8f2c0cf5c, type: 2}

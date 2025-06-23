@@ -89,7 +89,7 @@ public class CollectQuest : Quest
     {
         Debug.Log("EmptyQuest override method called.");
         Player.onInventoryUpdate -= ItemCheck;
-        onQuestComplete = null;
+        onQuestComplete -= ProgressDialogueQuestEnd;
         if(!isLastQuest)
         {
             QuestManager.Instance.AddQuest(nextQuest);
