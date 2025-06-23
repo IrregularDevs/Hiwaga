@@ -3,7 +3,8 @@
 public class CharacterController3D : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float sprintMultiplier = 1.5f; // Sprint speed multiplier
+    public float sprintMultiplier = 1.5f;
+    public float jumpForce = 5f; // Added
     public float gravity = -9.81f;
     public float rotationSpeed = 10f;
 
@@ -34,16 +35,17 @@ public class CharacterController3D : MonoBehaviour
             return;
         }
 
+        // Check if grounded
         isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
 
         if (isGrounded && velocity.y < 0f)
-            velocity.y = -0.1f;
+            velocity.y = -2f; // Small negative to keep grounded
 
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
         Vector3 inputDirection = new Vector3(moveX, 0f, moveZ).normalized;
 
-        // Detect sprint input
+        // Sprinting
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
         float currentSpeed = isSprinting ? moveSpeed * sprintMultiplier : moveSpeed;
 
@@ -68,7 +70,16 @@ public class CharacterController3D : MonoBehaviour
             CurrentMoveDirection = Vector3.zero;
         }
 
+        // Jumping
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+        }
+
+        // Apply gravity
         velocity.y += gravity * Time.deltaTime;
+
+        // Apply vertical movement
         controller.Move(velocity * Time.deltaTime);
     }
 }
