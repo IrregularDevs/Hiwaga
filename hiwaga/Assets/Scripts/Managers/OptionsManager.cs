@@ -9,8 +9,8 @@ public class OptionsManager : MonoBehaviour
     private static OptionsManager instance;
     public static OptionsManager Instance => instance;
 
-    [SerializeField] private GameObject mainMenu, inGameMenu, volumeMenu;
-    [SerializeField] private Slider masterVol, musicVol, sfxVol;
+    [SerializeField] private GameObject inGameMenu, buttonPause;
+    [SerializeField] private Slider masterVolMain, masterVolInGame, musicVolMain, musicVolInGame, sfxVolMain, sfxVolInGame;
     [SerializeField] private AudioMixer mainAudioMixer;
 
     private void Awake()
@@ -32,12 +32,16 @@ public class OptionsManager : MonoBehaviour
 
     private void Start()
     {
+
         mainAudioMixer.SetFloat("Vol_Master", ClampLog(PlayerPrefs.GetFloat("Vol_Master", 1.0f)));
         mainAudioMixer.SetFloat("Vol_Music", ClampLog(PlayerPrefs.GetFloat("Vol_Music", 1.0f)));
         mainAudioMixer.SetFloat("Vol_SFX", ClampLog(PlayerPrefs.GetFloat("Vol_SFX", 1.0f)));
-        masterVol.value = PlayerPrefs.GetFloat("Vol_Master", 1.0f);
-        musicVol.value = PlayerPrefs.GetFloat("Vol_Music", 1.0f);
-        sfxVol.value = PlayerPrefs.GetFloat("Vol_SFX", 1.0f);
+        masterVolMain.value = PlayerPrefs.GetFloat("Vol_Master", 1.0f);
+        masterVolInGame.value = PlayerPrefs.GetFloat("Vol_Master", 1.0f);
+        musicVolMain.value = PlayerPrefs.GetFloat("Vol_Music", 1.0f);
+        musicVolInGame.value = PlayerPrefs.GetFloat("Vol_Music", 1.0f);
+        sfxVolMain.value = PlayerPrefs.GetFloat("Vol_SFX", 1.0f);
+        sfxVolInGame.value = PlayerPrefs.GetFloat("Vol_SFX", 1.0f);
     }
 
     public void ShowGameObject(GameObject element)
@@ -50,24 +54,68 @@ public class OptionsManager : MonoBehaviour
         element.SetActive(false);
     }
 
-    public void ChangeMasterVol()
+    public void ChangeMasterVolMain()
     {
-        mainAudioMixer.SetFloat("Vol_Master", ClampLog(masterVol.value));
-        PlayerPrefs.SetFloat("Vol_Master", masterVol.value);
+        mainAudioMixer.SetFloat("Vol_Master", ClampLog(masterVolMain.value));
+        PlayerPrefs.SetFloat("Vol_Master", masterVolMain.value);
         PlayerPrefs.Save();
+        masterVolInGame.value = PlayerPrefs.GetFloat("Vol_Master", 1.0f);
     }
 
-    public void ChangeMusicVol()
+    public void ChangeMasterVolInGame()
     {
-        mainAudioMixer.SetFloat("Vol_Music", ClampLog(musicVol.value));
-        PlayerPrefs.SetFloat("Vol_Music", musicVol.value);
+        mainAudioMixer.SetFloat("Vol_Master", ClampLog(masterVolInGame.value));
+        PlayerPrefs.SetFloat("Vol_Master", masterVolInGame.value);
         PlayerPrefs.Save();
+        masterVolMain.value = PlayerPrefs.GetFloat("Vol_Master", 1.0f);
     }
 
-    public void ChangeSFXVol()
+    public void ChangeMusicVolMain()
     {
-        mainAudioMixer.SetFloat("Vol_SFX", ClampLog(sfxVol.value));
-        PlayerPrefs.SetFloat("Vol_SFX", sfxVol.value);
+        mainAudioMixer.SetFloat("Vol_Music", ClampLog(musicVolMain.value));
+        PlayerPrefs.SetFloat("Vol_Music", musicVolMain.value);
         PlayerPrefs.Save();
+        musicVolInGame.value = PlayerPrefs.GetFloat("Vol_Music", 1.0f);
+    }
+
+    public void ChangeMusicVolInGame()
+    {
+        mainAudioMixer.SetFloat("Vol_Music", ClampLog(musicVolInGame.value));
+        PlayerPrefs.SetFloat("Vol_Music", musicVolInGame.value);
+        PlayerPrefs.Save();
+        musicVolMain.value = PlayerPrefs.GetFloat("Vol_Music", 1.0f);
+    }
+
+    public void ChangeSFXVolMain()
+    {
+        mainAudioMixer.SetFloat("Vol_SFX", ClampLog(sfxVolMain.value));
+        PlayerPrefs.SetFloat("Vol_SFX", sfxVolMain.value);
+        PlayerPrefs.Save();
+        sfxVolInGame.value = PlayerPrefs.GetFloat("Vol_SFX", 1.0f);
+    }
+
+    public void ChangeSFXVolInGame()
+    {
+        mainAudioMixer.SetFloat("Vol_SFX", ClampLog(sfxVolInGame.value));
+        PlayerPrefs.SetFloat("Vol_SFX", sfxVolInGame.value);
+        PlayerPrefs.Save();
+        sfxVolMain.value = PlayerPrefs.GetFloat("Vol_SFX", 1.0f);
+    }
+
+    public void OpenCloseMenu(bool state)
+    {
+        inGameMenu.SetActive(state);
+        buttonPause.SetActive(!state);
+        QuestManager.Instance.ShowHidePanel(!state);
+    }
+
+    public bool GetMenuStateInHierarchy()
+    {
+        return inGameMenu.activeInHierarchy;
+    }
+
+    public bool GetMenuStateSelf()
+    {
+        return inGameMenu.activeSelf;
     }
 }

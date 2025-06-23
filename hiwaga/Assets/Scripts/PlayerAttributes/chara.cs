@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterController3D : MonoBehaviour
 {
@@ -81,5 +82,19 @@ public class CharacterController3D : MonoBehaviour
 
         // Apply vertical movement
         controller.Move(velocity * Time.deltaTime);
+
+        // In-game menu
+        if (Input.GetButtonDown("Esc") && SceneManager.GetActiveScene().name != "MainMenuUI")
+        {
+            OptionsManager.Instance.OpenCloseMenu(!OptionsManager.Instance.GetMenuStateSelf());
+            if(Cursor.lockState == CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
     }
 }

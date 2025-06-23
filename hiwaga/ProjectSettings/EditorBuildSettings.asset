@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scripts/Scenes/ScenePersistentsInitialization.unity
-    guid: 18722eff8b8adc647a1020584f9eeb88
-  - enabled: 1
-    path: Assets/Scripts/Scenes/MainMenu_SampleScene.unity
-    guid: 3eb42af1c91da724eaf7fc3721466bd6
+    path: Assets/Scripts/Scenes/MainMenuUI.unity
+    guid: 25a27feab32e3b4409ea8efa11b149bd
   - enabled: 1
     path: Assets/Scripts/Scenes/Book1_Test.unity
     guid: c60240277c04d014d8a0a94b00c42fb3
+  - enabled: 0
+    path: Assets/Scripts/Scenes/ScenePersistentsInitialization.unity
+    guid: 18722eff8b8adc647a1020584f9eeb88
+  - enabled: 0
+    path: Assets/Scripts/Scenes/MainMenu_SampleScene.unity
+    guid: 3eb42af1c91da724eaf7fc3721466bd6
   - enabled: 0
     path: Assets/Scripts/Scenes/Gallery_Stage_Blocking2.unity
     guid: b16635e1af7dc9c45b5e1819d39a8c79

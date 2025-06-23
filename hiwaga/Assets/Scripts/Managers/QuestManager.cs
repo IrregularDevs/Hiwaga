@@ -10,6 +10,7 @@ public class QuestManager : MonoBehaviour
 
     [SerializeField] private GameObject questPrefab;
     [SerializeField] private GameObject questTracker;
+    [SerializeField] private GameObject panelQuest;
     [SerializeField] private List<GameObject> quests = new List<GameObject>();
 
     private void Awake()
@@ -76,5 +77,10 @@ public class QuestManager : MonoBehaviour
         {
             return;
         }
+    }
+
+    public void ShowHidePanel(bool state)
+    {
+        panelQuest.SetActive(state);
     }
 }

@@ -1,12 +1,18 @@
 using UnityEngine;
+using System.Collections;
 
 public class GameInitialization : MonoBehaviour
 {
-    [Tooltip("The scene named \"ScenePersistentInitialization\" must be used. Use this to change which scene the initialization scene goes to next.")]
-    [SerializeField] private string sceneName;
-
-    private void Start()
+    private void Awake()
     {
-        ScreenManager.Instance.LoadScene(sceneName);
+        StartCoroutine(AwakeAsync());
+    }
+
+    IEnumerator AwakeAsync()
+    {
+        InventoryManager.Instance.ShowHidePanel(true);
+        QuestManager.Instance.ShowHidePanel(true);
+        OptionsManager.Instance.OpenCloseMenu(false);
+        yield return null;
     }
 }

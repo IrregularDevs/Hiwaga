@@ -10,6 +10,8 @@ public class InventoryManager : MonoBehaviour
     private static InventoryManager instance;
     public static InventoryManager Instance => instance;
 
+    [SerializeField] private GameObject panelInventory;
+
     public int maxStackedItems;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
@@ -231,4 +233,10 @@ public class InventoryManager : MonoBehaviour
         }
         return true;
     }
+
+    public void ShowHidePanel(bool state)
+    {
+        panelInventory.SetActive(state);
+    }
+
 }
