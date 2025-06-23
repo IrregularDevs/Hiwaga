@@ -173,7 +173,10 @@ public class InventoryManager : MonoBehaviour
         }
         if(isItemRemoved)
         {
-            receiver.ChangeUses(1);
+            if(receiver.onUse != null)
+            {
+                receiver.onUse();
+            }
         }
         else
         {

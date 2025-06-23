@@ -19580,79 +19580,6 @@ Transform:
   - {fileID: 912966904}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -112.201, z: 0}
---- !u!1 &487127453
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 487127454}
-  - component: {fileID: 487127456}
-  - component: {fileID: 487127455}
-  m_Layer: 8
-  m_Name: Hopkins_QuestTarget
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &487127454
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 487127453}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 694652909}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &487127455
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 487127453}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &487127456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 487127453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b960a571bab5474f970db9a712c5bcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hideSpots:
-  - {fileID: 2107398075}
-  - {fileID: 1068925724}
-  - {fileID: 1533832483}
-  hideDelay: 1
 --- !u!1 &491221565
 GameObject:
   m_ObjectHideFlags: 0
@@ -22397,7 +22324,10 @@ GameObject:
   - component: {fileID: 694652913}
   - component: {fileID: 694652912}
   - component: {fileID: 694652911}
+  - component: {fileID: 694652915}
   - component: {fileID: 694652914}
+  - component: {fileID: 694652916}
+  - component: {fileID: 694652917}
   m_Layer: 0
   m_Name: hopkins Temp
   m_TagString: Interactable
@@ -22417,8 +22347,7 @@ Transform:
   m_LocalPosition: {x: 155.72, y: -10.23, z: 2.21}
   m_LocalScale: {x: 2.1079, y: 2.1079, z: 2.1079}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 487127454}
+  m_Children: []
   m_Father: {fileID: 897737952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &694652911
@@ -22509,8 +22438,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf1d5bd515b6c848aa830462200686f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questToGive: {fileID: 11400000, guid: ba66dbdc0a394a14abc37e4edb150c7e, type: 2}
-  objectiveToHide: {fileID: 487127456}
+  findQuest: {fileID: 11400000, guid: ba66dbdc0a394a14abc37e4edb150c7e, type: 2}
+  objectiveToHide: {fileID: 694652916}
+--- !u!65 &694652915
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694652908}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.6869195, y: 2.558503, z: 2.4658303}
+  m_Center: {x: 0.045503464, y: 0.27925164, z: 0.09314239}
+--- !u!114 &694652916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694652908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b960a571bab5474f970db9a712c5bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideSpots:
+  - {fileID: 2107398075}
+  - {fileID: 1068925724}
+  - {fileID: 1533832483}
+  hideDelay: 1
+  findQuest: {fileID: 11400000, guid: ba66dbdc0a394a14abc37e4edb150c7e, type: 2}
+--- !u!114 &694652917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694652908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e415e7f0db37241889c0dfea463268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcDialogue: {fileID: 11400000, guid: be64c07e84575174ebc4dcc8f2c0cf5c, type: 2}
+  index: 0
 --- !u!1001 &695492113
 PrefabInstance:
   m_ObjectHideFlags: 0

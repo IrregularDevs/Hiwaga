@@ -51,8 +51,12 @@ public class FindQuestObjective : MonoBehaviour, IInteractable
             Debug.LogWarning("No hide spots assigned!");
             return;
         }
-
-        int index = Random.Range(0, hideSpots.Length);
+        int index;
+        do
+        {
+            index = Random.Range(0, hideSpots.Length);
+        }
+        while (hideSpots[index].position == transform.position);
         transform.position = hideSpots[index].position;
         gameObject.SetActive(true);
         isHiding = false;

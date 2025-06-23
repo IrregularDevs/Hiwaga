@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class ItemReceiver : ItemHolder, IInteractable
 {
+    public delegate void UseUpdateCallback();
+    public UseUpdateCallback onUse;
+
     public void enterPrompt()
     {
 
