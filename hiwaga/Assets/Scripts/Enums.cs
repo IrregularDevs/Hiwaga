@@ -4,7 +4,8 @@ public enum GoalType
 {
     Fetch,
     Move,
-    Give
+    Give,
+    Find
 }
 
 public enum QuestState

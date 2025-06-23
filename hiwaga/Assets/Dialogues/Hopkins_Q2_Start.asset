@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155f4c80966429842a894125a411ec78, type: 3}
+  m_Name: Hopkins_Q2_Start
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - dialogueLine: Greetings, stranger!
+    character: {fileID: 11400000, guid: d77960b3f720cd744b89a2ff8a9c71f8, type: 2}
+  - dialogueLine: Say! "Stranger" doesn't sound like such a good nickname for me
+      to give you!
+    character: {fileID: 11400000, guid: d77960b3f720cd744b89a2ff8a9c71f8, type: 2}
+  - dialogueLine: How abouts you give me your nickname instead? What say you?
+    character: {fileID: 11400000, guid: d77960b3f720cd744b89a2ff8a9c71f8, type: 2}
+  - dialogueLine: You can call me &name.
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+  - dialogueLine: Have you come to me with a need for play, &name?
+    character: {fileID: 11400000, guid: d77960b3f720cd744b89a2ff8a9c71f8, type: 2}
+  - dialogueLine: Yeah. You said you wanted to play hide and seek? I know how to
+      play, but...
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+  - dialogueLine: ...it's been a while since I've actually played it.
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+  - dialogueLine: Don't fret, &name. Playing a few games should jog your memory!
+    character: {fileID: 11400000, guid: d77960b3f720cd744b89a2ff8a9c71f8, type: 2}
+  typingSpeed: 0.05
+  autoProgressLines: 
+  autoProgressDelay: 2
+  loops: 0
+  givesQuest: 1
+  questToGive: {fileID: 11400000, guid: ba66dbdc0a394a14abc37e4edb150c7e, type: 2}

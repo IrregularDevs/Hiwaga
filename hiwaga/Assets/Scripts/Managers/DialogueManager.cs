@@ -133,6 +133,11 @@ public class DialogueManager : MonoBehaviour
         {
             currentNPC.SetIndex(currentDialogueData.nextIndex);
         }
+        if(currentDialogue.givesQuest)
+        {
+            Debug.Log("Quest given via Dialogue Manager.");
+            QuestManager.Instance.AddQuest(currentDialogue.questToGive);
+        }
     }
 
     public void ChangeIndex(DialogueGroup dGroup, int newIndex)

@@ -17,6 +17,7 @@ public class FindQuest : Quest
     {
         goal.currentAmount = 0;
         Player.onQuestAdd = ProgressUpdate;
+        onQuestAccept();
         onQuestComplete += ProgressDialogueQuestEnd;
         Debug.Log("FindQuest Initialized");
     }
