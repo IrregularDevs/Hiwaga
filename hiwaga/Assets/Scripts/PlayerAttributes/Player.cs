@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     IEnumerator AwakeAsync()
     {
         instance = this;
-        playerName = "Amongus";
+        playerName = "Muad'Dib";
         DontDestroyOnLoad(this.gameObject);
         yield return null;
     }
