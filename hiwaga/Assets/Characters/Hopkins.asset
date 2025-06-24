@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Hopkins
   m_EditorClassIdentifier: 
   npcName: Hopkins
-  npcPortrait: {fileID: 21300000, guid: 8db43aafda2d7e242b689b7f2d99d547, type: 3}
+  npcPortrait: {fileID: 1911075063, guid: 72ef62c1d6e9d61439e20ed94e11dca8, type: 3}

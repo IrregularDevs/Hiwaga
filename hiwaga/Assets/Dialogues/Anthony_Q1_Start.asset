@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Anthony_Q1_Start
   m_EditorClassIdentifier: 
   dialogueLines:
-  - dialogueLine: Why, hello there, &name!
+  - dialogueLine: Why, hello there!
     character: {fileID: 11400000, guid: 91991f78a633cb641974e2e07c0e10f7, type: 2}
   - dialogueLine: The name's Anthony! Welcome to my rice fields!
     character: {fileID: 11400000, guid: 91991f78a633cb641974e2e07c0e10f7, type: 2}
@@ -22,7 +22,7 @@ MonoBehaviour:
   - dialogueLine: Oh, e-r-r, I'm a bit lost and I've nowhere to stay for the storm.
     character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
   - dialogueLine: Hmm...I have some space to spare in my house, if you'd like to
-      stay for the night!
+      stay!
     character: {fileID: 11400000, guid: 91991f78a633cb641974e2e07c0e10f7, type: 2}
   - dialogueLine: But I'll need your hands doing some work, you up for it?
     character: {fileID: 11400000, guid: 91991f78a633cb641974e2e07c0e10f7, type: 2}
@@ -34,7 +34,7 @@ MonoBehaviour:
     character: {fileID: 11400000, guid: d77960b3f720cd744b89a2ff8a9c71f8, type: 2}
   - dialogueLine: Oh Anthony, working again! Do you ever rest?
     character: {fileID: 11400000, guid: d77960b3f720cd744b89a2ff8a9c71f8, type: 2}
-  - dialogueLine: Is "a rest" or "a break" even a thing to you?
+  - dialogueLine: Is "a rest" or "a break" even a thing for you?
     character: {fileID: 11400000, guid: d77960b3f720cd744b89a2ff8a9c71f8, type: 2}
   - dialogueLine: If not, let me introduce it to you! Let's play a few rounds of
       good ol' hide and seek!
@@ -51,7 +51,7 @@ MonoBehaviour:
     character: {fileID: 11400000, guid: d77960b3f720cd744b89a2ff8a9c71f8, type: 2}
   - dialogueLine: We will! Don't jump into a rock, Hopkins!
     character: {fileID: 11400000, guid: 91991f78a633cb641974e2e07c0e10f7, type: 2}
-  - dialogueLine: And don't get stuck in dewdrop, Anthony!
+  - dialogueLine: And don't get stuck in dew, Anthony!
     character: {fileID: 11400000, guid: d77960b3f720cd744b89a2ff8a9c71f8, type: 2}
   - dialogueLine: Now, onto business! All you have to do is collect a few grain,
       nuts, and rice and bring them back here to me.
