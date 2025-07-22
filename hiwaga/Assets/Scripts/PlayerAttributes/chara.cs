@@ -5,7 +5,7 @@ public class CharacterController3D : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float sprintMultiplier = 1.5f;
-    public float jumpForce = 5f; // Added
+    public float jumpForce = 5f;
     public float gravity = -9.81f;
     public float rotationSpeed = 10f;
 
@@ -13,6 +13,7 @@ public class CharacterController3D : MonoBehaviour
     public LayerMask groundMask;
     public float groundCheckDistance = 0.2f;
     public bool canMove = true;
+    public bool enableJump = false; // Toggle jump in Inspector
 
     public Vector3 CurrentMoveDirection { get; private set; }
 
@@ -36,17 +37,17 @@ public class CharacterController3D : MonoBehaviour
             return;
         }
 
-        // Check if grounded
+        // Ground check
         isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
 
         if (isGrounded && velocity.y < 0f)
-            velocity.y = -2f; // Small negative to keep grounded
+            velocity.y = -2f;
 
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
         Vector3 inputDirection = new Vector3(moveX, 0f, moveZ).normalized;
 
-        // Sprinting
+        // Movement speed (sprint toggle)
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
         float currentSpeed = isSprinting ? moveSpeed * sprintMultiplier : moveSpeed;
 
@@ -63,6 +64,7 @@ public class CharacterController3D : MonoBehaviour
 
             controller.Move(moveDirection * currentSpeed * Time.deltaTime);
 
+            // Rotation (unaffected by sprinting)
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
@@ -71,30 +73,24 @@ public class CharacterController3D : MonoBehaviour
             CurrentMoveDirection = Vector3.zero;
         }
 
-        // Jumping
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        // Jump (toggleable)
+        if (enableJump && Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         }
 
-        // Apply gravity
+        // Gravity application
         velocity.y += gravity * Time.deltaTime;
-
-        // Apply vertical movement
         controller.Move(velocity * Time.deltaTime);
 
-        // In-game menu
+        // In-game menu toggle (ESC)
         if (Input.GetButtonDown("Esc") && SceneManager.GetActiveScene().name != "MainMenuUI")
         {
             OptionsManager.Instance.OpenCloseMenu(!OptionsManager.Instance.GetMenuStateSelf());
-            if(Cursor.lockState == CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+
+            Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked)
+                ? CursorLockMode.None
+                : CursorLockMode.Locked;
         }
     }
 }
