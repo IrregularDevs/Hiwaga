@@ -22,16 +22,6 @@ public class OptionsManager : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
-        yield return null;
-    }
-
-    private float ClampLog(float vol)
-    {
-        return Mathf.Clamp(Mathf.Log10(vol) * 20.0f, -80.0f, 20.0f);
-    }
-
-    private void Start()
-    {
 
         mainAudioMixer.SetFloat("Vol_Master", ClampLog(PlayerPrefs.GetFloat("Vol_Master", 1.0f)));
         mainAudioMixer.SetFloat("Vol_Music", ClampLog(PlayerPrefs.GetFloat("Vol_Music", 1.0f)));
@@ -42,6 +32,13 @@ public class OptionsManager : MonoBehaviour
         musicVolInGame.value = PlayerPrefs.GetFloat("Vol_Music", 1.0f);
         sfxVolMain.value = PlayerPrefs.GetFloat("Vol_SFX", 1.0f);
         sfxVolInGame.value = PlayerPrefs.GetFloat("Vol_SFX", 1.0f);
+
+        yield return null;
+    }
+
+    private float ClampLog(float vol)
+    {
+        return Mathf.Clamp(Mathf.Log10(vol) * 20.0f, -80.0f, 20.0f);
     }
 
     public void ShowGameObject(GameObject element)
@@ -54,7 +51,7 @@ public class OptionsManager : MonoBehaviour
         element.SetActive(false);
     }
 
-    public void ChangeMasterVolMain()
+    public void ChangeMasterVolMain(VolType volType)
     {
         mainAudioMixer.SetFloat("Vol_Master", ClampLog(masterVolMain.value));
         PlayerPrefs.SetFloat("Vol_Master", masterVolMain.value);
@@ -117,5 +114,10 @@ public class OptionsManager : MonoBehaviour
     public bool GetMenuStateSelf()
     {
         return inGameMenu.activeSelf;
+    }
+
+    private float TestFunc()
+    {
+        return 0f;
     }
 }

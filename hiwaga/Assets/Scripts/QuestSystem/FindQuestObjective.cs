@@ -19,7 +19,7 @@ public class FindQuestObjective : MonoBehaviour, IInteractable
     {
         Debug.Log("You found Hopkins!");
 
-        if (Player.Instance.quests.Contains(findQuest))
+        if (Player.quests.Contains(findQuest))
         {
             Debug.Log("Progressing quest.");
 
@@ -71,7 +71,7 @@ public class FindQuestObjective : MonoBehaviour, IInteractable
 
         // Check if the quest is still incomplete before hiding again
 
-        if (Player.Instance.quests.Contains(findQuest))
+        if (Player.quests.Contains(findQuest))
         {
             HideInRandomSpot(); // Hide again in a new place
         }

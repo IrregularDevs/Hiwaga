@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -8,22 +7,55 @@ public class ItemHeld
     public int count;
 }
 
-public class ItemHolder : MonoBehaviour
+public class ItemHolder : MonoBehaviour, IInteractable
 {
-    [SerializeField] protected string enterString, exitString, interactString;
-    [SerializeField] protected List<ItemHeld> itemsHeld = new List<ItemHeld>();
+    [SerializeField] protected ItemHeld[] itemsHeld;
     [SerializeField] protected bool hasLimit;
     [SerializeField] protected int maxUses;
-    [SerializeField] protected int uses = 0;
+    [SerializeField] protected int uses;
     [SerializeField] protected bool disappears;
-    
+
+    public void enterPrompt()
+    {
+
+    }
+
+    public void exitPrompt()
+    {
+
+    }
+
+    public bool canInteract()
+    {
+        return true;
+    }
+
     public void ChangeUses(int i)
     {
         uses += i;
     }
 
-    public List<ItemHeld> GetItems()
+    public virtual void Interact()
+    {
+
+    }
+
+    public int GetUses()
+    {
+        return uses;
+    }
+
+    public ItemHeld[] GetItems()
     {
         return itemsHeld;
+    }
+
+    public void DisappearCheck()
+    {
+        if (hasLimit == true && uses >= maxUses && disappears)
+        {
+            Player.onInteract -= Interact;
+            gameObject.SetActive(false);
+        }
     }
 }

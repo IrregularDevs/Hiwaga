@@ -39,7 +39,7 @@ public class CollectQuest : Quest
     {
         foreach(RequiredItem reqItem in requiredItem)
         {
-            foreach (PlayerInventory playerInventory in Player.Instance.items)
+            foreach (PlayerInventory playerInventory in Player.items)
             {
                 if (playerInventory.item == reqItem.item)
                 {

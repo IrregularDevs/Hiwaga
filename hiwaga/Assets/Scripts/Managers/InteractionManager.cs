@@ -7,8 +7,8 @@ public class InteractionManager : MonoBehaviour
     private static InteractionManager instance;
     public static InteractionManager Instance => instance;
 
-    public GameObject interactTarget;
-    public bool IsInRange = false;
+    public static IInteractable[] interactTarget;
+    public static bool IsInRange = false;
 
     public UnityEvent OnInteract;
 

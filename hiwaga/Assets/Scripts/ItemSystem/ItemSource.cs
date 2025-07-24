@@ -3,47 +3,17 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 
-public class ItemSource : ItemHolder, IInteractable
+public class ItemSource : ItemHolder
 {
-    public void enterPrompt()
+    public override void Interact()
     {
-
-    }
-
-    public void exitPrompt()
-    {
-
-    }
-    public bool canInteract()
-    {
-        return true;
-    }
-
-    public void Interact()
-    {
-        if (hasLimit == true && uses >= maxUses && disappears)
+        DisappearCheck();
+        if (InventoryManager.Instance == null)
         {
-            this.gameObject.SetActive(false);
+            Debug.LogError("InventoryManager is missing.");
             return;
         }
-        else
-        {
-            if (InventoryManager.Instance == null)
-            {
-                Debug.LogError("InventoryManager is missing.");
-                return;
-            }
-            InventoryManager.Instance.AddItem(this);
-            if (hasLimit == true && uses >= maxUses && disappears)
-            {
-                this.gameObject.SetActive(false);
-            }
-            return;
-        }
-    }
-
-    public int GetUses()
-    {
-        return uses;
+        InventoryManager.Instance.AddItem(this);
+        DisappearCheck();
     }
 }

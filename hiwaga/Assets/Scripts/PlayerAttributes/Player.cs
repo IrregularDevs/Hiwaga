@@ -14,8 +14,8 @@ public class Player : MonoBehaviour
     private static Player instance;
     public static Player Instance => instance;
 
-    public List<Quest> quests = new List<Quest>();
-    public List<PlayerInventory> items = new List<PlayerInventory>();
+    public static List<Quest> quests = new List<Quest>();
+    public static List<PlayerInventory> items = new List<PlayerInventory>();
 
     public delegate void InventoryUpdateCallback(Item item, int count);
     public static InventoryUpdateCallback onInventoryUpdate;
@@ -46,32 +46,25 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Confirm") && InteractionManager.Instance.interactTarget && InteractionManager.Instance.IsInRange)
+        if (Input.GetButtonDown("Confirm") && InteractionManager.interactTarget != null && InteractionManager.IsInRange)
         {
-            //InteractionManager.Instance.interactTarget.GetComponent<IInteractable>().Interact();
-            if(onInteract != null)
-            {
-                onInteract();
-            }
+            onInteract?.Invoke();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(onCollision!=null)
+        onCollision?.Invoke();
+        onInteract = null;
+        IInteractable[] interactable = other.gameObject.GetComponents<IInteractable>();
+        if (interactable != null)
         {
-            onCollision();
-        }
-        if (other.gameObject.GetComponent<IInteractable>() != null)
-        {
-            int i = 0;
-            other.gameObject.GetComponent<IInteractable>().enterPrompt();
-            InteractionManager.Instance.interactTarget = other.gameObject;
-            InteractionManager.Instance.IsInRange = true;
-            foreach(IInteractable interactable in other.gameObject.GetComponents<IInteractable>())
+            InteractionManager.interactTarget = interactable;
+            InteractionManager.IsInRange = true;
+            foreach(IInteractable obj in InteractionManager.interactTarget)
             {
-                i++;
-                onInteract += interactable.Interact;
+                obj.enterPrompt();
+                onInteract += obj.Interact;
             }
         }
         else
@@ -82,32 +75,41 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (onCollision != null)
+        onCollision?.Invoke();
+        IInteractable[] interactable = other.gameObject.GetComponents<IInteractable>();
+        if (interactable != null)
         {
-            onCollision();
-        }
-        if (other.gameObject.GetComponent<IInteractable>() != null)
-        {
-            if (InteractionManager.Instance.interactTarget == null)
+            if (InteractionManager.interactTarget == null)
             {
-                InteractionManager.Instance.interactTarget = other.gameObject;
+                InteractionManager.interactTarget = interactable;
             }
-            InteractionManager.Instance.IsInRange = true;
+            if(onInteract == null)
+            {
+                foreach (IInteractable obj in InteractionManager.interactTarget)
+                {
+                    obj.enterPrompt();
+                    onInteract += obj.Interact;
+                }
+            }
+            InteractionManager.IsInRange = true;
+        }
+        else
+        {
+            InteractionManager.IsInRange = false;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Interactable"))
+        IInteractable[] interactable = other.gameObject.GetComponents<IInteractable>();
+        if (interactable != null)
         {
-            int i = 0;
-            other.gameObject.GetComponent<IInteractable>().exitPrompt();
-            InteractionManager.Instance.interactTarget = null;
-            InteractionManager.Instance.IsInRange = false;
-            foreach (IInteractable interactable in other.gameObject.GetComponents<IInteractable>())
+            InteractionManager.interactTarget = null;
+            InteractionManager.IsInRange = false;
+            foreach (IInteractable obj in interactable)
             {
-                i++;
-                onInteract -= interactable.Interact;
+                obj.exitPrompt();
+                onInteract -= obj.Interact;
             }
         }
         else
@@ -116,7 +118,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void UpdateInventory(Item newItem, int amount)
+    public static void UpdateInventory(Item newItem, int amount)
     {
         if(items.Contains(items.Find(x=>x.item==newItem)))
         {
@@ -126,13 +128,6 @@ public class Player : MonoBehaviour
         {
             items.Add(new PlayerInventory() { item = newItem, count = amount });
         }
-        if(onInventoryUpdate != null)
-        {
-            onInventoryUpdate(newItem, items.Find(x => x.item == newItem).count);
-        }
-        else
-        {
-            Debug.Log("onInventoryUpdate is still empty.");
-        }
+        onInventoryUpdate?.Invoke(newItem, items.Find(x => x.item == newItem).count);
     }
 }

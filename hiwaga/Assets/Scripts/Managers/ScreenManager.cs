@@ -20,12 +20,8 @@ public class ScreenManager : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
-        yield return null;
-    }
-
-    private void Start()
-    {
         loadingScreen.SetActive(false);
+        yield return null;
     }
 
     public void LoadScene(string sceneName)
@@ -37,7 +33,6 @@ public class ScreenManager : MonoBehaviour
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         loadingScreen.SetActive(true);
-
         while(!operation.isDone)
         {
             float progressValue = Mathf.Clamp01(operation.progress / 0.9f);

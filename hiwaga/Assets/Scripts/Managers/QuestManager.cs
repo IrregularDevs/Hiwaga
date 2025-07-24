@@ -32,7 +32,7 @@ public class QuestManager : MonoBehaviour
 
     public bool HasQuest(Quest quest)
     {
-        return Player.Instance.quests.Contains(quest);
+        return Player.quests.Contains(quest);
     }
 
 
@@ -48,7 +48,7 @@ public class QuestManager : MonoBehaviour
             newQuest.transform.Find("Title").GetComponent<TMP_Text>().text = quest.title;
             newQuest.transform.Find("Description").GetComponent<TMP_Text>().text = quest.description;
             quests.Add(newQuest);
-            Player.Instance.quests.Add(quest);
+            Player.quests.Add(quest);
             quest.InitializeQuest();
             if (Player.onQuestAdd == null)
             {
@@ -71,7 +71,7 @@ public class QuestManager : MonoBehaviour
             questToRemove.transform.Find("Title").GetComponent<TMP_Text>().text = "";
             questToRemove.transform.Find("Description").GetComponent<TMP_Text>().text = "";
             questToRemove.SetActive(false);
-            Player.Instance.quests.Remove(quest);
+            Player.quests.Remove(quest);
         }
         else
         {

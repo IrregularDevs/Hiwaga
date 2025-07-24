@@ -14,3 +14,10 @@ public enum QuestState
     InProgress,
     Finished
 }
+
+public enum VolType
+{
+    Master,
+    Music,
+    SFX
+}

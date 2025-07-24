@@ -12,7 +12,9 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField] private GameObject panelInventory;
 
-    public int maxStackedItems;
+    [SerializeField] private int maxStackedItems;
+    public static int maxStackedItemsStatic;
+
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
 
@@ -24,180 +26,108 @@ public class InventoryManager : MonoBehaviour
     IEnumerator AwakeAsync()
     {
         instance = this;
+        maxStackedItemsStatic = maxStackedItems;
         DontDestroyOnLoad(this.gameObject);
         yield return null;
     }
 
     public void AddItem(ItemSource source)
     {
-        List<ItemHeld> itemsToAdd = new List<ItemHeld>();
-        itemsToAdd = source.GetItems();
+        ItemHeld[] itemsToAdd = source.GetItems();
         bool isItemAdded = false;
 
-        if(CheckAvailableInventorySpace() < itemsToAdd.Count)
+        if(!CanAddItem(itemsToAdd))
         {
-            Debug.Log("Inventory is full.");
+            Debug.Log("Not enough space.");
             return;
         }
-
         foreach(ItemHeld itemHeld in itemsToAdd)
         {
             Item item = itemHeld.item;
             int amountGiven = itemHeld.count;
             isItemAdded = false;
-            for (int i = 0; i < inventorySlots.Length; i++)
+            Player.UpdateInventory(item, amountGiven);
+            while(amountGiven > 0)
             {
-                InventorySlot slot = inventorySlots[i];
-                InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-                if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < maxStackedItems && itemInSlot.item.stackable == true)
+                Debug.Log("Adding item.");
+                foreach (InventorySlot slot in inventorySlots)
                 {
-                    itemInSlot.count += amountGiven;
-                    itemInSlot.RefreshCount();
-                    Player.Instance.UpdateInventory(item, amountGiven);
-                    if (itemInSlot.count > maxStackedItems)
+                    if (slot.item == item && slot.count < maxStackedItemsStatic && slot.item.stackable)
                     {
-                        int leftover;
-                        leftover = itemInSlot.count - maxStackedItems;
-                        itemInSlot.count = maxStackedItems;
-                        itemInSlot.RefreshCount();
-                        for (int o = 0; o < inventorySlots.Length; o++)
+                        int oldCount = slot.count;
+                        slot.UpdateCount(amountGiven);
+                        amountGiven -= slot.count - oldCount;
+                        if (slot.count > maxStackedItemsStatic)
                         {
-                            slot = inventorySlots[o];
-                            itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-                            if (itemInSlot == null || itemInSlot.item == null)
-                            {
-                                SpawnItem(item, slot);
-                                itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-                                itemInSlot.count += leftover;
-                                itemInSlot.RefreshCount();
-                                break;
-                            }
+                            slot.UpdateCount(maxStackedItemsStatic);
                         }
-                    }
-                    isItemAdded = true;
-                    break;
-                }
-            }
-            if(isItemAdded == false)
-            {
-                for (int i = 0; i < inventorySlots.Length; i++)
-                {
-                    InventorySlot slot = inventorySlots[i];
-                    InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-                    if (itemInSlot == null || itemInSlot.item == null)
-                    {
-                        SpawnItem(item, slot);
-                        itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-                        if (itemInSlot == null)
-                        {
-                            Debug.Log("What the fuck");
-                        }
-                        itemInSlot.count += amountGiven;
-                        itemInSlot.RefreshCount();
-                        Player.Instance.UpdateInventory(item, amountGiven);
                         isItemAdded = true;
                         break;
                     }
                 }
+                if (!isItemAdded)
+                {
+                    foreach (InventorySlot slot in inventorySlots)
+                    {
+                        if (!slot.item)
+                        {
+                            slot.InitializeItem(item, amountGiven);
+                            amountGiven -= slot.count;
+                            isItemAdded = true;
+                            break;
+                        }
+                    }
+                }
             }
         }
-        if(isItemAdded)
+        if (isItemAdded)
         {
             source.ChangeUses(1);
-        }
-        else
-        {
-            Debug.Log("Inventory is full!");
         }
         return;
     }
 
     public void RemoveItem(ItemReceiver receiver)
     {
-        List<ItemHeld> itemsToAdd = new List<ItemHeld>();
-        itemsToAdd = receiver.GetItems();
+        ItemHeld[] itemsToRemove = receiver.GetItems();
         bool isItemRemoved = false;
 
-        if(!CheckItemsToRemove(receiver))
+        if (!CanRemoveItem(itemsToRemove))
         {
-            Debug.Log("Returning, not enough items.");
             return;
         }
 
-        foreach(ItemHeld itemHeld in itemsToAdd)
+        foreach(ItemHeld itemHeld in itemsToRemove)
         {
             Item item = itemHeld.item;
-            int amountTaken = itemHeld.count;
-            for (int i = inventorySlots.Length - 1; i >= 0; i--)
+            int amountTaken = -itemHeld.count;
+            Player.UpdateInventory(item, amountTaken);
+            while (amountTaken < 0)
             {
-                InventorySlot slot = inventorySlots[i];
-                InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-                if (itemInSlot != null && itemInSlot.item == item)
+                foreach (InventorySlot slot in inventorySlots)
                 {
-                    itemInSlot.count -= amountTaken;
-                    if(itemInSlot.count < 0)
+                    if (slot.item == item)
                     {
-                        int leftover;
-                        leftover = itemInSlot.count;
-                        itemInSlot.count = ClampValue(itemInSlot.count);
-                        itemInSlot.RefreshCount();
-                        if (itemInSlot.count <= 0)
+                        int oldCount = -slot.count;
+                        slot.UpdateCount(amountTaken);
+                        amountTaken -=  oldCount - slot.count;
+                        if (slot.count < 0)
                         {
-                            itemInSlot.ClearItem();
+                            slot.UpdateCount(-slot.count);
+                            slot.ClearItem();
                         }
-                        for (int o = inventorySlots.Length - 1; o >= 0; o--)
-                        {
-                            slot = inventorySlots[o];
-                            itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-                            if (itemInSlot != null && itemInSlot.item == item)
-                            {
-                                itemInSlot.count += leftover;
-                                itemInSlot.count = ClampValue(itemInSlot.count);
-                                itemInSlot.RefreshCount();
-                                if (itemInSlot.count <= 0)
-                                {
-                                    itemInSlot.ClearItem();
-                                }
-                            }
-                        }
+                        isItemRemoved = true;
+                        break;
                     }
-                    itemInSlot.count = ClampValue(itemInSlot.count);
-                    itemInSlot.RefreshCount();
-                    if (itemInSlot.count <= 0)
-                    {
-                        itemInSlot.ClearItem();
-                    }
-                    isItemRemoved = true;
-                    Player.Instance.UpdateInventory(item, -amountTaken);
-                    break;
                 }
             }
         }
         if(isItemRemoved)
         {
-            if(receiver.onUse != null)
-            {
-                receiver.onUse();
-            }
-        }
-        else
-        {
-            Debug.Log("You don't have what is required!");
+            receiver.onUse?.Invoke();
+            receiver.ChangeUses(1);
         }
         return;
-    }
-
-
-    public void SpawnItem(Item item, InventorySlot slot)
-    {
-        InventoryItem inventoryItem = slot.GetComponentInChildren<InventoryItem>();
-        if (inventoryItem == null)
-        {
-            GameObject newItem = Instantiate(inventoryItemPrefab, slot.transform);
-            inventoryItem = newItem.GetComponent<InventoryItem>();
-        }
-        inventoryItem.InitializeItem(item);
-        inventoryItem.RefreshCount();
     }
 
     public int ClampValue(int count)
@@ -205,28 +135,38 @@ public class InventoryManager : MonoBehaviour
         return Mathf.Clamp(count, 0, maxStackedItems);
     }
 
-    public int CheckAvailableInventorySpace()
+    public bool CanAddItem(ItemHeld[] itemsToAdd)
     {
-        int m = 0;
-        for(int i = 0; i < inventorySlots.Length; i++)
+        Debug.Log("Checking if item can be added.");
+        bool[] takenSlots = new bool[inventorySlots.Length];
+
+        foreach(ItemHeld itemHeld in itemsToAdd)
         {
-            InventorySlot slot = inventorySlots[i];
-            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if(itemInSlot == null || itemInSlot.item == null)
+            int spaceAvailable = 0;
+            int i = 0;
+            foreach (InventorySlot slot in inventorySlots)
             {
-                m++;
+                if (!takenSlots[i] && (slot.item == itemHeld.item || slot.item == null))
+                {
+                    spaceAvailable += itemHeld.item.stackable ? maxStackedItemsStatic - slot.count : 1;
+                    takenSlots[i] = true;
+                }
+                i++;
+            }
+            if(spaceAvailable < itemHeld.count)
+            {
+                Debug.Log("Not enough space.");
+                return false;
             }
         }
-        return m;
+        return true;
     }
 
-    public bool CheckItemsToRemove(ItemReceiver receiver)
+    public bool CanRemoveItem(ItemHeld[] itemsToRemove)
     {
-        List<ItemHeld> itemsToRemove = new List<ItemHeld>();
-        itemsToRemove = receiver.GetItems();
         foreach(ItemHeld itemHeld in itemsToRemove)
         {
-            if(!Player.Instance.items.Exists(x => x.item == itemHeld.item) || Player.Instance.items.Find(x => x.item == itemHeld.item).count < itemHeld.count)
+            if(!Player.items.Exists(x => x.item == itemHeld.item) || Player.items.Find(x => x.item == itemHeld.item).count < itemHeld.count)
             {
                 return false;
             }
