@@ -6,56 +6,65 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    //Singleton Implementation
     private static DialogueManager instance;
     public static DialogueManager Instance => instance;
 
-    public DialogueGroup[] dialogueGroups;
-    public List<NPC> npcList = new List<NPC>();
-    public DialogueGroup currentDialogueGroup;
-    public DialogueData currentDialogueData;
-    public NPCDialogue currentDialogue;
-    public NPC currentNPC;
+    //Lists and Dictionaries
+    public List<NPCDialogue> npcDialogue_List = new List<NPCDialogue>();
+    public List<NPC> npc_List = new List<NPC>();
+    public Dictionary<NPC, int> m_npcDictionary = new Dictionary<NPC, int>();
+    public Dictionary<(NPC npc, int dialogueIndex), NPCDialogue> m_dialogueDictionary = new Dictionary<(NPC npc, int dialogueIndex), NPCDialogue>();
 
+    //Dialogue reference data
+    public NPC currentNPC;
+    public NPCDialogue currentDialogue;
+
+    //UI
     public GameObject dialoguePanel;
     public TMP_Text dialogueText, nameText;
     public Image portraitImage;
 
-    public int dialogueIndex;
+    //Dialogue tracking data
+    public int dialogueLineIndex;
     public int dialogueDataIndex;
     public bool isdialogueActive, isTyping;
 
+    //Set Singleton
     private void Awake()
     {
-        StartCoroutine(AwakeAsync());
-    }
-
-    IEnumerator AwakeAsync()
-    {
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
-        yield return null;
     }
 
+    //Remove Singleton
+    private void OnDisable()
+    {
+        instance = null;
+    }
+
+    //Connect all NPCs and NPCDialogues in level
+    private void Start()
+    {
+        foreach (NPC usedNpc in npc_List)
+        {
+            List<NPCDialogue> validDialogue = new List<NPCDialogue>();
+            validDialogue = npcDialogue_List.FindAll(x => x.npcRefName == usedNpc.GetRefName());
+
+            foreach (NPCDialogue dialogueToBeAdded in validDialogue)
+            {
+                m_dialogueDictionary.Add((usedNpc, dialogueToBeAdded.dialogueIndex), dialogueToBeAdded);
+            }
+            m_npcDictionary.Add(usedNpc, 0);
+        }
+        dialoguePanel.SetActive(false);
+    }
+
+    //Called when NPC is interacted with
+    //Start dialogue or go to next line
     public void BeginDialogue(NPC npc)
     {
         currentNPC = npc;
-        currentDialogueGroup = npc.GetDialogueGroup();
-        currentDialogueData = currentDialogueGroup.dialogue[npc.GetIndex()];
-        currentDialogue = currentDialogueData.dialogue;
-
-        if (currentDialogueGroup == null)
-        {
-            Debug.Log("CurrentDialogueGroup is empty.");
-        }
-        if (currentDialogueData == null)
-        {
-            Debug.Log("CurrentDialogueData is empty.");
-        }
-        if (currentDialogue == null)
-        {
-            Debug.Log("CurrentDialogueData is empty.");
-            return;
-        }
+        currentDialogue = m_dialogueDictionary[(currentNPC, m_npcDictionary[currentNPC])];
 
         if (isdialogueActive)
         {
@@ -67,10 +76,12 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    //Called when new dialogue starts
+    //Prepare dialogue UI
     void StartDialogue()
     {
         isdialogueActive = true;
-        dialogueIndex = 0;
+        dialogueLineIndex = 0;
 
         dialoguePanel.SetActive(true);
         nameText.text = currentDialogue.dialogueLines[0].character.npcName.Replace("&name", Player.Instance.playerName);
@@ -80,22 +91,24 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeLine());
     }
 
+    //Called when existing dialogue progresses
+    //Prepare dialogue UI
     void nextLine()
     {
         StopAllCoroutines();
         if (isTyping)
         {
-            dialogueText.text = currentDialogue.dialogueLines[dialogueIndex].dialogueLine.Replace("&name", Player.Instance.playerName);
+            dialogueText.text = currentDialogue.dialogueLines[dialogueLineIndex].dialogueLine.Replace("&name", Player.Instance.playerName);
             isTyping = false;
             StartCoroutine(NextLine());
             return;
         }
 
-        dialogueIndex++;
-        if (dialogueIndex < currentDialogue.dialogueLines.Length)
+        dialogueLineIndex++;
+        if (dialogueLineIndex < currentDialogue.dialogueLines.Length)
         {
-            nameText.text = currentDialogue.dialogueLines[dialogueIndex].character.npcName.Replace("&name", Player.Instance.playerName);
-            portraitImage.sprite = currentDialogue.dialogueLines[dialogueIndex].character.npcPortrait;
+            nameText.text = currentDialogue.dialogueLines[dialogueLineIndex].character.npcName.Replace("&name", Player.Instance.playerName);
+            portraitImage.sprite = currentDialogue.dialogueLines[dialogueLineIndex].character.npcPortrait;
             StartCoroutine(TypeLine());
         }
         else
@@ -104,56 +117,62 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    //Called when dialogue starts
+    //Type out spoken line
     IEnumerator TypeLine()
     {
         isTyping = true;
         dialogueText.text = "";
-        string line = currentDialogue.dialogueLines[dialogueIndex].dialogueLine.Replace("&name", Player.Instance.playerName);
+        string line = currentDialogue.dialogueLines[dialogueLineIndex].dialogueLine.Replace("&name", Player.Instance.playerName);
 
-        foreach (char letter in currentDialogue.dialogueLines[dialogueIndex].dialogueLine.Replace("&name", Player.Instance.playerName))
+        foreach (char letter in currentDialogue.dialogueLines[dialogueLineIndex].dialogueLine.Replace("&name", Player.Instance.playerName))
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.05f); // Adjust typing speed here
+            yield return new WaitForSeconds(currentDialogue.dialogueLines[dialogueLineIndex].typingSpeed);
         }
 
         isTyping = false;
-        yield return new WaitForSeconds(currentDialogue.autoProgressDelayFast);
+        yield return new WaitForSeconds(currentDialogue.dialogueLines[dialogueLineIndex].autoProgressDelayFast);
         nextLine();
     }
 
-
+    //Called when dialogue ends
+    //Progress dialogue
     public void EndDialogue()
     {
         StopAllCoroutines();
         isdialogueActive = false;
         dialoguePanel.SetActive(false);
         PauseManager.SetPause(false);
-        dialogueIndex = 0;
+        dialogueLineIndex = 0;
 
         if(!currentDialogue.loops)
         {
-            ChangeIndex(currentDialogueGroup, currentDialogueData.nextIndex);
+            m_npcDictionary[currentNPC] = m_npcDictionary[currentNPC]++;
+            /*ChangeIndex(currentDialogueGroup, currentDialogueData.nextIndex);
             if(currentDialogue.questToGive != null)
             {
                 QuestManager.Instance.AddQuest(currentDialogue.questToGive);
-            }
+            }*/
         }
     }
 
-    public void ChangeIndex(DialogueGroup dGroup, int newIndex)
+    /*public void ChangeIndex(DialogueGroup dGroup, int newIndex)
     {
-        foreach(NPC npc in npcList)
+        foreach(NPC npc in npc_List)
         {
             if(npc.GetDialogueGroup() == dGroup)
             {
                 npc.SetIndex(newIndex);
             }
         }
-    }
+    }*/
 
+    //Called when player interacts with NPC while dialogue is being typed
+    //Skips to next line
     public IEnumerator NextLine()
     {
-        yield return new WaitForSeconds(currentDialogue.autoProgressDelaySlow);
+        yield return new WaitForSeconds(currentDialogue.dialogueLines[dialogueLineIndex].autoProgressDelaySlow);
         nextLine();
     }
 }

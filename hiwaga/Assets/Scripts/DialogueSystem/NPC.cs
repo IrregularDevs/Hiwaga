@@ -6,17 +6,19 @@ using System.Collections.Generic;
 
 public class NPC : MonoBehaviour, IInteractable
 {
-    [SerializeField] private DialogueGroup npcDialogue;
+    //[SerializeField] private DialogueGroup npcDialogue;
     [SerializeField] private int index;
+    [SerializeField] private string npcRefName;
 
-    private void Awake()
+    private void Start()
     {
-        StartCoroutine(AwakeAsync());
+        DialogueManager.Instance.npc_List.Add(this);
+        //StartCoroutine(AwakeAsync());
     }
 
     IEnumerator AwakeAsync()
     {
-        DialogueManager.Instance.npcList.Add(this);
+        DialogueManager.Instance.npc_List.Add(this);
         yield return null;
     }
 
@@ -41,10 +43,10 @@ public class NPC : MonoBehaviour, IInteractable
         index = i;
     }
 
-    public DialogueGroup GetDialogueGroup()
+    /*public DialogueGroup GetDialogueGroup()
     {
         return npcDialogue;
-    }
+    }*/
 
     public void enterPrompt()
     {
@@ -56,5 +58,10 @@ public class NPC : MonoBehaviour, IInteractable
     {
         // Implement exit prompt logic here
         // Example: Debug.Log("Player exited NPC interaction range.");
+    }
+
+    public string GetRefName()
+    {
+        return npcRefName;
     }
 }

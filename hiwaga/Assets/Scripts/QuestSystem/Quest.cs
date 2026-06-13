@@ -52,7 +52,7 @@ public class Quest : ScriptableObject
     {
         if(progressesDialogue)
         {
-            DialogueManager.Instance.ChangeIndex(dialogueGroup, questStartIndex);
+            //DialogueManager.Instance.ChangeIndex(dialogueGroup, questStartIndex);
         }
     }
 
@@ -61,7 +61,7 @@ public class Quest : ScriptableObject
         Debug.Log("Progressing Dialogue.");
         if (progressesDialogue)
         {
-            DialogueManager.Instance.ChangeIndex(dialogueGroup, questEndIndex);
+            //DialogueManager.Instance.ChangeIndex(dialogueGroup, questEndIndex);
         }
     }
 }
