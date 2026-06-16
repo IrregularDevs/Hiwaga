@@ -3,9 +3,9 @@ using Unity.Cinemachine;
 
 public class CameraSwitcher : MonoBehaviour
 {
-    public CinemachineCamera thirdPersonCamera; // Reference to the third-person camera
-    public CinemachineCamera alternateCamera; // Reference to the alternate camera
-    private Collider triggerCollider; // Reference to the trigger collider
+    public CinemachineCamera thirdPersonCamera; 
+    public CinemachineCamera alternateCamera;
+    private Collider triggerCollider; 
 
     private void Start()
     {

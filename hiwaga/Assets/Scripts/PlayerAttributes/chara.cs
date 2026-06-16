@@ -13,7 +13,7 @@ public class CharacterController3D : MonoBehaviour
     public LayerMask groundMask;
     public float groundCheckDistance = 0.2f;
     public bool canMove = true;
-    public bool enableJump = false; // Toggle jump in Inspector
+    public bool enableJump = false; // Toggle jump
 
     public Vector3 CurrentMoveDirection { get; private set; }
 
@@ -47,7 +47,7 @@ public class CharacterController3D : MonoBehaviour
         float moveZ = Input.GetAxisRaw("Vertical");
         Vector3 inputDirection = new Vector3(moveX, 0f, moveZ).normalized;
 
-        // Movement speed (sprint toggle)
+        // sprint toggle
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
         float currentSpeed = isSprinting ? moveSpeed * sprintMultiplier : moveSpeed;
 
@@ -64,7 +64,7 @@ public class CharacterController3D : MonoBehaviour
 
             controller.Move(moveDirection * currentSpeed * Time.deltaTime);
 
-            // Rotation (unaffected by sprinting)
+            // Rotation
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
@@ -73,7 +73,7 @@ public class CharacterController3D : MonoBehaviour
             CurrentMoveDirection = Vector3.zero;
         }
 
-        // Jump (toggleable)
+        // Jump 
         if (enableJump && Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);

@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class CameraOrbit : MonoBehaviour
 {
-    public Transform target;       // Player transform (root, parent of model)
+    public Transform target;
     public float rotationSpeed = 5f;
 
-    [Tooltip("Height of the camera relative to the player")]
-    public float height = 2f;
+    public float height = 2f; //Height of the camera relative to the player
 
-    [Tooltip("Distance behind the player")]
-    public float distance = 4f;
+
+    public float distance = 4f; //Distance behind the player
 
     public float minPitch = -20f;
     public float maxPitch = 60f;
@@ -25,7 +24,6 @@ public class CameraOrbit : MonoBehaviour
         pitch -= Input.GetAxis("Mouse Y") * rotationSpeed;
         pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
 
-        // Rotate player (body) on Y axis only by yaw
         Vector3 euler = target.eulerAngles;
         euler.y = yaw;
         target.eulerAngles = euler;

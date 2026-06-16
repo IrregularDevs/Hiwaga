@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ModelRotator : MonoBehaviour
 {
-    public Transform model; // Assign the model, e.g. metarig
+    public Transform model;
     public float rotationSpeed = 10f;
 
     private CharacterController3D movementController;
@@ -11,7 +11,7 @@ public class ModelRotator : MonoBehaviour
     void Start()
     {
         movementController = GetComponent<CharacterController3D>();
-        animator = model.GetComponent<Animator>(); // Assumes Animator is on "metarig"
+        animator = model.GetComponent<Animator>();
     }
 
     void Update()
