@@ -12,20 +12,20 @@ public class FindQuestObjective : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        findQuest.onQuestAdd = HideInRandomSpot;
+        //findQuest.onQuestAdd = HideInRandomSpot;
     }
 
     public void Interact()
     {
         Debug.Log("You found Hopkins!");
 
-        if (Player.Instance.quests.Contains(findQuest))
+        /*if (Player.Instance.quests.Contains(findQuest))
         {
             Debug.Log("Progressing quest.");
 
             findQuest.ProgressUpdate(); // Progress the quest
             StartCoroutine(HideAgain());
-        }
+        }*/
     }
 
     public void enterPrompt()
@@ -71,14 +71,14 @@ public class FindQuestObjective : MonoBehaviour, IInteractable
 
         // Check if the quest is still incomplete before hiding again
 
-        if (Player.Instance.quests.Contains(findQuest))
+        /*if (Player.Instance.quests.Contains(findQuest))
         {
             HideInRandomSpot(); // Hide again in a new place
         }
         else
         {
             Debug.Log("Hopkins has been found enough times. Quest complete.");
-        }
+        }*/
 
         yield return null;
 

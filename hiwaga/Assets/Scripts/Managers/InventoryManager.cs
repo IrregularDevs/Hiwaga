@@ -226,10 +226,10 @@ public class InventoryManager : MonoBehaviour
         itemsToRemove = receiver.GetItems();
         foreach(ItemHeld itemHeld in itemsToRemove)
         {
-            if(!Player.Instance.items.Exists(x => x.item == itemHeld.item) || Player.Instance.items.Find(x => x.item == itemHeld.item).count < itemHeld.count)
+            /*if(!Player.Instance.items.Exists(x => x.item == itemHeld.item) || Player.Instance.items.Find(x => x.item == itemHeld.item).count < itemHeld.count)
             {
                 return false;
-            }
+            }*/
         }
         return true;
     }

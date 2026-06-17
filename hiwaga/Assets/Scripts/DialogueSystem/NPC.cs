@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class NPC : MonoBehaviour, IInteractable
+public class NPC : Interactable/*, IInteractable*/
 {
     //[SerializeField] private DialogueGroup npcDialogue;
     [SerializeField] private int index;
@@ -27,7 +27,7 @@ public class NPC : MonoBehaviour, IInteractable
         return !DialogueManager.Instance.isdialogueActive;
     }
 
-    public void Interact()
+    public override void Interact()
     {
         DialogueManager.Instance.BeginDialogue(this);
     }

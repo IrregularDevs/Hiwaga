@@ -16,7 +16,7 @@ public class FindQuest : Quest
     public override void InitializeQuest()
     {
         goal.currentAmount = 0;
-        Player.onQuestAdd = onQuestAdd;
+        //Player.onQuestAdd = onQuestAdd;
         onQuestComplete += ProgressDialogueQuestEnd;
         Debug.Log("FindQuest Initialized");
     }

@@ -11,17 +11,17 @@ public class GiveQuest : Quest
     {
         goal.completed = false;
         goal.currentAmount = 0;
-        Player.onQuestAdd = null;
+        //Player.onQuestAdd = null;
         onQuestComplete += ProgressDialogueQuestEnd;
         Debug.Log("InitializeQuest override method called.");
-        if (Player.onQuestAdd == null)
+        /*if (Player.onQuestAdd == null)
         {
             Debug.Log("onQuestAdd is empty.");
         }
         if (Player.onInventoryUpdate == null)
         {
             Debug.Log("onInventoryUpdate is empty.");
-        }
+        }*/
     }
 
     public override void EmptyQuest()
@@ -32,13 +32,13 @@ public class GiveQuest : Quest
         {
             QuestManager.Instance.AddQuest(nextQuest);
         }
-        if (Player.onQuestAdd == null)
+       /* if (Player.onQuestAdd == null)
         {
             Debug.Log("onQuestAdd is empty.");
         }
         if (Player.onInventoryUpdate == null)
         {
             Debug.Log("onInventoryUpdate is empty.");
-        }
+        }*/
     }
 }

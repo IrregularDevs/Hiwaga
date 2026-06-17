@@ -22,26 +22,26 @@ public class MoveQuest : Quest
     {
         isTouched = false;
         goal.currentAmount = 0;
-        Player.onQuestAdd = ProgressUpdate;
-        Player.onCollision += ProgressUpdate;
+        /*Player.onQuestAdd = ProgressUpdate;
+        Player.onCollision += ProgressUpdate;*/
         onQuestComplete += ProgressDialogueQuestEnd;
-        if (Player.onQuestAdd == null)
+        /*if (Player.onQuestAdd == null)
         {
             Debug.Log("onQuestAdd is empty.");
-        }
+        }*/
     }
 
     public override void EmptyQuest()
     {
-        Player.onCollision -= ProgressUpdate;
+        //Player.onCollision -= ProgressUpdate;
         onQuestComplete -= ProgressDialogueQuestEnd;
         if (!isLastQuest)
         {
             QuestManager.Instance.AddQuest(nextQuest);
         }
-        if (Player.onQuestAdd == null)
+        /*if (Player.onQuestAdd == null)
         {
             Debug.Log("onQuestAdd is empty.");
-        }
+        }*/
     }
 }

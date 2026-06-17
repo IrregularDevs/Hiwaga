@@ -35,7 +35,7 @@ public class CollectQuest : Quest
         }
     }
 
-    public void AcceptQuest()
+    /*public void AcceptQuest()
     {
         foreach(RequiredItem reqItem in requiredItem)
         {
@@ -48,7 +48,7 @@ public class CollectQuest : Quest
                 }
             }
         }
-    }
+    }*/
 
     public void ItemCheck(Item item, int count)
     {
@@ -72,7 +72,7 @@ public class CollectQuest : Quest
             item.isFinished = false;
         }
         Debug.Log("InitializeQuest override method called.");
-        Player.onQuestAdd = AcceptQuest;
+        /*Player.onQuestAdd = AcceptQuest;
         Player.onInventoryUpdate += ItemCheck;
         onQuestComplete += ProgressDialogueQuestEnd;
         if(Player.onQuestAdd == null)
@@ -82,25 +82,25 @@ public class CollectQuest : Quest
         if (Player.onInventoryUpdate == null)
         {
             Debug.Log("onInventoryUpdate is empty.");
-        }
+        }*/
     }
 
     public override void EmptyQuest()
     {
         Debug.Log("EmptyQuest override method called.");
-        Player.onInventoryUpdate -= ItemCheck;
+        //Player.onInventoryUpdate -= ItemCheck;
         onQuestComplete -= ProgressDialogueQuestEnd;
         if(!isLastQuest)
         {
             QuestManager.Instance.AddQuest(nextQuest);
         }
-        if (Player.onQuestAdd == null)
+        /*if (Player.onQuestAdd == null)
         {
             Debug.Log("onQuestAdd is empty.");
         }
         if (Player.onInventoryUpdate == null)
         {
             Debug.Log("onInventoryUpdate is empty.");
-        }
+        }*/
     }
 }

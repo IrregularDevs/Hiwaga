@@ -20,7 +20,7 @@ public class Quest : ScriptableObject
     public int questEndIndex;
     public DialogueGroup dialogueGroup;
 
-    public QuestUpdateCallback onQuestAdd;
+    /*public QuestUpdateCallback onQuestAdd;*/
 
     public void FinishQuest()
     {
