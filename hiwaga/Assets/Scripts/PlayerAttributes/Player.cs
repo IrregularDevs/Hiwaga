@@ -61,19 +61,22 @@ public class Player : MonoBehaviour
         {
             onCollision();
         }*/
-        Interactable newTarget = other.gameObject.GetComponent<Interactable>();
-        if (newTarget != null)
+        if(other.gameObject.GetComponent<Interactable>() != null)
         {
-            /*int i = 0;
-            other.gameObject.GetComponent<IInteractable>().enterPrompt();
-            //InteractionManager.Instance.interactTarget = other.gameObject;
-            InteractionManager.Instance.IsInRange = true;
-            foreach(IInteractable interactable in other.gameObject.GetComponents<IInteractable>())
+            Interactable newTarget = other.gameObject.GetComponent<Interactable>();
+            if (newTarget != null)
             {
-                i++;
-                onInteract += interactable.Interact;
-            }*/
-            InteractionManager.Instance.AddInteractTarget(newTarget);
+                /*int i = 0;
+                other.gameObject.GetComponent<IInteractable>().enterPrompt();
+                //InteractionManager.Instance.interactTarget = other.gameObject;
+                InteractionManager.Instance.IsInRange = true;
+                foreach(IInteractable interactable in other.gameObject.GetComponents<IInteractable>())
+                {
+                    i++;
+                    onInteract += interactable.Interact;
+                }*/
+                InteractionManager.Instance.AddInteractTarget(newTarget);
+            }
         }
         /*else
         {
@@ -115,8 +118,11 @@ public class Player : MonoBehaviour
         {
             return;
         }*/
-        Interactable newTarget = other.gameObject.GetComponent<Interactable>();
-        InteractionManager.Instance.RemoveInteractTarget(newTarget);
+        if (other.gameObject.GetComponent<Interactable>() != null)
+        {
+            Interactable oldTarget = other.gameObject.GetComponent<Interactable>();
+            InteractionManager.Instance.RemoveInteractTarget(oldTarget);
+        }
     }
 
     public void UpdateInventory(Item newItem, int amount)
