@@ -13,7 +13,7 @@ public class ScreenManager : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(AwakeAsync());
+        instance = this;
     }
 
     IEnumerator AwakeAsync()
