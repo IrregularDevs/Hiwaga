@@ -31,5 +31,5 @@ MonoBehaviour:
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 2
   autoProgressLines: 
-  loops: 1
+  loops: 0
   questToGive: {fileID: 0}

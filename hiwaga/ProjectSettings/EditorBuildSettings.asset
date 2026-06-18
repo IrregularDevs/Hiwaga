@@ -8,30 +8,42 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenuUI.unity
     guid: 25a27feab32e3b4409ea8efa11b149bd
-  - enabled: 1
-    path: Assets/Scenes/Book1_Test.unity
+  - enabled: 0
+    path: Assets/Scenes/Deprecated/Book1_Test.unity
     guid: c60240277c04d014d8a0a94b00c42fb3
   - enabled: 0
-    path: Assets/Scenes/ScenePersistentsInitialization.unity
+    path: Assets/Scenes/Deprecated/ScenePersistentsInitialization.unity
     guid: 18722eff8b8adc647a1020584f9eeb88
   - enabled: 0
-    path: Assets/Scenes/MainMenu_SampleScene.unity
+    path: Assets/Scenes/Deprecated/MainMenu_SampleScene.unity
     guid: 3eb42af1c91da724eaf7fc3721466bd6
   - enabled: 0
-    path: Assets/Scenes/Gallery_Stage_Blocking2.unity
+    path: Assets/Scenes/Deprecated/Gallery_Stage_Blocking2.unity
     guid: b16635e1af7dc9c45b5e1819d39a8c79
   - enabled: 0
-    path: Assets/Scenes/Kamatis_Ni_Peles_Blocking.unity
+    path: Assets/Scenes/Deprecated/Kamatis_Ni_Peles_Blocking.unity
     guid: e3a7b73cd035dd3478c38cf5285f6ec9
   - enabled: 0
-    path: Assets/Scenes/jabee_SampleScene.unity
+    path: Assets/Scenes/Deprecated/jabee_SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
     path: Assets/Scripts/Scenes/Gavisman_SampleScene.unity
     guid: d4fd7b3f7f8be7a489cf98b5872a6a0b
   - enabled: 0
-    path: Assets/Scenes/Gallery_Stage_Blocking1.unity
+    path: Assets/Scenes/Deprecated/Gallery_Stage_Blocking1.unity
     guid: 416618e24528b874487a46008becb899
+  - enabled: 1
+    path: Assets/Scenes/Gallery_NEW.unity
+    guid: eb1bdfeaac76ff34ea2b658c509ea8ad
+  - enabled: 1
+    path: Assets/Scenes/Benito_Quests.unity
+    guid: 47677fa5006e622448d07f21db3b1d46
+  - enabled: 1
+    path: Assets/Scenes/Benito_Quest_Area6to8.unity
+    guid: 13ff4a3452b9bb141ad7a2b4e1e9964b
+  - enabled: 1
+    path: Assets/Scenes/Book 1.unity
+    guid: df3c65b6534fffc43aa30e5645bfead1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

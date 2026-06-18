@@ -10,7 +10,7 @@ public class NPC : Interactable/*, IInteractable*/
     [SerializeField] private int index;
     [SerializeField] private string npcRefName;
 
-    private void Start()
+    private void OnEnable()
     {
         DialogueManager.Instance.npc_List.Add(this);
         //StartCoroutine(AwakeAsync());

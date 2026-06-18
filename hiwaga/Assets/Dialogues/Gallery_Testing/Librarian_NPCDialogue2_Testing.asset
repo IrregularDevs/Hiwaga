@@ -13,16 +13,23 @@ MonoBehaviour:
   m_Name: Librarian_NPCDialogue2_Testing
   m_EditorClassIdentifier: 
   npcRefName: Librarian_Testing
+  dialogueIndex: 1
   dialogueLines:
-  - dialogueLine: 
-    character: {fileID: 0}
-  - dialogueLine: 
-    character: {fileID: 0}
-  - dialogueLine: 
-    character: {fileID: 0}
-  typingSpeed: 0.05
+  - dialogueLine: Okay...
+    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 2
+  - dialogueLine: So...
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 2
+  - dialogueLine: What now?
+    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 2
   autoProgressLines: 
-  autoProgressDelayFast: 1
-  autoProgressDelaySlow: 2
   loops: 1
   questToGive: {fileID: 0}

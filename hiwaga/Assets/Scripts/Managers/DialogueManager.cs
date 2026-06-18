@@ -64,7 +64,14 @@ public class DialogueManager : MonoBehaviour
     public void BeginDialogue(NPC npc)
     {
         currentNPC = npc;
-        currentDialogue = m_dialogueDictionary[(currentNPC, m_npcDictionary[currentNPC])];
+        if(m_dialogueDictionary.Count != 0)
+        {
+            currentDialogue = m_dialogueDictionary[(currentNPC, m_npcDictionary[currentNPC])];
+        }
+        else
+        {
+            Debug.Log("Huh.");
+        }
 
         if (isdialogueActive)
         {
@@ -148,7 +155,9 @@ public class DialogueManager : MonoBehaviour
 
         if(!currentDialogue.loops)
         {
-            m_npcDictionary[currentNPC] = m_npcDictionary[currentNPC]++;
+            Debug.Log("Former NPC index is {m_npcDictionary[currentNPC]}");
+            m_npcDictionary[currentNPC] = m_npcDictionary[currentNPC] + 1;
+            Debug.Log("$Current NPC index is {m_npcDictionary[currentNPC]}");
             /*ChangeIndex(currentDialogueGroup, currentDialogueData.nextIndex);
             if(currentDialogue.questToGive != null)
             {
