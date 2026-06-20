@@ -2,11 +2,11 @@
     "name": "PlayerInputAction",
     "maps": [
         {
-            "name": "New action map",
+            "name": "Player",
             "id": "1d5aff8d-d6ef-412e-9a34-4cf2cc6f9efd",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "4537c584-b7fb-4f14-8d3f-31132083cac9",
                     "expectedControlType": "",
@@ -19,11 +19,11 @@
                 {
                     "name": "",
                     "id": "63fd250b-7ecb-470d-a29a-25f434abce85",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

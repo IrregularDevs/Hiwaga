@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Collections;
 
@@ -30,11 +31,13 @@ public class Player : MonoBehaviour
     public static InteractCallback onInteract;*/
 
     public string playerName;
+    public PlayerInputAction controls;
 
     private void Awake()
     {
         instance = this;
         playerName = "Muad'Dib";
+        controls = new PlayerInputAction();
     }
 
     IEnumerator AwakeAsync()
@@ -43,7 +46,19 @@ public class Player : MonoBehaviour
         yield return null;
     }
 
-    private void Update()
+    private void OnEnable()
+    {
+        controls.Player.Interact.performed += Interact;
+        controls.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Player.Interact.performed -= Interact;
+        controls.Player.Disable();
+    }
+
+    /*private void Update()
     {
         if (Input.GetButtonDown("Confirm") && InteractionManager.Instance.currentInteractTarget != null)
         {
@@ -52,6 +67,14 @@ public class Player : MonoBehaviour
             {
                 InteractionManager.onInteract();
             }
+        }
+    }*/
+
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if (InteractionManager.onInteract != null)
+        {
+            InteractionManager.onInteract();
         }
     }
 

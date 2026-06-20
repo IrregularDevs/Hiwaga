@@ -155,9 +155,7 @@ public class DialogueManager : MonoBehaviour
 
         if(!currentDialogue.loops)
         {
-            Debug.Log($"Former NPC index is {m_npcDictionary[currentNPC]}");
             m_npcDictionary[currentNPC] = m_npcDictionary[currentNPC] + 1;
-            Debug.Log($"Current NPC index is {m_npcDictionary[currentNPC]}");
             /*ChangeIndex(currentDialogueGroup, currentDialogueData.nextIndex);
             if(currentDialogue.questToGive != null)
             {

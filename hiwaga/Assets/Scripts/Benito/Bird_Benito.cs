@@ -16,7 +16,6 @@ public class Bird_Benito : NPC
 
     private void ChangeModel()
     {
-        Debug.Log("GUW.");
         modelChanger.ChangeModel(1);
         onBeginDialogue -= ChangeModel;
     }

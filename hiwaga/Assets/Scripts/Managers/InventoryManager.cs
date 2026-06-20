@@ -18,12 +18,11 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(AwakeAsync());
+        instance = this;
     }
 
     IEnumerator AwakeAsync()
     {
-        instance = this;
         DontDestroyOnLoad(this.gameObject);
         yield return null;
     }
