@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 254426381}
   - component: {fileID: 254426380}
   m_Layer: 0
-  m_Name: TreeStump_Prompt
+  m_Name: InteractPrompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -979,7 +979,7 @@ GameObject:
   - component: {fileID: 591151974}
   - component: {fileID: 591151975}
   m_Layer: 0
-  m_Name: Librarian_Hitbox
+  m_Name: Collider_Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1341,7 +1341,7 @@ GameObject:
   - component: {fileID: 746083244}
   - component: {fileID: 746083245}
   m_Layer: 0
-  m_Name: Librarian_InteractBox
+  m_Name: Colldier_InteractBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1436,7 +1436,7 @@ GameObject:
   - component: {fileID: 828303002}
   - component: {fileID: 828303003}
   m_Layer: 0
-  m_Name: TreeStump_Hitbox
+  m_Name: Collider_Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1490,7 +1490,7 @@ GameObject:
   - component: {fileID: 836228240}
   - component: {fileID: 836228239}
   m_Layer: 0
-  m_Name: Librarian_Prompt
+  m_Name: InteractPrompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1691,7 +1691,7 @@ GameObject:
   - component: {fileID: 916669900}
   - component: {fileID: 916669899}
   m_Layer: 0
-  m_Name: TreeStump_InteractBox
+  m_Name: Collider_InteractBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2015,7 +2015,7 @@ Transform:
   m_GameObject: {fileID: 961739749}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1736481, y: -0.00000001504035, z: 0.0000000026520184, w: 0.9848078}
-  m_LocalPosition: {x: 25.286552, y: 16.18888, z: -61.88758}
+  m_LocalPosition: {x: 2832.6187, y: 33.816574, z: -53.73646}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2928,7 +2928,7 @@ GameObject:
   - component: {fileID: 1465620376}
   - component: {fileID: 1465620375}
   m_Layer: 0
-  m_Name: TreeStump_Canvas
+  m_Name: Canvas_WorldSpace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3030,7 +3030,7 @@ GameObject:
   - component: {fileID: 1466893254}
   - component: {fileID: 1466893253}
   m_Layer: 0
-  m_Name: Librarian_Canvas
+  m_Name: Canvas_WorldSpace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

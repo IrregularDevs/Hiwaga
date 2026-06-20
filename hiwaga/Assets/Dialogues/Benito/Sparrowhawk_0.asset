@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 155f4c80966429842a894125a411ec78, type: 3}
-  m_Name: Librarian_NPCDialogue1_Testing
+  m_Name: Sparrowhawk_0
   m_EditorClassIdentifier: 
-  npcRefName: Librarian_Testing
+  npcRefName: Sparrowhawk
   dialogueIndex: 0
   dialogueLines:
-  - dialogueLine: This is the first line
-    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+  - dialogueLine: HOLY GOAT.
+    character: {fileID: 11400000, guid: fed1c787091249c4d93e999a03a3f7d2, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 2
-  - dialogueLine: This is the second line
+  - dialogueLine: THANKS FOR FREEING ME LOL.
+    character: {fileID: 11400000, guid: fed1c787091249c4d93e999a03a3f7d2, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 2
+  - dialogueLine: I got you cuh.
     character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
-    typingSpeed: 0.05
-    autoProgressDelayFast: 1
-    autoProgressDelaySlow: 2
-  - dialogueLine: This is the end of dialogue
-    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 2

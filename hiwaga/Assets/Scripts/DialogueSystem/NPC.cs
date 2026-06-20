@@ -10,6 +10,9 @@ public class NPC : Interactable/*, IInteractable*/
     [SerializeField] private int index;
     [SerializeField] private string npcRefName;
 
+    public delegate void OnBeginDialogue();
+    public static OnBeginDialogue onBeginDialogue;
+
     private void OnEnable()
     {
         DialogueManager.Instance.npc_List.Add(this);
@@ -29,6 +32,7 @@ public class NPC : Interactable/*, IInteractable*/
 
     public override void Interact()
     {
+        onBeginDialogue?.Invoke();
         DialogueManager.Instance.BeginDialogue(this);
     }
 
