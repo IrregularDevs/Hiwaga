@@ -15,21 +15,73 @@ MonoBehaviour:
   npcRefName: Librarian_Testing
   dialogueIndex: 0
   dialogueLines:
-  - dialogueLine: This is the first line
-    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
-    typingSpeed: 0.05
-    autoProgressDelayFast: 1
-    autoProgressDelaySlow: 2
-  - dialogueLine: This is the second line
+  - dialogueLine: Hello there, I seem to be lost and ended up in this hidden part
+      of the library.
     character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
-    autoProgressDelaySlow: 2
-  - dialogueLine: This is the end of dialogue
+    autoProgressDelaySlow: 3
+  - dialogueLine: Is there a way to go back to the main library? I might be late
+      for class.
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: Hello there &name.
     character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
-    autoProgressDelaySlow: 2
+    autoProgressDelaySlow: 3
+  - dialogueLine: 'There is a reason why you were brought in here, to the library
+      called Hiwaga. '
+    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: You will be able to go back to your world...
+    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: '...that is, until you collect the stories that will help you with
+      your life and studies. '
+    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: "I see\u2026"
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: And what can this library do to help me with my life and studies
+      right now?
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: 'Yes, this library will help you. '
+    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: By collecting and visiting the worlds of some amazing books, you
+      will be able to learn some great lessons to move forward with your studies
+      and life.
+    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 4
+  - dialogueLine: That sounds like a great deal!
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: I am ready for a book reading adventure to be better!
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
   autoProgressLines: 
   loops: 0
   questToGive: {fileID: 0}

@@ -31,13 +31,13 @@ public class Player : MonoBehaviour
     public static InteractCallback onInteract;*/
 
     public string playerName;
-    public PlayerInputAction controls;
+    public InputSystem_Actions controls;
 
     private void Awake()
     {
         instance = this;
         playerName = "Muad'Dib";
-        controls = new PlayerInputAction();
+        controls = new InputSystem_Actions();
     }
 
     IEnumerator AwakeAsync()
@@ -72,8 +72,10 @@ public class Player : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext context)
     {
+        Debug.Log("Bruh");
         if (InteractionManager.onInteract != null)
         {
+            Debug.Log("Huh");
             InteractionManager.onInteract();
         }
     }

@@ -15,21 +15,16 @@ MonoBehaviour:
   npcRefName: Sparrowhawk
   dialogueIndex: 0
   dialogueLines:
-  - dialogueLine: HOLY GOAT.
+  - dialogueLine: My sincerest gratitudes, Benito and &name.
     character: {fileID: 11400000, guid: fed1c787091249c4d93e999a03a3f7d2, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 2
-  - dialogueLine: THANKS FOR FREEING ME LOL.
+  - dialogueLine: If you ever need my aid, just call my name, Sparrowhawk!
     character: {fileID: 11400000, guid: fed1c787091249c4d93e999a03a3f7d2, type: 2}
-    typingSpeed: 0.05
-    autoProgressDelayFast: 1
-    autoProgressDelaySlow: 2
-  - dialogueLine: I got you cuh.
-    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 2
   autoProgressLines: 
-  loops: 0
+  loops: 1
   questToGive: {fileID: 0}

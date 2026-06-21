@@ -15,21 +15,36 @@ MonoBehaviour:
   npcRefName: Librarian_Testing
   dialogueIndex: 1
   dialogueLines:
-  - dialogueLine: Okay...
-    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
-    typingSpeed: 0.05
-    autoProgressDelayFast: 1
-    autoProgressDelaySlow: 2
-  - dialogueLine: So...
+  - dialogueLine: Why are the other books greyed out, mister librarian?
     character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 2
-  - dialogueLine: What now?
-    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+  - dialogueLine: Are we not supposed to help all the storybooks?
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 2
+  - dialogueLine: Patience, dear child.
+    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: Do not worry about those for now.
+    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: Those books will come in due time, when you are ready.
+    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: For now, see what you can learn from this book.
+    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
   autoProgressLines: 
   loops: 1
   questToGive: {fileID: 0}
