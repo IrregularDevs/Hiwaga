@@ -21,6 +21,10 @@ public class CharacterController3D : MonoBehaviour
     private Vector3 velocity;
     private bool isGrounded;
 
+    // Air movement lock
+    private Vector3 airMoveDirection;
+    private float airSpeed;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -31,14 +35,18 @@ public class CharacterController3D : MonoBehaviour
 
     void Update()
     {
+        // Fix: Prevent Move() calls on disabled controller
+        if (controller == null || !controller.enabled)
+            return;
+
         if (!canMove)
         {
-            controller.Move(Vector3.zero);
             return;
         }
 
         // Ground check
-        isGrounded = controller.isGrounded || Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
+        isGrounded = controller.isGrounded ||
+            Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
 
         if (isGrounded && velocity.y < 0f)
             velocity.y = -2f;
@@ -47,7 +55,7 @@ public class CharacterController3D : MonoBehaviour
         float moveZ = Input.GetAxisRaw("Vertical");
         Vector3 inputDirection = new Vector3(moveX, 0f, moveZ).normalized;
 
-        // sprint toggle
+        // Sprint toggle
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
         float currentSpeed = isSprinting ? moveSpeed * sprintMultiplier : moveSpeed;
 
@@ -55,40 +63,66 @@ public class CharacterController3D : MonoBehaviour
         {
             Vector3 camForward = cameraTransform.forward;
             Vector3 camRight = cameraTransform.right;
+
             camForward.y = 0f;
             camRight.y = 0f;
 
-            Vector3 moveDirection = (camForward * inputDirection.z + camRight * inputDirection.x).normalized;
+            Vector3 moveDirection =
+                (camForward * inputDirection.z + camRight * inputDirection.x).normalized;
+
+            if (isGrounded)
+            {
+                airMoveDirection = moveDirection;
+                airSpeed = moveSpeed;
+            }
 
             CurrentMoveDirection = moveDirection;
 
-            controller.Move(moveDirection * currentSpeed * Time.deltaTime);
+            if (isGrounded)
+            {
+                controller.Move(moveDirection * currentSpeed * Time.deltaTime);
+            }
 
             // Rotation
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                targetRotation,
+                Time.deltaTime * rotationSpeed);
         }
         else
         {
             CurrentMoveDirection = Vector3.zero;
         }
 
-        // Jump 
+        // Air movement locked to jump direction
+        if (!isGrounded)
+        {
+            controller.Move(airMoveDirection * airSpeed * Time.deltaTime);
+        }
+
+        // Jump
         if (enableJump && Input.GetButtonDown("Jump") && isGrounded)
         {
+            airMoveDirection = CurrentMoveDirection;
+            airSpeed = moveSpeed; // No sprint boost in air
+
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         }
 
-        // Gravity application
+        // Gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
         // In-game menu toggle (ESC)
-        if (Input.GetButtonDown("Esc") && SceneManager.GetActiveScene().name != "MainMenuUI")
+        if (Input.GetButtonDown("Esc") &&
+            SceneManager.GetActiveScene().name != "MainMenuUI")
         {
-            OptionsManager.Instance.OpenCloseMenu(!OptionsManager.Instance.GetMenuStateSelf());
+            OptionsManager.Instance.OpenCloseMenu(
+                !OptionsManager.Instance.GetMenuStateSelf());
 
-            Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked)
+            Cursor.lockState =
+                (Cursor.lockState == CursorLockMode.Locked)
                 ? CursorLockMode.None
                 : CursorLockMode.Locked;
         }

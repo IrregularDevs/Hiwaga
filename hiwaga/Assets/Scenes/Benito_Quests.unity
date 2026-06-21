@@ -15981,27 +15981,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -5151492872390713093, guid: 925c01fbfaec644488e3115cf33b9bfe, type: 3}
   m_PrefabInstance: {fileID: 607724199}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &461941127
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461941125}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 0.12, z: 1}
-  m_Center: {x: 0.09, y: 0.47, z: 0}
 --- !u!114 &461941130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16600,13 +16579,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -5151492872390713093, guid: 925c01fbfaec644488e3115cf33b9bfe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 461941127}
-    - targetCorrespondingSourceObject: {fileID: -5151492872390713093, guid: 925c01fbfaec644488e3115cf33b9bfe, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 461941130}
     - targetCorrespondingSourceObject: {fileID: -5151492872390713093, guid: 925c01fbfaec644488e3115cf33b9bfe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 461941131}
+    - targetCorrespondingSourceObject: {fileID: -7134394785105016132, guid: 925c01fbfaec644488e3115cf33b9bfe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1858847865}
   m_SourcePrefab: {fileID: 100100000, guid: 925c01fbfaec644488e3115cf33b9bfe, type: 3}
 --- !u!1 &627466036
 GameObject:
@@ -17298,11 +17277,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4150958785743684493, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: jumpForce
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4150958785743684493, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: moveSpeed
-      value: 100
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 4150958785743684493, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: enableJump
@@ -19825,6 +19804,33 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1022401417394813045, guid: 38aae10c77fb6a944bbbda246f193cd2, type: 3}
+--- !u!1 &1858847861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7134394785105016132, guid: 925c01fbfaec644488e3115cf33b9bfe, type: 3}
+  m_PrefabInstance: {fileID: 607724199}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1858847865
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858847861}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6297267204642607378, guid: 925c01fbfaec644488e3115cf33b9bfe, type: 3}
 --- !u!64 &1887440354
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class FishRide : Interactable
     {
         if (playerInside && !isMoving && !rideCompleted && Input.GetKeyDown(KeyCode.E))
         {
+            playerInside = false;
             SetActivePrompt(false);
             Interact();
         }
@@ -60,19 +61,7 @@ public class FishRide : Interactable
     {
         isMoving = true;
 
-        if (seatPoint == null)
-        {
-            Debug.LogError("Seat Point is not assigned!");
-            isMoving = false;
-            yield break;
-        }
-
-        if (pointB == null)
-        {
-            Debug.LogError("Point B is not assigned!");
-            isMoving = false;
-            yield break;
-        }
+        SetActivePrompt(false);
 
         CharacterController3D playerMovement =
             player.GetComponent<CharacterController3D>();
@@ -80,24 +69,27 @@ public class FishRide : Interactable
         CharacterController characterController =
             player.GetComponent<CharacterController>();
 
-        // Disable player movement
+        // Disable movement and jump
         if (playerMovement != null)
+        {
             playerMovement.canMove = false;
+            playerMovement.enableJump = false;
+        }
 
         // Disable CharacterController before teleporting
         if (characterController != null)
             characterController.enabled = false;
 
-        // Teleport player to seat
+        // Move player to seat
         player.transform.position = seatPoint.position;
         player.transform.rotation = seatPoint.rotation;
 
-        // Parent player to fish so they move together
+        // Parent player to fish
         player.transform.SetParent(transform, true);
 
         yield return new WaitForSeconds(mountDelay);
 
-        // Move fish to Point B
+        // Move fish
         while (Vector3.Distance(transform.position, pointB.position) > 0.05f)
         {
             transform.position = Vector3.MoveTowards(
@@ -111,10 +103,10 @@ public class FishRide : Interactable
 
         transform.position = pointB.position;
 
-        // Mark ride as completed
+        // Ride finished
         rideCompleted = true;
+        playerInside = false;
 
-        // Hide prompt permanently
         SetActivePrompt(false);
 
         // Unparent player
@@ -124,11 +116,18 @@ public class FishRide : Interactable
         if (characterController != null)
             characterController.enabled = true;
 
-        // Re-enable movement
+        // Re-enable movement and jump
         if (playerMovement != null)
+        {
             playerMovement.canMove = true;
+            playerMovement.enableJump = true;
+        }
 
-        playerInside = false;
+        // Disable trigger so ride cannot be used again
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+            col.enabled = false;
+
         isMoving = false;
     }
 
