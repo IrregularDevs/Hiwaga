@@ -21,6 +21,7 @@ public class NPC : Interactable/*, IInteractable*/
         }
         else
         {
+            Debug.Log($"Sucessfully added {npcRefName}.");
             DialogueManager.Instance.npc_List.Add(this);
         }
         //StartCoroutine(AwakeAsync());

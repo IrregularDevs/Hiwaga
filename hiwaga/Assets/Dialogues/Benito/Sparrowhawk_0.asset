@@ -15,13 +15,29 @@ MonoBehaviour:
   npcRefName: Sparrowhawk
   dialogueIndex: 0
   dialogueLines:
-  - dialogueLine: My sincerest gratitudes, Benito and &name.
+  - dialogueLine: Oh dear me! Is anyone out there?
     character: {fileID: 11400000, guid: fed1c787091249c4d93e999a03a3f7d2, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 3
-  - dialogueLine: If you ever need my aid, just call my name, Sparrowhawk!
+  - dialogueLine: Oh, my friends!
     character: {fileID: 11400000, guid: fed1c787091249c4d93e999a03a3f7d2, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: Please free from these bonds, and I will aid you whenever you call
+      on my name!
+    character: {fileID: 11400000, guid: fed1c787091249c4d93e999a03a3f7d2, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: "Let\u2019s go &name!"
+    character: {fileID: 11400000, guid: c4564917bcf1ba446a138385d899cc9c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: We should help our dear bird friend!
+    character: {fileID: 11400000, guid: c4564917bcf1ba446a138385d899cc9c, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 3

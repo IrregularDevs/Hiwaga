@@ -54,7 +54,7 @@ public class DialogueManager : MonoBehaviour
             {
                 m_dialogueDictionary.Add((usedNpc, dialogueToBeAdded.dialogueIndex), dialogueToBeAdded);
             }
-            m_npcDictionary.Add(usedNpc, 0);
+            m_npcDictionary.Add(usedNpc, usedNpc.GetIndex());
         }
         dialoguePanel.SetActive(false);
     }

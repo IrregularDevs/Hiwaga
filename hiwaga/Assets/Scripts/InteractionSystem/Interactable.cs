@@ -10,7 +10,7 @@ public class Interactable : MonoBehaviour
 
     }
 
-    public void SetActivePrompt(bool state)
+    public virtual void SetActivePrompt(bool state)
     {
         prompt.gameObject.SetActive(state);
     }
