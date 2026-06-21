@@ -3,9 +3,9 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 
-public class ItemSource : ItemHolder, IInteractable
+public class ItemSource : ItemHolder
 {
-    public void enterPrompt()
+    /*public void enterPrompt()
     {
 
     }
@@ -17,13 +17,14 @@ public class ItemSource : ItemHolder, IInteractable
     public bool canInteract()
     {
         return true;
-    }
+    }*/
 
-    public void Interact()
+    //Called when interacted with
+    public override void Interact()
     {
-        if (hasLimit == true && uses >= maxUses && disappears)
+        if (maxUses > 0 && currentUses >= maxUses)
         {
-            this.gameObject.SetActive(false);
+            onInvalidHolder?.Invoke();
             return;
         }
         else
@@ -34,16 +35,16 @@ public class ItemSource : ItemHolder, IInteractable
                 return;
             }
             InventoryManager.Instance.AddItem(this);
-            if (hasLimit == true && uses >= maxUses && disappears)
+            if (maxUses > 0 && currentUses >= maxUses)
             {
-                this.gameObject.SetActive(false);
+                onInvalidHolder?.Invoke();
             }
-            return;
+            //return;
         }
     }
 
-    public int GetUses()
+    /*public int GetUses()
     {
         return uses;
-    }
+    }*/
 }

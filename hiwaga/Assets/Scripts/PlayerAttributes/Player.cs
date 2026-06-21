@@ -3,17 +3,27 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Collections;
 
-[System.Serializable]
+/*[System.Serializable]
 public class PlayerInventory
 {
     public Item item;
     public int count;
-}
+}*/
 
 public class Player : MonoBehaviour
 {
+    //Player Singleton reference
     private static Player instance;
     public static Player Instance => instance;
+
+    //Name for dialogue
+    public string playerName;
+
+    //Controls
+    public InputSystem_Actions controls;
+
+    //Inventory
+    [SerializeField] private InventorySlot inventorySlot;
 
     /*public List<Quest> quests = new List<Quest>();
     public List<PlayerInventory> items = new List<PlayerInventory>();
@@ -30,9 +40,7 @@ public class Player : MonoBehaviour
     public delegate void InteractCallback();
     public static InteractCallback onInteract;*/
 
-    public string playerName;
-    public InputSystem_Actions controls;
-
+    //Initialization
     private void Awake()
     {
         instance = this;
@@ -46,12 +54,14 @@ public class Player : MonoBehaviour
         yield return null;
     }
 
+    //Enable controls
     private void OnEnable()
     {
         controls.Player.Interact.performed += Interact;
         controls.Player.Enable();
     }
 
+    //Disable controls
     private void OnDisable()
     {
         controls.Player.Interact.performed -= Interact;
@@ -70,16 +80,16 @@ public class Player : MonoBehaviour
         }
     }*/
 
+    //Interaction function
     public void Interact(InputAction.CallbackContext context)
     {
-        Debug.Log("Bruh");
         if (InteractionManager.onInteract != null)
         {
-            Debug.Log("Huh");
             InteractionManager.onInteract();
         }
     }
 
+    //Add interactable when within range
     private void OnTriggerEnter(Collider other)
     {
         /*if(onCollision!=null)
@@ -125,6 +135,7 @@ public class Player : MonoBehaviour
         }*/
     }
 
+    //Remove interactable when out of range
     private void OnTriggerExit(Collider other)
     {
         /*if (other.gameObject.CompareTag("Interactable"))
@@ -150,8 +161,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void UpdateInventory(Item newItem, int amount)
+    //Add item to Inventory Slot
+    public void AddItem(Item newItem)
     {
+        inventorySlot.ChangeItem(newItem);
         /*if(items.Contains(items.Find(x=>x.item==newItem)))
         {
             items.Find(x=>x.item == newItem).count += amount;
@@ -168,5 +181,24 @@ public class Player : MonoBehaviour
         {
             Debug.Log("onInventoryUpdate is still empty.");
         }*/
+    }
+
+    //Remove item in Inventory Slot
+    public void RemoveItem()
+    {
+        inventorySlot.RemoveItem();
+    }
+
+    //Checks if Player has a certain item
+    public bool HasItem(Item newItem)
+    {
+        if(inventorySlot.GetCurrentItem() != null)
+        {
+            return (newItem == inventorySlot.GetCurrentItem());
+        }
+        else
+        {
+            return false;
+        }
     }
 }

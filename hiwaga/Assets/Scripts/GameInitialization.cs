@@ -10,7 +10,7 @@ public class GameInitialization : MonoBehaviour
 
     IEnumerator AwakeAsync()
     {
-        InventoryManager.Instance.ShowHidePanel(true);
+        //InventoryManager.Instance.ShowHidePanel(true);
         QuestManager.Instance.ShowHidePanel(true);
         OptionsManager.Instance.OpenCloseMenu(false);
         yield return null;

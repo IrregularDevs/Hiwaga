@@ -11,11 +11,18 @@ public class NPC : Interactable/*, IInteractable*/
     [SerializeField] private string npcRefName;
 
     public delegate void OnBeginDialogue();
-    public static OnBeginDialogue onBeginDialogue;
+    public OnBeginDialogue onBeginDialogue;
 
     private void OnEnable()
     {
-        DialogueManager.Instance.npc_List.Add(this);
+        if(DialogueManager.Instance == null)
+        {
+            Debug.Log("Bruh");
+        }
+        else
+        {
+            DialogueManager.Instance.npc_List.Add(this);
+        }
         //StartCoroutine(AwakeAsync());
     }
 

@@ -1,29 +1,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+/*[System.Serializable]
 public class ItemHeld
 {
     public Item item;
     public int count;
-}
+}*/
 
-public class ItemHolder : MonoBehaviour
+public class ItemHolder : Interactable
 {
-    [SerializeField] protected string enterString, exitString, interactString;
+    /*[SerializeField] protected string enterString, exitString, interactString;
     [SerializeField] protected List<ItemHeld> itemsHeld = new List<ItemHeld>();
     [SerializeField] protected bool hasLimit;
+    [SerializeField] protected bool disappears;*/
+
+    //Item given
+    [SerializeField] protected Item itemHeld;
+
+    //Uses. Negative maxUses for infinite source
     [SerializeField] protected int maxUses;
-    [SerializeField] protected int uses = 0;
-    [SerializeField] protected bool disappears;
-    
-    public void ChangeUses(int i)
+    [SerializeField] protected int currentUses = 0;
+
+    //When holder is no longer in use
+    public delegate void OnInvalidHolder();
+    public static OnInvalidHolder onInvalidHolder;
+
+    //Count uses
+    public void AddCurrentUses(int i)
     {
-        uses += i;
+        currentUses += i;
     }
 
-    public List<ItemHeld> GetItems()
+    //Return item
+    public Item GetItem()
     {
-        return itemsHeld;
+        return itemHeld;
     }
+
+    //Return current uses
+    public int GetUses()
+    {
+        return currentUses;
+    }
+
 }

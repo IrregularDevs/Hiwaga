@@ -7,29 +7,38 @@ using static Unity.VisualScripting.Member;
 
 public class InventoryManager : MonoBehaviour
 {
+    //Singleton reference
     private static InventoryManager instance;
     public static InventoryManager Instance => instance;
 
-    [SerializeField] private GameObject panelInventory;
+    /*[SerializeField] private GameObject panelInventory;
 
     public int maxStackedItems;
     public InventorySlot[] inventorySlots;
-    public GameObject inventoryItemPrefab;
+    public GameObject inventoryItemPrefab;*/
 
+    //Set singleton to active InventoryManager
     private void Awake()
     {
         instance = this;
     }
 
-    IEnumerator AwakeAsync()
+    /*IEnumerator AwakeAsync()
     {
         DontDestroyOnLoad(this.gameObject);
         yield return null;
-    }
+    }*/
 
+    //Add new item to Player
     public void AddItem(ItemSource source)
     {
-        List<ItemHeld> itemsToAdd = new List<ItemHeld>();
+        Item newItem = source.GetItem();
+        if(!Player.Instance.HasItem(newItem))
+        {
+            Player.Instance.AddItem(newItem);
+            source.AddCurrentUses(1);
+        }
+        /*List<ItemHeld> itemsToAdd = new List<ItemHeld>();
         itemsToAdd = source.GetItems();
         bool isItemAdded = false;
 
@@ -48,7 +57,7 @@ public class InventoryManager : MonoBehaviour
             {
                 InventorySlot slot = inventorySlots[i];
                 InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-                if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < maxStackedItems && itemInSlot.item.stackable == true)
+                if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < maxStackedItems *//*&& itemInSlot.item.stackable == true*//*)
                 {
                     itemInSlot.count += amountGiven;
                     itemInSlot.RefreshCount();
@@ -108,12 +117,19 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.Log("Inventory is full!");
         }
-        return;
+        return;*/
     }
 
+    //Remove current Item from Player
     public void RemoveItem(ItemReceiver receiver)
     {
-        List<ItemHeld> itemsToAdd = new List<ItemHeld>();
+        Item removedItem = receiver.GetItem();
+        if (Player.Instance.HasItem(removedItem))
+        {
+            Player.Instance.RemoveItem();
+            receiver.AddCurrentUses(1);
+        }
+        /*List<ItemHeld> itemsToAdd = new List<ItemHeld>();
         itemsToAdd = receiver.GetItems();
         bool isItemRemoved = false;
 
@@ -183,11 +199,11 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.Log("You don't have what is required!");
         }
-        return;
+        return;*/
     }
 
 
-    public void SpawnItem(Item item, InventorySlot slot)
+    /*public void SpawnItem(Item item, InventorySlot slot)
     {
         InventoryItem inventoryItem = slot.GetComponentInChildren<InventoryItem>();
         if (inventoryItem == null)
@@ -197,14 +213,14 @@ public class InventoryManager : MonoBehaviour
         }
         inventoryItem.InitializeItem(item);
         inventoryItem.RefreshCount();
-    }
+    }*/
 
-    public int ClampValue(int count)
+    /*public int ClampValue(int count)
     {
         return Mathf.Clamp(count, 0, maxStackedItems);
-    }
+    }*/
 
-    public int CheckAvailableInventorySpace()
+    /*public int CheckAvailableInventorySpace()
     {
         int m = 0;
         for(int i = 0; i < inventorySlots.Length; i++)
@@ -217,25 +233,24 @@ public class InventoryManager : MonoBehaviour
             }
         }
         return m;
-    }
+    }*/
 
-    public bool CheckItemsToRemove(ItemReceiver receiver)
+    /*public bool CheckItemsToRemove(ItemReceiver receiver)
     {
         List<ItemHeld> itemsToRemove = new List<ItemHeld>();
         itemsToRemove = receiver.GetItems();
         foreach(ItemHeld itemHeld in itemsToRemove)
         {
-            /*if(!Player.Instance.items.Exists(x => x.item == itemHeld.item) || Player.Instance.items.Find(x => x.item == itemHeld.item).count < itemHeld.count)
+            if(!Player.Instance.items.Exists(x => x.item == itemHeld.item) || Player.Instance.items.Find(x => x.item == itemHeld.item).count < itemHeld.count)
             {
                 return false;
-            }*/
+            }
         }
         return true;
-    }
+    }*/
 
-    public void ShowHidePanel(bool state)
+    /*public void ShowHidePanel(bool state)
     {
         panelInventory.SetActive(state);
-    }
-
+    }*/
 }

@@ -15,7 +15,7 @@ public class GiveQuestObjective : MonoBehaviour
 
     IEnumerator AwakeAsync()
     {
-        receiver.onUse += ProgressQuest;
+        //receiver.onUse += ProgressQuest;
         yield return null;
     }
 

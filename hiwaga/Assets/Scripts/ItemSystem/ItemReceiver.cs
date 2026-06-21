@@ -4,12 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ItemReceiver : ItemHolder, IInteractable
+public class ItemReceiver : ItemHolder
 {
-    public delegate void UseUpdateCallback();
-    public UseUpdateCallback onUse;
+    /*public delegate void UseUpdateCallback();
+    public UseUpdateCallback onUse;*/
 
-    public void enterPrompt()
+    /*public void enterPrompt()
     {
 
     }
@@ -21,13 +21,14 @@ public class ItemReceiver : ItemHolder, IInteractable
     public bool canInteract()
     {
         return true;
-    }
+    }*/
 
-    public void Interact()
+    //Called when interacted with
+    public override void Interact()
     {
-        if (hasLimit == true && uses >= maxUses && disappears)
+        if (maxUses > 0 && currentUses >= maxUses)
         {
-            this.gameObject.SetActive(false);
+            onInvalidHolder?.Invoke();
             return;
         }
         else
@@ -38,16 +39,16 @@ public class ItemReceiver : ItemHolder, IInteractable
                 return;
             }
             InventoryManager.Instance.RemoveItem(this);
-            if (hasLimit == true && uses >= maxUses && disappears)
+            if (maxUses > 0 && currentUses >= maxUses)
             {
-                this.gameObject.SetActive(false);
+                onInvalidHolder?.Invoke();
             }
             return;
         }
     }
 
-    public int GetUses()
+    /*public int GetUses()
     {
         return uses;
-    }
+    }*/
 }

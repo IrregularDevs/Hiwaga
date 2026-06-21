@@ -19,17 +19,17 @@ MonoBehaviour:
     character: {fileID: 11400000, guid: fed1c787091249c4d93e999a03a3f7d2, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
-    autoProgressDelaySlow: 2
+    autoProgressDelaySlow: 3
   - dialogueLine: Don't mention it bro.
     character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
-    autoProgressDelaySlow: 2
+    autoProgressDelaySlow: 3
   - dialogueLine: Like genuinely. Don't.
     character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
-    autoProgressDelaySlow: 2
+    autoProgressDelaySlow: 3
   autoProgressLines: 
   loops: 1
   questToGive: {fileID: 0}

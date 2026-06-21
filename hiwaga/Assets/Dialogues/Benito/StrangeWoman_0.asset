@@ -10,21 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 155f4c80966429842a894125a411ec78, type: 3}
-  m_Name: Sparrowhawk_0
+  m_Name: StrangeWoman_0
   m_EditorClassIdentifier: 
-  npcRefName: Sparrowhawk
+  npcRefName: Strange Woman
   dialogueIndex: 0
   dialogueLines:
-  - dialogueLine: My sincerest gratitudes, Benito and &name.
-    character: {fileID: 11400000, guid: fed1c787091249c4d93e999a03a3f7d2, type: 2}
+  - dialogueLine: The princess you seek resides in a castle guarded by giants.
+    character: {fileID: 11400000, guid: e3d23329a83d5e343a9b39c4037779b6, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 3
-  - dialogueLine: If you ever need my aid, just call my name, Sparrowhawk!
-    character: {fileID: 11400000, guid: fed1c787091249c4d93e999a03a3f7d2, type: 2}
+  - dialogueLine: Take this magic sword, for it will instantly overcome whatever
+      touches it.
+    character: {fileID: 11400000, guid: e3d23329a83d5e343a9b39c4037779b6, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 3
   autoProgressLines: 
-  loops: 1
+  loops: 0
   questToGive: {fileID: 0}

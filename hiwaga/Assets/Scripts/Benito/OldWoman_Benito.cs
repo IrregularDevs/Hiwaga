@@ -1,16 +1,22 @@
 using UnityEngine;
 
-public class OldWoman_Benito : MonoBehaviour
+public class OldWoman_Benito : NPC
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private ItemSource itemSource;
+
+    private void Start()
     {
-        
+        onBeginDialogue += GiveSword;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        onBeginDialogue -= GiveSword;
+    }
+
+    private void GiveSword()
+    {
+        itemSource.Interact();
+        onBeginDialogue -= GiveSword;
     }
 }

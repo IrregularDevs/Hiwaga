@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class InventoryItem : MonoBehaviour
 {
-    public int count;
+    /*public int count;
     public Item item;
     public Image image;
     public TextMeshProUGUI countText;
@@ -30,5 +30,5 @@ public class InventoryItem : MonoBehaviour
         item = null;
         image.sprite = null;
         gameObject.SetActive(false);
-    }
+    }*/
 }
