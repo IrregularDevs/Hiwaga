@@ -25,8 +25,8 @@ MonoBehaviour:
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 3
-  - dialogueLine: Please free from these bonds, and I will aid you whenever you call
-      on my name!
+  - dialogueLine: Please free me from these bonds, and I will aid you whenever you
+      call on my name!
     character: {fileID: 11400000, guid: 9f7ec88e7656c3f4a8bcba2a5419c877, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1

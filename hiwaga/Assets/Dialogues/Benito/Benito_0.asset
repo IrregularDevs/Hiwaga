@@ -16,7 +16,7 @@ MonoBehaviour:
   dialogueIndex: 0
   dialogueLines:
   - dialogueLine: Hello there traveller, my name is Benito and I am the servant of
-      the King.
+      the king.
     character: {fileID: 11400000, guid: c4564917bcf1ba446a138385d899cc9c, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
@@ -51,8 +51,8 @@ MonoBehaviour:
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 3
-  - dialogueLine: The king has ordered me to bring him a beautiful princess who lives
-      in a land across the sea.
+  - dialogueLine: The king has ordered me to bring him a beautiful princess, who
+      lives in a land across the sea.
     character: {fileID: 11400000, guid: c4564917bcf1ba446a138385d899cc9c, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
