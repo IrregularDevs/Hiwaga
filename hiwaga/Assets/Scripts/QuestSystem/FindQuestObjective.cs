@@ -7,7 +7,7 @@ public class FindQuestObjective : MonoBehaviour, IInteractable
     private bool isHiding = false;
 
     [SerializeField] private Transform[] hideSpots;
-    [SerializeField] private float hideDelay = 1.0f; // Delay before hiding again
+    //[SerializeField] private float hideDelay = 1.0f; // Delay before hiding again
     [SerializeField] private FindQuest findQuest;
 
     private void Start()

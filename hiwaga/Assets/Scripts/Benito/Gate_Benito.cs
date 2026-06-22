@@ -6,7 +6,12 @@ public class Gate_Benito : Lock
 
     private void Start()
     {
-        onInteract = SwitchScene;
+        onInteract += SwitchScene;
+    }
+
+    private void OnDisable()
+    {
+        onInteract -= SwitchScene;
     }
 
     private void SwitchScene()

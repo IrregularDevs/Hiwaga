@@ -120,6 +120,14 @@ public class InventoryManager : MonoBehaviour
         return;*/
     }
 
+    public void AddItem(Item addedItem)
+    {
+        if (!Player.Instance.HasItem(addedItem))
+        {
+            Player.Instance.AddItem(addedItem);
+        }
+    }
+
     //Remove current Item from Player
     public void RemoveItem(ItemReceiver receiver)
     {
@@ -202,6 +210,13 @@ public class InventoryManager : MonoBehaviour
         return;*/
     }
 
+    public void RemoveItem(Item removedItem)
+    {
+        if (Player.Instance.HasItem(removedItem))
+        {
+            Player.Instance.RemoveItem();
+        }
+    }
 
     /*public void SpawnItem(Item item, InventorySlot slot)
     {

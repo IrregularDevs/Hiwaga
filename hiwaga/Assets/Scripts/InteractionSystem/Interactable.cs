@@ -1,9 +1,10 @@
+#nullable enable
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour
 {
-    [SerializeField] private RawImage prompt;
+    [SerializeField] private RawImage? prompt;
 
     public virtual void Interact()
     {
@@ -12,16 +13,16 @@ public class Interactable : MonoBehaviour
 
     public virtual void SetActivePrompt(bool state)
     {
-        prompt.gameObject.SetActive(state);
+        prompt?.gameObject.SetActive(state);
     }
 
     private void Awake()
     {
-        prompt.gameObject.SetActive(false);
+        prompt?.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        prompt.transform.LookAt(Camera.main.transform.position, -Vector3.up);
+        prompt?.transform.LookAt(Camera.main.transform.position, -Vector3.up);
     }
 }
