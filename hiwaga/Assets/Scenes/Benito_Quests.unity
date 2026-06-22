@@ -478,7 +478,7 @@ Transform:
   m_GameObject: {fileID: 188987266}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1206115, y: -0.70849156, z: 0.12492616, w: 0.68402195}
-  m_LocalPosition: {x: 20.991928, y: 11.283434, z: 0.7379804}
+  m_LocalPosition: {x: 48.99191, y: 11.283434, z: -801.6622}
   m_LocalScale: {x: 3.4547992, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16307,10 +16307,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 866030144}
+  index: 0
+  npcRefName: King Of Fishes
   seatPoint: {fileID: 1651180612}
   pointB: {fileID: 1479570915}
-  moveSpeed: 50
+  dropOffPoint: {fileID: 594682162}
+  moveSpeed: 1000
   mountDelay: 1
+  rideOffset: {x: 0, y: 1, z: 0}
 --- !u!65 &461941131
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16882,6 +16886,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &594682161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594682162}
+  m_Layer: 0
+  m_Name: DropHere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &594682162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594682161}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
+  m_LocalPosition: {x: 4778.9, y: 8.3, z: 0}
+  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &595873487
 GameObject:
   m_ObjectHideFlags: 0
@@ -18147,7 +18182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7901697350876990496, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 7901697350876990496, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18155,7 +18190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7901697350876990496, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -802.4
       objectReference: {fileID: 0}
     - target: {fileID: 7901697350876990496, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18926,7 +18961,7 @@ Transform:
   m_GameObject: {fileID: 961739749}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1736481, y: -0.00000001504035, z: 0.0000000026520184, w: 0.9848078}
-  m_LocalPosition: {x: 4850, y: 30.754572, z: -40.99165}
+  m_LocalPosition: {x: 2939.1255, y: 30.754572, z: -40.49519}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21714,7 +21749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 383252313727768874, guid: 1f4380e6685002040889345e70c343a3, type: 3}
       propertyPath: npcDialogue_List.Array.size
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 383252313727768874, guid: 1f4380e6685002040889345e70c343a3, type: 3}
       propertyPath: 'npcDialogue_List.Array.data[0]'
@@ -21744,6 +21779,14 @@ PrefabInstance:
       propertyPath: 'npcDialogue_List.Array.data[6]'
       value: 
       objectReference: {fileID: 11400000, guid: 52e8b51f7c01e3a4b952cefe9859545c, type: 2}
+    - target: {fileID: 383252313727768874, guid: 1f4380e6685002040889345e70c343a3, type: 3}
+      propertyPath: 'npcDialogue_List.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: bfb838026bc274442ab798537282405d, type: 2}
+    - target: {fileID: 383252313727768874, guid: 1f4380e6685002040889345e70c343a3, type: 3}
+      propertyPath: 'npcDialogue_List.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 50251625128682448b611f11fabd53cf, type: 2}
     - target: {fileID: 1823419052577191298, guid: 1f4380e6685002040889345e70c343a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 478.24118
@@ -22502,6 +22545,7 @@ SceneRoots:
   - {fileID: 1526629806}
   - {fileID: 607724199}
   - {fileID: 1479570915}
+  - {fileID: 594682162}
   - {fileID: 1465880613}
   - {fileID: 755902780}
   - {fileID: 2088768774}

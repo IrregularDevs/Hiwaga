@@ -1,148 +1,130 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-public class FishRide : Interactable
+public class FishRide : NPC
 {
     [Header("Ride Settings")]
     [SerializeField] private Transform seatPoint;
     [SerializeField] private Transform pointB;
+    [SerializeField] private Transform dropOffPoint; // 🔥 NEW
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float mountDelay = 1f;
 
+    [Header("Stick Offset")]
+    [SerializeField] private Vector3 rideOffset = new Vector3(0, 1f, 0);
+
     private bool isMoving;
-    private bool playerInside;
     private bool rideCompleted;
+    private bool riding;
 
-    private void Update()
+    private GameObject player;
+    private CharacterController3D playerMovement;
+
+    private void Start()
     {
-        if (playerInside && !isMoving && !rideCompleted && Input.GetKeyDown(KeyCode.E))
-        {
-            playerInside = false;
-            SetActivePrompt(false);
-            Interact();
-        }
+        onBeginDialogue += HandleDialogue;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnDisable()
     {
-        if (other.CompareTag("Player") && !rideCompleted)
-        {
-            playerInside = true;
-            SetActivePrompt(true);
-        }
+        onBeginDialogue -= HandleDialogue;
     }
 
-    private void OnTriggerExit(Collider other)
+    private void HandleDialogue()
     {
-        if (other.CompareTag("Player"))
-        {
-            playerInside = false;
-            SetActivePrompt(false);
-        }
-    }
-
-    public override void Interact()
-    {
-        if (isMoving || rideCompleted)
+        if (rideCompleted || riding)
             return;
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player == null)
-        {
-            Debug.LogError("No Player object found! Make sure the player has the Player tag.");
-            return;
-        }
-
-        StartCoroutine(RideFish(player));
+        riding = true;
+        StartCoroutine(WaitThenRide());
     }
 
-    private IEnumerator RideFish(GameObject player)
+    private IEnumerator WaitThenRide()
+    {
+        yield return new WaitUntil(() =>
+            DialogueManager.Instance != null &&
+            DialogueManager.Instance.isdialogueActive);
+
+        yield return new WaitUntil(() =>
+            DialogueManager.Instance == null ||
+            !DialogueManager.Instance.isdialogueActive);
+
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null && !rideCompleted)
+        {
+            yield return StartCoroutine(RideFish());
+        }
+
+        riding = false;
+    }
+
+    private IEnumerator RideFish()
     {
         isMoving = true;
 
-        SetActivePrompt(false);
+        playerMovement = player.GetComponent<CharacterController3D>();
 
-        CharacterController3D playerMovement =
-            player.GetComponent<CharacterController3D>();
-
-        CharacterController characterController =
-            player.GetComponent<CharacterController>();
-
-        // Disable movement and jump
         if (playerMovement != null)
         {
             playerMovement.canMove = false;
             playerMovement.enableJump = false;
         }
 
-        // Disable CharacterController before teleporting
-        if (characterController != null)
-            characterController.enabled = false;
-
-        // Move player to seat
+        // snap to seat
         player.transform.position = seatPoint.position;
         player.transform.rotation = seatPoint.rotation;
 
-        // Parent player to fish
-        player.transform.SetParent(transform, true);
-
         yield return new WaitForSeconds(mountDelay);
 
-        // Move fish
+        // MOVE FISH + PLAYER
         while (Vector3.Distance(transform.position, pointB.position) > 0.05f)
         {
-            transform.position = Vector3.MoveTowards(
+            Vector3 nextFishPos = Vector3.MoveTowards(
                 transform.position,
                 pointB.position,
                 moveSpeed * Time.deltaTime
             );
+
+            Vector3 delta = nextFishPos - transform.position;
+
+            transform.position = nextFishPos;
+
+            player.transform.position += delta;
 
             yield return null;
         }
 
         transform.position = pointB.position;
 
-        // Ride finished
         rideCompleted = true;
-        playerInside = false;
+        isMoving = false;
 
-        SetActivePrompt(false);
+        DropPlayer();
+    }
 
-        // Unparent player
-        player.transform.SetParent(null, true);
+    private void DropPlayer()
+    {
+        StopAllCoroutines();
 
-        // Re-enable CharacterController
-        if (characterController != null)
-            characterController.enabled = true;
+        if (player != null)
+        {
+            if (dropOffPoint != null)
+            {
+                player.transform.position = dropOffPoint.position;
+                player.transform.rotation = dropOffPoint.rotation;
+            }
+            else
+            {
+                // fallback if you forget to assign it
+                player.transform.position = transform.position + transform.right * 2f;
+            }
+        }
 
-        // Re-enable movement and jump
         if (playerMovement != null)
         {
             playerMovement.canMove = true;
             playerMovement.enableJump = true;
-        }
-
-        // Disable trigger so ride cannot be used again
-        Collider col = GetComponent<Collider>();
-        if (col != null)
-            col.enabled = false;
-
-        isMoving = false;
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (seatPoint != null)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawSphere(seatPoint.position, 0.2f);
-        }
-
-        if (pointB != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawSphere(pointB.position, 0.2f);
         }
     }
 }
