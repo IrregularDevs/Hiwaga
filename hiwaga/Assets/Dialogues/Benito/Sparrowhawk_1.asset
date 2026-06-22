@@ -16,7 +16,7 @@ MonoBehaviour:
   dialogueIndex: 1
   dialogueLines:
   - dialogueLine: My sincerest gratitudes, Benito and &name.
-    character: {fileID: 11400000, guid: fed1c787091249c4d93e999a03a3f7d2, type: 2}
+    character: {fileID: 11400000, guid: 9f7ec88e7656c3f4a8bcba2a5419c877, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 3
@@ -26,5 +26,5 @@ MonoBehaviour:
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 3
   autoProgressLines: 
-  loops: 1
+  loops: 0
   questToGive: {fileID: 0}

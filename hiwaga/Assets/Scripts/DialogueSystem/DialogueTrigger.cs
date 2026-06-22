@@ -7,8 +7,7 @@ public class DialogueTrigger : NPC
     public override void Interact()
     {
         Debug.Log("Dialogue trigger.");
-        onBeginDialogue?.Invoke();
-        DialogueManager.Instance.BeginDialogue(this);
+        base.Interact();
     }
 
     public void OnTriggerEnter(Collider other)
