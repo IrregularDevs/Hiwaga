@@ -13,16 +13,25 @@ public class Interactable : MonoBehaviour
 
     public virtual void SetActivePrompt(bool state)
     {
-        prompt?.gameObject.SetActive(state);
+        if(prompt != null)
+        {
+            prompt?.gameObject.SetActive(state);
+        }
     }
 
     private void Awake()
     {
-        prompt?.gameObject.SetActive(false);
+        if (prompt != null)
+        {
+            prompt?.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
     {
-        prompt?.transform.LookAt(Camera.main.transform.position, -Vector3.up);
+        if (prompt != null)
+        {
+            prompt?.transform.LookAt(Camera.main.transform.position, -Vector3.up);
+        }
     }
 }

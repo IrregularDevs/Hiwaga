@@ -28,6 +28,12 @@ public class ScreenManager : MonoBehaviour
         loadingScreen.SetActive(false);
     }
 
+    public void NewGame(string sceneName)
+    {
+        GameManager.NewGame();
+        StartCoroutine(LoadSceneAsync(sceneName));
+    }
+
     public void LoadScene(string sceneName)
     {
         StartCoroutine(LoadSceneAsync(sceneName));
@@ -45,6 +51,7 @@ public class ScreenManager : MonoBehaviour
             yield return null;
         }
         loadingScreen.SetActive(false);
+        SaveSystem.SaveGameState();
     }
 
     public void ExitGame()

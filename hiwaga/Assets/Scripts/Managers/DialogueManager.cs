@@ -57,6 +57,11 @@ public class DialogueManager : MonoBehaviour
             m_npcDictionary.Add(usedNpc, usedNpc.GetIndex());
         }
         dialoguePanel.SetActive(false);
+        SaveData saveData = LoadSystem.LoadGameData();
+        if(saveData != null)
+        {
+
+        }
     }
 
     //Called when NPC is interacted with
@@ -152,6 +157,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         PauseManager.SetPause(false);
         dialogueLineIndex = 0;
+        currentNPC.onEndDialogue?.Invoke();
 
         if(!currentDialogue.loops)
         {

@@ -6,6 +6,7 @@ public class SceneSwitcher : Interactable
 
     public override void Interact()
     {
+        InteractionManager.Instance.RemoveInteractTarget(this);
         ScreenManager.Instance.LoadScene(sceneName);
     }
 }

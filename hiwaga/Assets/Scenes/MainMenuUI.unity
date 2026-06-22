@@ -4918,7 +4918,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1491778463}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: NewGame
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

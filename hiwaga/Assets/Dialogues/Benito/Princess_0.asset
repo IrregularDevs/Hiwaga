@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155f4c80966429842a894125a411ec78, type: 3}
+  m_Name: Princess_0
+  m_EditorClassIdentifier: 
+  npcRefName: Princess
+  dialogueIndex: 0
+  dialogueLines:
+  - dialogueLine: Thank you, brave young man.
+    character: {fileID: 11400000, guid: 61eac89652edd1142ba985c358ac9cdd, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: I am very glad to leave this lonesome castle, in which I have been
+      held captive.
+    character: {fileID: 11400000, guid: 61eac89652edd1142ba985c358ac9cdd, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: Let us head out immediately to return to the kingdom.
+    character: {fileID: 11400000, guid: 61eac89652edd1142ba985c358ac9cdd, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  autoProgressLines: 
+  loops: 1
+  questToGive: {fileID: 0}

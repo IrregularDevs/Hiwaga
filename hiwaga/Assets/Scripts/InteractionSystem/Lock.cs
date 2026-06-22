@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Lock : Interactable
 {
-    [SerializeField] protected Item requiredItem;
+    [SerializeField] protected Item? requiredItem;
 
     public delegate void OnInteract();
     public OnInteract onInteract;

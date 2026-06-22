@@ -264,6 +264,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 149257765}
+  - component: {fileID: 149257767}
+  - component: {fileID: 149257766}
   m_Layer: 0
   m_Name: Librarian
   m_TagString: Untagged
@@ -286,10 +288,45 @@ Transform:
   m_Children:
   - {fileID: 1873627851}
   - {fileID: 591151974}
-  - {fileID: 746083243}
   - {fileID: 379352857}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &149257766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149257764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e415e7f0db37241889c0dfea463268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prompt: {fileID: 379352858}
+  index: 0
+  npcRefName: Librarian_Testing
+--- !u!65 &149257767
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149257764}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.043718, y: 0.7307133, z: 1.113497}
+  m_Center: {x: -0.01185904, y: 0.3461389, z: 0.1773362}
 --- !u!1 &199388910 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5914173764048766335, guid: 856b01b623d65114b8bcefaeaa005475, type: 3}
@@ -980,75 +1017,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &746083242
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 746083243}
-  - component: {fileID: 746083244}
-  - component: {fileID: 746083245}
-  m_Layer: 0
-  m_Name: Colldier_InteractBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &746083243
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746083242}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 149257765}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &746083244
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746083242}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.043718, y: 0.7307133, z: 1.113497}
-  m_Center: {x: -0.01185904, y: 0.3461389, z: 0.1773362}
---- !u!114 &746083245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746083242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7e415e7f0db37241889c0dfea463268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prompt: {fileID: 379352858}
-  index: 0
-  npcRefName: Librarian_Testing
 --- !u!1001 &755902779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1269,74 +1237,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 212370497460711607, guid: 856b01b623d65114b8bcefaeaa005475, type: 3}
---- !u!1 &916669897
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 916669898}
-  - component: {fileID: 916669900}
-  - component: {fileID: 916669899}
-  m_Layer: 0
-  m_Name: Collider_InteractBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &916669898
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916669897}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.1348682, z: 0, w: 0.99086356}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1194334796}
-  m_LocalEulerAnglesHint: {x: 0, y: 15.502, z: 0}
---- !u!114 &916669899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916669897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 619a51f4cc39e014a86becb28265e93d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prompt: {fileID: 755902781}
-  sceneName: Benito_Quests
---- !u!65 &916669900
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916669897}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 17.40082, y: 15.40832, z: 21.675734}
-  m_Center: {x: 1.8475335, y: -7.2045484, z: -5.883395}
 --- !u!1001 &951244659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1531,7 +1431,7 @@ Transform:
   m_GameObject: {fileID: 961739749}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1736481, y: -0.00000001504035, z: 0.0000000026520184, w: 0.9848078}
-  m_LocalPosition: {x: 4871, y: 52.85457, z: -57.99165}
+  m_LocalPosition: {x: 25.286552, y: 16.18888, z: -61.88758}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1674,6 +1574,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1194334796}
+  - component: {fileID: 1194334798}
+  - component: {fileID: 1194334797}
   m_Layer: 0
   m_Name: TreeStump_Placeholder
   m_TagString: Untagged
@@ -1696,10 +1598,44 @@ Transform:
   m_Children:
   - {fileID: 651309604}
   - {fileID: 828303002}
-  - {fileID: 916669898}
   - {fileID: 755902780}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1194334797
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194334795}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.40082, y: 15.40832, z: 21.675734}
+  m_Center: {x: 1.8475335, y: -7.2045484, z: -5.883395}
+--- !u!114 &1194334798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194334795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619a51f4cc39e014a86becb28265e93d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prompt: {fileID: 755902781}
+  sceneName: Benito_Quests
 --- !u!1001 &1254878937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17846,7 +17782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 383252313727768874, guid: 1f4380e6685002040889345e70c343a3, type: 3}
       propertyPath: npcDialogue_List.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 383252313727768874, guid: 1f4380e6685002040889345e70c343a3, type: 3}
       propertyPath: 'npcDialogue_List.Array.data[0]'
@@ -17859,7 +17795,7 @@ PrefabInstance:
     - target: {fileID: 383252313727768874, guid: 1f4380e6685002040889345e70c343a3, type: 3}
       propertyPath: 'npcDialogue_List.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: da3d26115e875704c992f6139aa75bec, type: 2}
+      objectReference: {fileID: 11400000, guid: 6f3c7f54be711e340bce14cf77222096, type: 2}
     - target: {fileID: 1823419052577191298, guid: 1f4380e6685002040889345e70c343a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 478.24118

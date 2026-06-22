@@ -201,4 +201,13 @@ public class Player : MonoBehaviour
             return false;
         }
     }
+
+    public Item GetCurrentItem()
+    {
+        if(inventorySlot.GetCurrentItem() != null)
+        {
+            return inventorySlot.GetCurrentItem();
+        }
+        return null;
+    }
 }

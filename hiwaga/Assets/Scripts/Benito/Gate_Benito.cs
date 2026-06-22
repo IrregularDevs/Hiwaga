@@ -14,8 +14,9 @@ public class Gate_Benito : Lock
         onInteract -= SwitchScene;
     }
 
-    private void SwitchScene()
+    public void SwitchScene()
     {
+        InteractionManager.Instance.RemoveInteractTarget(this);
         ScreenManager.Instance.LoadScene(sceneName);
     }
 }

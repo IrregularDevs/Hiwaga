@@ -10,8 +10,14 @@ public class NPC : Interactable/*, IInteractable*/
     [SerializeField] private int index;
     [SerializeField] private string npcRefName;
 
+
+    //Delegate
     public delegate void OnBeginDialogue();
     public OnBeginDialogue onBeginDialogue;
+
+    public delegate void OnEndDialogue();
+    public OnEndDialogue onEndDialogue;
+
 
     private void OnEnable()
     {
@@ -24,6 +30,11 @@ public class NPC : Interactable/*, IInteractable*/
             Debug.Log($"Sucessfully added {npcRefName}.");
             DialogueManager.Instance.npc_List.Add(this);
         }
+        if (PlayerPrefs.HasKey(npcRefName))
+        {
+            index = PlayerPrefs.GetInt(npcRefName, 1);
+        }
+
         //StartCoroutine(AwakeAsync());
     }
 
