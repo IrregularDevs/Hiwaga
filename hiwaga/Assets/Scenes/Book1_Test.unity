@@ -22547,7 +22547,6 @@ MonoBehaviour:
   - {fileID: 2107398075}
   - {fileID: 1068925724}
   - {fileID: 1533832483}
-  hideDelay: 1
   findQuest: {fileID: 11400000, guid: ba66dbdc0a394a14abc37e4edb150c7e, type: 2}
 --- !u!114 &694652917
 MonoBehaviour:
@@ -22561,8 +22560,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e415e7f0db37241889c0dfea463268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcDialogue: {fileID: 11400000, guid: be64c07e84575174ebc4dcc8f2c0cf5c, type: 2}
+  prompt: {fileID: 0}
   index: 0
+  npcRefName: 
 --- !u!1001 &695492113
 PrefabInstance:
   m_ObjectHideFlags: 0
