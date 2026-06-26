@@ -2,24 +2,27 @@ using UnityEngine;
 
 public class DialogueTrigger : NPC
 {
-    private int currentInteractions;
+    private int currentInteractions = 0;
     [SerializeField] private int maxInteractions;
+
     public override void Interact()
     {
-        Debug.Log("Dialogue trigger.");
-        base.Interact();
+        if(currentInteractions < maxInteractions)
+        {
+            currentInteractions++;
+            base.Interact();
+        }
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if(maxInteractions <= 0)
+        if(maxInteractions < 0)
         {
             Interact();
         }
         if(currentInteractions < maxInteractions)
         {
             Interact();
-            currentInteractions++;
         }
     }
 

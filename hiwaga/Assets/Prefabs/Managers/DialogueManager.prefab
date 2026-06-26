@@ -45,7 +45,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9472455daff2bfc4d9c855bbce492b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcDialogue_List: []
+  npcDialogue_List:
+  - {fileID: 11400000, guid: da3d26115e875704c992f6139aa75bec, type: 2}
+  - {fileID: 11400000, guid: 4b20e79b796da16448f17085875c5e77, type: 2}
+  - {fileID: 11400000, guid: 6f3c7f54be711e340bce14cf77222096, type: 2}
+  - {fileID: 11400000, guid: a77b9ccb4e16d2344aa7bed1f5ccc451, type: 2}
+  - {fileID: 11400000, guid: 52e8b51f7c01e3a4b952cefe9859545c, type: 2}
+  - {fileID: 11400000, guid: bfb838026bc274442ab798537282405d, type: 2}
+  - {fileID: 11400000, guid: 50251625128682448b611f11fabd53cf, type: 2}
+  - {fileID: 11400000, guid: b2185be7525e08644b389dbc75f10932, type: 2}
+  - {fileID: 11400000, guid: df8ae4b2c6180bc4da5a6619f403622e, type: 2}
+  - {fileID: 11400000, guid: f9220b8095b2aa24fbe2368696068735, type: 2}
+  - {fileID: 11400000, guid: 2c10bc8e03760d247bec5763b6b355e7, type: 2}
+  - {fileID: 11400000, guid: 83f05f32b5c58df4ba79dfccb2435653, type: 2}
+  - {fileID: 11400000, guid: 77e69699510bdb040ab5879745f6793e, type: 2}
   npc_List: []
   currentNPC: {fileID: 0}
   currentDialogue: {fileID: 0}
