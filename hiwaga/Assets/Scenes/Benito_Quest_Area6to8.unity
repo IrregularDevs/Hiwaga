@@ -1468,11 +1468,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4150958785743684493, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: jumpForce
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4150958785743684493, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: moveSpeed
-      value: 80
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4150958785743684493, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: enableJump
@@ -1484,7 +1484,7 @@ PrefabInstance:
       objectReference: {fileID: 1970941292}
     - target: {fileID: 4150958785743684493, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: sprintMultiplier
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4150958785743684493, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: groundCheckDistance
@@ -1590,7 +1590,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 988656143610355917, guid: 341f00ab1f30dc249b96c9944cc6ab8f, type: 3}
 --- !u!1001 &945201821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2500,10 +2500,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: character-female-f
       objectReference: {fileID: 0}
+    - target: {fileID: 4361710834771507933, guid: 6d6a4571eb567b641a5ecde6a2874cea, type: 3}
+      propertyPath: m_Name
+      value: body-mesh-p
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6d6a4571eb567b641a5ecde6a2874cea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1235372109}
     - targetCorrespondingSourceObject: {fileID: 4361710834771507933, guid: 6d6a4571eb567b641a5ecde6a2874cea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 944392932}
@@ -2537,7 +2544,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: -1793059242609255079, guid: 6d6a4571eb567b641a5ecde6a2874cea, type: 3}
 --- !u!1 &1191775014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2721,6 +2728,33 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1174807264}
   m_SourcePrefab: {fileID: 100100000, guid: cb0e8c881894f4c42a46a8a081665141, type: 3}
+--- !u!1 &1235372108 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6d6a4571eb567b641a5ecde6a2874cea, type: 3}
+  m_PrefabInstance: {fileID: 1188096448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1235372109
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235372108}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &1280463730
 GameObject:
   m_ObjectHideFlags: 0
@@ -4102,7 +4136,7 @@ MonoBehaviour:
     Enabled: 0
     m_Value: 0
   OutputChannel: 1
-  StandbyUpdate: 2
+  StandbyUpdate: 1
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:

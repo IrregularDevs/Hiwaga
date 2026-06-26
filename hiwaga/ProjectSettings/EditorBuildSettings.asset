@@ -41,7 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Benito_Quest_Area6to8.unity
     guid: 13ff4a3452b9bb141ad7a2b4e1e9964b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Book 1.unity
     guid: df3c65b6534fffc43aa30e5645bfead1
   m_configObjects:

@@ -16172,7 +16172,7 @@ MonoBehaviour:
   seatPoint: {fileID: 1651180612}
   pointB: {fileID: 1479570915}
   dropOffPoint: {fileID: 594682162}
-  moveSpeed: 50
+  moveSpeed: 70
   mountDelay: 1
   rideOffset: {x: 0, y: 1, z: 0}
 --- !u!65 &461941131
@@ -17472,7 +17472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4150958785743684493, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: moveSpeed
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4150958785743684493, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: enableJump
@@ -17484,7 +17484,7 @@ PrefabInstance:
       objectReference: {fileID: 188987267}
     - target: {fileID: 4150958785743684493, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: sprintMultiplier
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4150958785743684493, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: groundCheckDistance
