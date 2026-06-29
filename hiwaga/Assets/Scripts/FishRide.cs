@@ -6,7 +6,7 @@ public class FishRide : NPC
     [Header("Ride Settings")]
     [SerializeField] private Transform seatPoint;
     [SerializeField] private Transform pointB;
-    [SerializeField] private Transform dropOffPoint; // 🔥 NEW
+    [SerializeField] private Transform dropOffPoint;
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float mountDelay = 1f;
 
@@ -20,8 +20,10 @@ public class FishRide : NPC
     private GameObject player;
     private CharacterController3D playerMovement;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start(); // Registers this NPC with the DialogueManager
+
         onBeginDialogue += HandleDialogue;
     }
 
@@ -34,6 +36,25 @@ public class FishRide : NPC
     {
         if (rideCompleted || riding)
             return;
+
+        if (DialogueManager.Instance == null)
+            return;
+
+        string npcName = GetRefName();
+
+        if (!DialogueManager.Instance.m_npcDictionary.ContainsKey(npcName))
+        {
+            Debug.LogWarning($"FishRide: NPC '{npcName}' is not registered.");
+            return;
+        }
+
+        int dialogueIndex = DialogueManager.Instance.m_npcDictionary[npcName];
+
+        if (!DialogueManager.Instance.m_dialogueDictionary.ContainsKey((npcName, dialogueIndex)))
+        {
+            Debug.LogWarning($"FishRide: Dialogue ({npcName}, {dialogueIndex}) not found.");
+            return;
+        }
 
         riding = true;
         StartCoroutine(WaitThenRide());
@@ -71,13 +92,13 @@ public class FishRide : NPC
             playerMovement.enableJump = false;
         }
 
-        // snap to seat
+        // Snap player to seat
         player.transform.position = seatPoint.position;
         player.transform.rotation = seatPoint.rotation;
 
         yield return new WaitForSeconds(mountDelay);
 
-        // MOVE FISH + PLAYER
+        // Move fish and player together
         while (Vector3.Distance(transform.position, pointB.position) > 0.05f)
         {
             Vector3 nextFishPos = Vector3.MoveTowards(
@@ -116,7 +137,6 @@ public class FishRide : NPC
             }
             else
             {
-                // fallback if you forget to assign it
                 player.transform.position = transform.position + transform.right * 2f;
             }
         }
