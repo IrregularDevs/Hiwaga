@@ -8,6 +8,10 @@ public class AnimationsUI : MonoBehaviour
     bool clickedNewGame;
     bool clickedOptions;
 
+    private void Start()
+    {
+        GameManager.ChangeGameState(GameState.MainMenu);
+    }
 
     public void NewGameButton()
     {

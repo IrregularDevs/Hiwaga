@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class Interactable : MonoBehaviour
 {
     [SerializeField] private RawImage? prompt;
+    [SerializeField] protected GameStage requiredGameStage;
+    [SerializeField] protected GameStage newGameStage;
 
     public virtual void Interact()
     {
@@ -13,7 +15,7 @@ public class Interactable : MonoBehaviour
 
     public virtual void SetActivePrompt(bool state)
     {
-        if(prompt != null)
+        if(prompt != null && GameManager.currentGameStage >= requiredGameStage)
         {
             prompt?.gameObject.SetActive(state);
         }

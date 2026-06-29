@@ -10,7 +10,6 @@ public class NPC : Interactable/*, IInteractable*/
     [SerializeField] private int index;
     [SerializeField] private string npcRefName;
 
-
     //Delegate
     public delegate void OnBeginDialogue();
     public OnBeginDialogue onBeginDialogue;
@@ -18,29 +17,33 @@ public class NPC : Interactable/*, IInteractable*/
     public delegate void OnEndDialogue();
     public OnEndDialogue onEndDialogue;
 
-
-    private void OnEnable()
+    protected virtual void Start()
     {
-        if(DialogueManager.Instance == null)
+        if(!DialogueManager.Instance)
         {
             Debug.Log("Bruh");
         }
-        else
+        if (!DialogueManager.Instance.npc_List.Exists(x => x == this))
         {
-            Debug.Log($"Sucessfully added {npcRefName}.");
-            DialogueManager.Instance.npc_List.Add(this);
+            Debug.Log("NPC Added.");
+            DialogueManager.Instance.AddNPC(this);
         }
-        if (PlayerPrefs.HasKey(npcRefName))
-        {
-            index = PlayerPrefs.GetInt(npcRefName, 1);
-        }
-
         //StartCoroutine(AwakeAsync());
+    }
+
+    private void OnEnable()
+    {
+        onEndDialogue += ChangeStage;
+    }
+
+    private void OnDisable()
+    {
+        InteractionManager.Instance.RemoveInteractTarget(this);
+        onEndDialogue -= ChangeStage;
     }
 
     IEnumerator AwakeAsync()
     {
-        DialogueManager.Instance.npc_List.Add(this);
         yield return null;
     }
 
@@ -51,8 +54,11 @@ public class NPC : Interactable/*, IInteractable*/
 
     public override void Interact()
     {
-        onBeginDialogue?.Invoke();
-        DialogueManager.Instance.BeginDialogue(this);
+        if(GameManager.currentGameStage >= requiredGameStage)
+        {
+            onBeginDialogue?.Invoke();
+            DialogueManager.Instance.BeginDialogue(this);
+        }
     }
 
     public int GetIndex()
@@ -60,31 +66,16 @@ public class NPC : Interactable/*, IInteractable*/
         return index;
     }
 
-    public void SetIndex(int i)
-    {
-        Debug.Log("Index changed");
-        index = i;
-    }
-
-    /*public DialogueGroup GetDialogueGroup()
-    {
-        return npcDialogue;
-    }*/
-
-    public void enterPrompt()
-    {
-        // Implement enter prompt logic here
-        // Example: Debug.Log("Player entered NPC interaction range.");
-    }
-
-    public void exitPrompt()
-    {
-        // Implement exit prompt logic here
-        // Example: Debug.Log("Player exited NPC interaction range.");
-    }
-
     public string GetRefName()
     {
         return npcRefName;
+    }
+
+    private void ChangeStage()
+    {
+        if(GameManager.currentGameStage < newGameStage)
+        {
+            GameManager.ChangeGameStage(newGameStage);
+        }
     }
 }

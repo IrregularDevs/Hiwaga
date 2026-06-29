@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class SceneSwitcher : Interactable
 {
-    [SerializeField] private string sceneName;
+    [SerializeField] protected string sceneName;
 
     public override void Interact()
     {
-        InteractionManager.Instance.RemoveInteractTarget(this);
-        ScreenManager.Instance.LoadScene(sceneName);
+        if(GameManager.currentGameStage >= requiredGameStage)
+        {
+            GameManager.ChangeGameStage(newGameStage);
+            InteractionManager.Instance.RemoveInteractTarget(this);
+            ScreenManager.Instance.LoadScene(sceneName);
+        }
     }
 }

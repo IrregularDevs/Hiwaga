@@ -4,8 +4,9 @@ public class Bird_Benito : NPC
 {
     [SerializeField] private NPC_ModelChanger modelChanger;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         onBeginDialogue += ChangeModel;
     }
 

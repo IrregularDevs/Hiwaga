@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using System.Linq;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class DialogueManager : MonoBehaviour
     //Lists and Dictionaries
     public List<NPCDialogue> npcDialogue_List = new List<NPCDialogue>();
     public List<NPC> npc_List = new List<NPC>();
-    public Dictionary<NPC, int> m_npcDictionary = new Dictionary<NPC, int>();
-    public Dictionary<(NPC npc, int dialogueIndex), NPCDialogue> m_dialogueDictionary = new Dictionary<(NPC npc, int dialogueIndex), NPCDialogue>();
+    public Dictionary<string, int> m_npcDictionary = new Dictionary<string, int>();
+    public Dictionary<(string npc, int dialogueIndex), NPCDialogue> m_dialogueDictionary = new Dictionary<(string npc, int dialogueIndex), NPCDialogue>();
 
     //Dialogue reference data
     public NPC currentNPC;
@@ -33,19 +34,25 @@ public class DialogueManager : MonoBehaviour
     //Set Singleton
     private void Awake()
     {
-        instance = this;
-    }
-
-    //Remove Singleton
-    private void OnDisable()
-    {
-        instance = null;
+        if(instance == null)
+        {
+            Debug.Log("Instance is null");
+            instance = this;
+            DontDestroyOnLoad(this);
+            return;
+        }
+        else if(instance != null && instance != this)
+        {
+            Debug.Log("Instance is not null");
+            Destroy(this);
+            return;
+        }
     }
 
     //Connect all NPCs and NPCDialogues in level
     private void Start()
     {
-        foreach (NPC usedNpc in npc_List)
+        /*foreach (NPC usedNpc in npc_List)
         {
             List<NPCDialogue> validDialogue = new List<NPCDialogue>();
             validDialogue = npcDialogue_List.FindAll(x => x.npcRefName == usedNpc.GetRefName());
@@ -55,12 +62,30 @@ public class DialogueManager : MonoBehaviour
                 m_dialogueDictionary.Add((usedNpc, dialogueToBeAdded.dialogueIndex), dialogueToBeAdded);
             }
             m_npcDictionary.Add(usedNpc, usedNpc.GetIndex());
-        }
+        }*/
         dialoguePanel.SetActive(false);
         SaveData saveData = LoadSystem.LoadGameData();
         if(saveData != null)
         {
 
+        }
+    }
+
+    public void AddNPC(NPC newNPC)
+    {
+        npc_List.Add(newNPC);
+        List<NPCDialogue> validDialogue = new List<NPCDialogue>();
+        validDialogue = npcDialogue_List.FindAll(x => x.npcRefName == newNPC.GetRefName());
+        foreach (NPCDialogue dialogueToBeAdded in validDialogue)
+        {
+            if(!m_dialogueDictionary.ContainsKey((newNPC.GetRefName(), dialogueToBeAdded.dialogueIndex)))
+            {
+                m_dialogueDictionary.Add((newNPC.GetRefName(), dialogueToBeAdded.dialogueIndex), dialogueToBeAdded);
+            }
+        }
+        if (!m_npcDictionary.ContainsKey(newNPC.GetRefName()))
+        {
+            m_npcDictionary.Add(newNPC.GetRefName(), newNPC.GetIndex());
         }
     }
 
@@ -71,7 +96,8 @@ public class DialogueManager : MonoBehaviour
         currentNPC = npc;
         if(m_dialogueDictionary.Count != 0)
         {
-            currentDialogue = m_dialogueDictionary[(currentNPC, m_npcDictionary[currentNPC])];
+            Debug.Log($"{npc.GetRefName()} is now speaking {m_npcDictionary[currentNPC.GetRefName()]}");
+            currentDialogue = m_dialogueDictionary[(currentNPC.GetRefName(), m_npcDictionary[currentNPC.GetRefName()])];
         }
         else
         {
@@ -157,17 +183,17 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         PauseManager.SetPause(false);
         dialogueLineIndex = 0;
-        currentNPC.onEndDialogue?.Invoke();
 
         if(!currentDialogue.loops)
         {
-            m_npcDictionary[currentNPC] = m_npcDictionary[currentNPC] + 1;
+            m_npcDictionary[currentNPC.GetRefName()] = m_npcDictionary[currentNPC.GetRefName()] + 1;
             /*ChangeIndex(currentDialogueGroup, currentDialogueData.nextIndex);
             if(currentDialogue.questToGive != null)
             {
                 QuestManager.Instance.AddQuest(currentDialogue.questToGive);
             }*/
         }
+        currentNPC.onEndDialogue?.Invoke();
     }
 
     /*public void ChangeIndex(DialogueGroup dGroup, int newIndex)
@@ -187,5 +213,18 @@ public class DialogueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(currentDialogue.dialogueLines[dialogueLineIndex].autoProgressDelaySlow);
         nextLine();
+    }
+
+    public void UpdateDialogue(string npcName, int newDialogue)
+    {
+        foreach (string npc in m_npcDictionary.Keys.ToList())
+        {
+            if (npc == npcName)
+            {
+                Debug.Log($"Found {npcName}");
+                m_npcDictionary[npc] = newDialogue;
+                Debug.Log($"{npcName} is now at index {newDialogue}");
+            }
+        }
     }
 }

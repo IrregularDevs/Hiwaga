@@ -67,10 +67,12 @@ public class DialogueIndexData
             npcNames = dialogueManager.npc_List.GetRefName;
         }*/
         //npcNames = DialogueManager.Instance.npc_List.ConvertAll(new System.Converter<NPC, string>(NPCToString));
-        foreach(KeyValuePair<NPC, int> kvp in DialogueManager.Instance.m_npcDictionary)
+        if(DialogueManager.Instance != null)
         {
-            string newKey = kvp.Key.GetRefName();
-            m_dialogueIndex[newKey] = kvp.Value;
+            foreach (KeyValuePair<string, int> kvp in DialogueManager.Instance.m_npcDictionary)
+            {
+                m_dialogueIndex[kvp.Key] = kvp.Value;
+            }
         }
     }
 
@@ -104,7 +106,7 @@ public class PlayerData
 
     public PlayerData()
     {
-        if(Player.Instance.GetCurrentItem() != null)
+        if(Player.Instance != null && Player.Instance.GetCurrentItem() != null)
         {
             item = Player.Instance.GetCurrentItem().itemName;
         }

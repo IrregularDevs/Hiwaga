@@ -4,8 +4,9 @@ public class OldWoman_Benito : NPC
 {
     [SerializeField] private ItemSource itemSource;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         onBeginDialogue += GiveSword;
     }
 

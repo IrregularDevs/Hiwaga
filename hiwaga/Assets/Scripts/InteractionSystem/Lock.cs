@@ -1,3 +1,4 @@
+#nullable enable
 using UnityEngine;
 
 public class Lock : Interactable
@@ -5,7 +6,7 @@ public class Lock : Interactable
     [SerializeField] protected Item? requiredItem;
 
     public delegate void OnInteract();
-    public OnInteract onInteract;
+    public OnInteract? onInteract;
 
     public override void SetActivePrompt(bool state)
     {
