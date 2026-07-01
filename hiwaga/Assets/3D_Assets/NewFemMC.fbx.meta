@@ -43,7 +43,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ID.Card
-    second: {fileID: 2100000, guid: 0e50c96050c428e4986b5493651bbc54, type: 2}
+    second: {fileID: -3963241562183589234, guid: e487b56f457b24546a4f45b395a1dced, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
