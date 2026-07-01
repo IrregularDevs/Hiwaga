@@ -60,7 +60,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4714560932441330261}
   - component: {fileID: 4568056551466318074}
-  - component: {fileID: 733466851800542237}
   m_Layer: 0
   m_Name: CameraRig
   m_TagString: Untagged
@@ -97,24 +96,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 1028988161473959025}
   mouseSensitivity: 100
---- !u!114 &733466851800542237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3796292585693431949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9cc001bc1e25142bf92a79ce0b21ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1028988161473959025}
-  rotationSpeed: 5
-  height: 2
-  distance: 4
-  minPitch: -20
-  maxPitch: 60
 --- !u!1 &3936702539935021334
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,9 +524,6 @@ PrefabInstance:
       addedObject: {fileID: 4150958785743684493}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aea9ac5348b068e48830bf9580f1e04d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8282500256689355129}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aea9ac5348b068e48830bf9580f1e04d, type: 3}
-      insertIndex: -1
       addedObject: {fileID: -4958721361897610006}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aea9ac5348b068e48830bf9580f1e04d, type: 3}
       insertIndex: -1
@@ -626,20 +604,6 @@ MonoBehaviour:
   groundCheckDistance: 0.2
   canMove: 1
   enableJump: 0
---- !u!114 &8282500256689355129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7413953359446234778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba2aa07102f8d4b468ba9991b96fc33b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model: {fileID: 7901697350876990496}
-  rotationSpeed: 10
 --- !u!114 &-4958721361897610006
 MonoBehaviour:
   m_ObjectHideFlags: 0

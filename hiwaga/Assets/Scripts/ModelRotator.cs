@@ -3,29 +3,45 @@ using UnityEngine;
 public class ModelRotator : MonoBehaviour
 {
     public Transform model;
+    public Transform cameraTransform;
     public float rotationSpeed = 10f;
-
-    private CharacterController3D movementController;
-    private Animator animator;
 
     void Start()
     {
-        movementController = GetComponent<CharacterController3D>();
-        animator = model.GetComponent<Animator>();
+        if (cameraTransform == null && Camera.main != null)
+            cameraTransform = Camera.main.transform;
     }
 
     void Update()
     {
-        Vector3 moveDir = movementController.CurrentMoveDirection;
+        if (model == null || cameraTransform == null)
+            return;
 
-        bool isWalking = moveDir.magnitude > 0.1f;
-        animator.SetBool("isWalking", isWalking);
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveZ = Input.GetAxisRaw("Vertical");
 
-        if (isWalking)
+        Vector3 input = new Vector3(moveX, 0f, moveZ).normalized;
+
+        // Only rotate while there is movement input
+        if (input.sqrMagnitude > 0.01f)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(moveDir);
-            model.rotation = Quaternion.Slerp(model.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            Vector3 camForward = cameraTransform.forward;
+            Vector3 camRight = cameraTransform.right;
+
+            camForward.y = 0f;
+            camRight.y = 0f;
+
+            camForward.Normalize();
+            camRight.Normalize();
+
+            Vector3 moveDirection = (camForward * input.z + camRight * input.x).normalized;
+
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+
+            model.rotation = Quaternion.Slerp(
+                model.rotation,
+                targetRotation,
+                rotationSpeed * Time.deltaTime);
         }
     }
-
 }
