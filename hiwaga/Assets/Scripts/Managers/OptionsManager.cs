@@ -9,13 +9,26 @@ public class OptionsManager : MonoBehaviour
     private static OptionsManager instance;
     public static OptionsManager Instance => instance;
 
-    [SerializeField] private GameObject inGameMenu, buttonPause;
-    [SerializeField] private Slider masterVolMain, masterVolInGame, musicVolMain, musicVolInGame, sfxVolMain, sfxVolInGame;
+    //[SerializeField] private GameObject inGameMenu, buttonPause;
+    //[SerializeField] private Slider masterVolMain, masterVolInGame, musicVolMain, musicVolInGame, sfxVolMain, sfxVolInGame;
     [SerializeField] private AudioMixer mainAudioMixer;
 
     private void Awake()
     {
-        StartCoroutine(AwakeAsync());
+        if (instance == null)
+        {
+            Debug.Log("Instance is null");
+            instance = this;
+            DontDestroyOnLoad(this);
+            return;
+        }
+        else if (instance != null && instance != this)
+        {
+            Debug.Log("Instance is not null");
+            Destroy(this);
+            return;
+        }
+        //StartCoroutine(AwakeAsync());
     }
 
     IEnumerator AwakeAsync()
@@ -25,23 +38,26 @@ public class OptionsManager : MonoBehaviour
         yield return null;
     }
 
-    private float ClampLog(float vol)
+    public float ClampLog(float vol)
     {
         return Mathf.Clamp(Mathf.Log10(vol) * 20.0f, -80.0f, 20.0f);
     }
 
     private void Start()
     {
+        Debug.Log($"Master vol: {PlayerPrefs.GetFloat("Vol_Master", 1.0f)}");
+        Debug.Log($"Music vol: {PlayerPrefs.GetFloat("Vol_Music", 1.0f)}");
+        Debug.Log($"SFX vol: {PlayerPrefs.GetFloat("Vol_SFX", 1.0f)}");
 
         mainAudioMixer.SetFloat("Vol_Master", ClampLog(PlayerPrefs.GetFloat("Vol_Master", 1.0f)));
         mainAudioMixer.SetFloat("Vol_Music", ClampLog(PlayerPrefs.GetFloat("Vol_Music", 1.0f)));
         mainAudioMixer.SetFloat("Vol_SFX", ClampLog(PlayerPrefs.GetFloat("Vol_SFX", 1.0f)));
-        masterVolMain.value = PlayerPrefs.GetFloat("Vol_Master", 1.0f);
+        /*masterVolMain.value = PlayerPrefs.GetFloat("Vol_Master", 1.0f);
         masterVolInGame.value = PlayerPrefs.GetFloat("Vol_Master", 1.0f);
         musicVolMain.value = PlayerPrefs.GetFloat("Vol_Music", 1.0f);
         musicVolInGame.value = PlayerPrefs.GetFloat("Vol_Music", 1.0f);
         sfxVolMain.value = PlayerPrefs.GetFloat("Vol_SFX", 1.0f);
-        sfxVolInGame.value = PlayerPrefs.GetFloat("Vol_SFX", 1.0f);
+        sfxVolInGame.value = PlayerPrefs.GetFloat("Vol_SFX", 1.0f);*/
     }
 
     public void ShowGameObject(GameObject element)
@@ -54,7 +70,14 @@ public class OptionsManager : MonoBehaviour
         element.SetActive(false);
     }
 
-    public void ChangeMasterVolMain()
+    public void ChangeVol(string type, float value)
+    {
+        mainAudioMixer.SetFloat(type, ClampLog(value));
+        PlayerPrefs.SetFloat(type, value);
+        PlayerPrefs.Save();
+    }
+
+    /*public void ChangeMasterVolMain()
     {
         mainAudioMixer.SetFloat("Vol_Master", ClampLog(masterVolMain.value));
         PlayerPrefs.SetFloat("Vol_Master", masterVolMain.value);
@@ -117,5 +140,5 @@ public class OptionsManager : MonoBehaviour
     public bool GetMenuStateSelf()
     {
         return inGameMenu.activeSelf;
-    }
+    }*/
 }

@@ -15,7 +15,7 @@ public static class SaveSystem
         PlayerData playerData = new PlayerData();
         SaveData saveData = new SaveData(dialogueIndexData, sceneData, playerData);
         string txt = JsonUtility.ToJson(saveData);
-        File.WriteAllText(FILENAME_SAVEDATA, txt);
+        File.WriteAllText(filePathSaveData, txt);
     }
 
     public static void EraseSaveData()
@@ -121,5 +121,11 @@ public class PlayerData
 [System.Serializable]
 public class VolumeData
 {
+    public VolumeData()
+    {
+        if(OptionsManager.Instance != null)
+        {
 
+        }
+    }
 }

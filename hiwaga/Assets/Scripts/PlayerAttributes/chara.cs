@@ -118,8 +118,8 @@ public class CharacterController3D : MonoBehaviour
         if (Input.GetButtonDown("Esc") &&
             SceneManager.GetActiveScene().name != "MainMenuUI")
         {
-            OptionsManager.Instance.OpenCloseMenu(
-                !OptionsManager.Instance.GetMenuStateSelf());
+            //OptionsManager.Instance.OpenCloseMenu(
+                //!OptionsManager.Instance.GetMenuStateSelf());
 
             Cursor.lockState =
                 (Cursor.lockState == CursorLockMode.Locked)

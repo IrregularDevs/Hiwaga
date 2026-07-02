@@ -39,7 +39,7 @@ public static class GameManager
 
     public static void NewGame()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         SaveSystem.EraseSaveData();
         currentGameStage = GameStage.Tutorial;
         currentGameState = GameState.Overworld;
