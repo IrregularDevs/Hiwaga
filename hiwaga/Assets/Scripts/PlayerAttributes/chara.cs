@@ -13,9 +13,12 @@ public class CharacterController3D : MonoBehaviour
     public LayerMask groundMask;
     public float groundCheckDistance = 0.2f;
     public bool canMove = true;
-    public bool enableJump = false; // Toggle jump
+    public bool enableJump = false;
 
     public Vector3 CurrentMoveDirection { get; private set; }
+
+    // Expose grounded state to other scripts
+    public bool IsGrounded => isGrounded;
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -35,27 +38,24 @@ public class CharacterController3D : MonoBehaviour
 
     void Update()
     {
-        // Fix: Prevent Move() calls on disabled controller
         if (controller == null || !controller.enabled)
             return;
 
         if (!canMove)
-        {
             return;
-        }
 
         // Ground check
         isGrounded = controller.isGrounded ||
-            Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
+                     Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
 
         if (isGrounded && velocity.y < 0f)
             velocity.y = -2f;
 
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
+
         Vector3 inputDirection = new Vector3(moveX, 0f, moveZ).normalized;
 
-        // Sprint toggle
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
         float currentSpeed = isSprinting ? moveSpeed * sprintMultiplier : moveSpeed;
 
@@ -83,8 +83,8 @@ public class CharacterController3D : MonoBehaviour
                 controller.Move(moveDirection * currentSpeed * Time.deltaTime);
             }
 
-            // Rotation
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+
             transform.rotation = Quaternion.Slerp(
                 transform.rotation,
                 targetRotation,
@@ -95,7 +95,7 @@ public class CharacterController3D : MonoBehaviour
             CurrentMoveDirection = Vector3.zero;
         }
 
-        // Air movement locked to jump direction
+        // Air movement
         if (!isGrounded)
         {
             controller.Move(airMoveDirection * airSpeed * Time.deltaTime);
@@ -105,7 +105,7 @@ public class CharacterController3D : MonoBehaviour
         if (enableJump && Input.GetButtonDown("Jump") && isGrounded)
         {
             airMoveDirection = CurrentMoveDirection;
-            airSpeed = moveSpeed; // No sprint boost in air
+            airSpeed = moveSpeed;
 
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         }
@@ -114,13 +114,10 @@ public class CharacterController3D : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        // In-game menu toggle (ESC)
+        // ESC menu
         if (Input.GetButtonDown("Esc") &&
             SceneManager.GetActiveScene().name != "MainMenuUI")
         {
-            //OptionsManager.Instance.OpenCloseMenu(
-                //!OptionsManager.Instance.GetMenuStateSelf());
-
             Cursor.lockState =
                 (Cursor.lockState == CursorLockMode.Locked)
                 ? CursorLockMode.None

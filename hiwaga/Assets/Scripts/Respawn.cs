@@ -1,10 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
     public float fallThreshold = -10f;
+    public float respawnDelay = 1f;
 
     private CharacterController controller;
+
+    private struct PositionRecord
+    {
+        public Vector3 position;
+        public float time;
+    }
+
+    private readonly Queue<PositionRecord> positionHistory = new Queue<PositionRecord>();
 
     void Start()
     {
@@ -13,6 +23,18 @@ public class PlayerRespawn : MonoBehaviour
 
     void Update()
     {
+        positionHistory.Enqueue(new PositionRecord
+        {
+            position = transform.position,
+            time = Time.time
+        });
+
+        while (positionHistory.Count > 0 &&
+               Time.time - positionHistory.Peek().time > respawnDelay)
+        {
+            positionHistory.Dequeue();
+        }
+
         if (transform.position.y < fallThreshold)
         {
             Respawn();
@@ -21,24 +43,20 @@ public class PlayerRespawn : MonoBehaviour
 
     void Respawn()
     {
-        Transform nearestRespawn = FindNearestRespawn(transform.position);
+        Vector3 respawnPosition = transform.position;
 
-        if (nearestRespawn == null)
+        if (positionHistory.Count > 0)
         {
-            Debug.LogWarning("No RespawnPoint objects found!");
-            return;
+            respawnPosition = positionHistory.Peek().position;
         }
 
         if (controller != null)
-        {
             controller.enabled = false;
-            transform.position = nearestRespawn.position;
+
+        transform.position = respawnPosition;
+
+        if (controller != null)
             controller.enabled = true;
-        }
-        else
-        {
-            transform.position = nearestRespawn.position;
-        }
 
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
@@ -46,26 +64,7 @@ public class PlayerRespawn : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
-    }
 
-    Transform FindNearestRespawn(Vector3 playerPosition)
-    {
-        GameObject[] respawnPoints = GameObject.FindGameObjectsWithTag("RespawnPoint");
-
-        Transform nearest = null;
-        float closestDistance = Mathf.Infinity;
-
-        foreach (GameObject point in respawnPoints)
-        {
-            float distance = Vector3.Distance(playerPosition, point.transform.position);
-
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                nearest = point.transform;
-            }
-        }
-
-        return nearest;
+        positionHistory.Clear();
     }
 }
