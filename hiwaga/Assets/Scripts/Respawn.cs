@@ -5,7 +5,6 @@ public class PlayerRespawn : MonoBehaviour
 {
     public float fallThreshold = -10f;
     public float respawnDelay = 1f;
-    public float respawnHeightOffset = 0.2f;
 
     private CharacterController controller;
 
@@ -24,7 +23,7 @@ public class PlayerRespawn : MonoBehaviour
 
     void Update()
     {
-        // Only save positions while the player is grounded
+        // Save only grounded positions (safer)
         if (controller != null && controller.isGrounded)
         {
             positionHistory.Enqueue(new PositionRecord
@@ -58,8 +57,7 @@ public class PlayerRespawn : MonoBehaviour
         if (controller != null)
             controller.enabled = false;
 
-        // Spawn slightly above the saved grounded position
-        transform.position = respawnPosition + Vector3.up * respawnHeightOffset;
+        transform.position = respawnPosition + Vector3.up * 0.2f;
 
         if (controller != null)
             controller.enabled = true;
@@ -71,6 +69,21 @@ public class PlayerRespawn : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
         }
 
+        positionHistory.Clear();
+    }
+
+    // ? USED BY LAVA TELEPORT
+    public Vector3 GetLastSafePosition()
+    {
+        if (positionHistory.Count > 0)
+            return positionHistory.Peek().position;
+
+        return transform.position;
+    }
+
+    // Optional: prevent spam teleport loops
+    public void ClearHistory()
+    {
         positionHistory.Clear();
     }
 }

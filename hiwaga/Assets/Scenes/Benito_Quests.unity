@@ -19876,7 +19876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallThreshold: -5
-  respawnDelay: 2
+  respawnDelay: 1.5
+  respawnHeightOffset: 0.2
 --- !u!114 &1912735790
 MonoBehaviour:
   m_ObjectHideFlags: 0
