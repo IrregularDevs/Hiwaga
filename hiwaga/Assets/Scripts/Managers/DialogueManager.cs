@@ -97,7 +97,10 @@ public class DialogueManager : MonoBehaviour
         if(m_dialogueDictionary.Count != 0)
         {
             Debug.Log($"{npc.GetRefName()} is now speaking {m_npcDictionary[currentNPC.GetRefName()]}");
-            currentDialogue = m_dialogueDictionary[(currentNPC.GetRefName(), m_npcDictionary[currentNPC.GetRefName()])];
+            if(m_dialogueDictionary[(currentNPC.GetRefName(), m_npcDictionary[currentNPC.GetRefName()])] != null)
+            {
+                currentDialogue = m_dialogueDictionary[(currentNPC.GetRefName(), m_npcDictionary[currentNPC.GetRefName()])];
+            }
         }
         else
         {

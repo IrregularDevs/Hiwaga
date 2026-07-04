@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class Book_Gallery : SceneSwitcher
 {
-    private void Update()
+    [SerializeField] private GameObject model;
+
+    /*private void Update()
     {
         if(GameManager.currentGameStage >= requiredGameStage)
         {
-            gameObject.SetActive(true);
+            model.SetActive(true);
         }
         else
         {
-            gameObject.SetActive(false);
+            model.SetActive(false);
         }
-    }
+    }*/
 }

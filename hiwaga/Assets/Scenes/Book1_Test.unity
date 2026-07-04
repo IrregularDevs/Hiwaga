@@ -1323,7 +1323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &117897824
 Transform:
   m_ObjectHideFlags: 0
@@ -20246,7 +20246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &538827431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22404,7 +22404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &694652909
 Transform:
   m_ObjectHideFlags: 0
@@ -22561,6 +22561,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 0}
+  requiredGameStage: 0
+  newGameStage: 0
   index: 0
   npcRefName: 
 --- !u!1001 &695492113
@@ -41108,6 +41110,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anthony_Temp
       objectReference: {fileID: 0}
+    - target: {fileID: 3391222637799694005, guid: b6b2eb67db8e82d4faaa55fd4ef4ff09, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050863419361652530, guid: b6b2eb67db8e82d4faaa55fd4ef4ff09, type: 3}
+      propertyPath: receiver
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8062519919027491132, guid: b6b2eb67db8e82d4faaa55fd4ef4ff09, type: 3}
       propertyPath: nameText
       value: 
@@ -41140,7 +41150,8 @@ PrefabInstance:
       propertyPath: dialogueData.Array.data[1].dialogue
       value: 
       objectReference: {fileID: 11400000, guid: 80c9d33d8e9210749aa7b86df1aa5e68, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 651513487238857543, guid: b6b2eb67db8e82d4faaa55fd4ef4ff09, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

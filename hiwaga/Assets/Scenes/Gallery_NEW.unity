@@ -1104,6 +1104,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -86829370314283933, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
+      propertyPath: sceneName
+      value: Book1_Test
+      objectReference: {fileID: 0}
+    - target: {fileID: -86829370314283933, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
+      propertyPath: newGameStage
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -86829370314283933, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
+      propertyPath: requiredGameStage
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4371286163242886359, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
       propertyPath: newGameStage
       value: 4
@@ -16624,6 +16636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallThreshold: -5
   respawnDelay: 2
+  respawnHeightOffset: 0.2
 --- !u!1 &1784967220
 GameObject:
   m_ObjectHideFlags: 0
@@ -17350,6 +17363,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -86829370314283933, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
+      propertyPath: sceneName
+      value: Benito_Quests
+      objectReference: {fileID: 0}
+    - target: {fileID: -86829370314283933, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
+      propertyPath: newGameStage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -86829370314283933, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
+      propertyPath: requiredGameStage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7088999960865092630, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.246397

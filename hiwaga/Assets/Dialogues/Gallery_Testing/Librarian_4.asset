@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Librarian_4
   m_EditorClassIdentifier: 
   npcRefName: Librarian_Testing
-  dialogueIndex: 3
+  dialogueIndex: 4
   dialogueLines:
   - dialogueLine: I bid you the best of luck, little one.
     character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}

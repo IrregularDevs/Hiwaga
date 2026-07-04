@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155f4c80966429842a894125a411ec78, type: 3}
+  m_Name: Barry_0
+  m_EditorClassIdentifier: 
+  npcRefName: Barry
+  dialogueIndex: 0
+  dialogueLines:
+  - dialogueLine: Well hello there!
+    character: {fileID: 11400000, guid: 3a5d0522172121944bc0a66bf6b35cc2, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: My name is Barry the Bee.
+    character: {fileID: 11400000, guid: 3a5d0522172121944bc0a66bf6b35cc2, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: Welcome to the flower fields!
+    character: {fileID: 11400000, guid: c4564917bcf1ba446a138385d899cc9c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: The rainy season is arriving soon, and so I am starting to go to
+      work, picking up all the food and materials I can find to store up before the
+      storm hits.
+    character: {fileID: 11400000, guid: 3a5d0522172121944bc0a66bf6b35cc2, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: I see...
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: And it's nice to meet you Barry.
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: I hope the harvest and collecting goes well for you.
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: Hello Barry and new friend!
+    character: {fileID: 11400000, guid: 022cef325c75c2647ae9e5b7c3c9717c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: My name is Juma the Beetle!
+    character: {fileID: 11400000, guid: 022cef325c75c2647ae9e5b7c3c9717c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: "It\u2019s nice to see you today Barry."
+    character: {fileID: 11400000, guid: 022cef325c75c2647ae9e5b7c3c9717c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: Barry my friend, staying up all day working and collecting again?
+    character: {fileID: 11400000, guid: 022cef325c75c2647ae9e5b7c3c9717c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: "Why won\u2019t you just come and play with me?"
+    character: {fileID: 11400000, guid: 022cef325c75c2647ae9e5b7c3c9717c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: You will have other days to do your work.
+    character: {fileID: 11400000, guid: 022cef325c75c2647ae9e5b7c3c9717c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: Besides, it will be a long way before the rainy season!
+    character: {fileID: 11400000, guid: 022cef325c75c2647ae9e5b7c3c9717c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: I am sorry Juma but perhaps next time.
+    character: {fileID: 11400000, guid: 3a5d0522172121944bc0a66bf6b35cc2, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: I got to work hard and be ready as always.
+    character: {fileID: 11400000, guid: 3a5d0522172121944bc0a66bf6b35cc2, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: You never know what's gonna happen next and hard work always pays
+      off.
+    character: {fileID: 11400000, guid: 3a5d0522172121944bc0a66bf6b35cc2, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: Whatever you say my dear friend!
+    character: {fileID: 11400000, guid: 022cef325c75c2647ae9e5b7c3c9717c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: But I shall be flying and skipping around, enjoying the lovely
+      sun!
+    character: {fileID: 11400000, guid: 022cef325c75c2647ae9e5b7c3c9717c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: You can always look for me if you want to have fun!
+    character: {fileID: 11400000, guid: 022cef325c75c2647ae9e5b7c3c9717c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: Take care and have fun Juma!
+    character: {fileID: 11400000, guid: 3a5d0522172121944bc0a66bf6b35cc2, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: And would you like to help me, my dear new friend?
+    character: {fileID: 11400000, guid: 3a5d0522172121944bc0a66bf6b35cc2, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: We could get the job done faster together and will be able to get
+      some rest and progress in no time!
+    character: {fileID: 11400000, guid: 3a5d0522172121944bc0a66bf6b35cc2, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  autoProgressLines: 
+  loops: 0
+  questToGive: {fileID: 0}
