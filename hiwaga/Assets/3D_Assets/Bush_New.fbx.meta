@@ -9,26 +9,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Bush3
     second: {fileID: 2100000, guid: 973cd2aac183b6a47a1876d03a261303, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Bush3.001
-    second: {fileID: 2100000, guid: 36e71c694ecd54f438445956320b562d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Bush3.002
-    second: {fileID: 2100000, guid: bc5c9d9d033134d4a9e2c48c38e3524b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Bush3.003
-    second: {fileID: 2100000, guid: 46f85b2ec1b172b418cc37bde875cc70, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Bush3.004
-    second: {fileID: 2100000, guid: 0213fcbb8ce2c3545a24ad81390f0864, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -113,7 +93,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
