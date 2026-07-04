@@ -15,6 +15,17 @@ MonoBehaviour:
   npcRefName: Princess
   dialogueIndex: 0
   dialogueLines:
+  - dialogueLine: Greetings, fair princess from a faraway land!
+    character: {fileID: 11400000, guid: c4564917bcf1ba446a138385d899cc9c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: My name is Benito, and I am here to complete an errand from the
+      king, in which I must bring you to him to be wedded as his wife.
+    character: {fileID: 11400000, guid: c4564917bcf1ba446a138385d899cc9c, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
   - dialogueLine: Thank you, brave young man.
     character: {fileID: 11400000, guid: 61eac89652edd1142ba985c358ac9cdd, type: 2}
     typingSpeed: 0.05

@@ -20,13 +20,13 @@ MonoBehaviour:
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 3
-  - dialogueLine: 'I am on a quest to see the beautiful princess from a faraway land. '
-    character: {fileID: 11400000, guid: c4564917bcf1ba446a138385d899cc9c, type: 2}
+  - dialogueLine: May I ask why you look distraught?
+    character: {fileID: 11400000, guid: 65400c17707956b43828fcb144b98daa, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 3
-  - dialogueLine: May I ask why you look distraught?
-    character: {fileID: 11400000, guid: 65400c17707956b43828fcb144b98daa, type: 2}
+  - dialogueLine: 'I am on a quest to see the beautiful princess from a faraway land. '
+    character: {fileID: 11400000, guid: c4564917bcf1ba446a138385d899cc9c, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 3

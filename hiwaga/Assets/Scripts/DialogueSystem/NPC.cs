@@ -71,7 +71,7 @@ public class NPC : Interactable/*, IInteractable*/
         return npcRefName;
     }
 
-    private void ChangeStage()
+    protected virtual void ChangeStage()
     {
         if(GameManager.currentGameStage < newGameStage)
         {
