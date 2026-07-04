@@ -17,6 +17,10 @@ public class ModelRotator : MonoBehaviour
         if (model == null || cameraTransform == null)
             return;
 
+        // Only allow rotation in the Overworld state
+        if (GameManager.currentGameState != GameState.Overworld)
+            return;
+
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
 

@@ -15,6 +15,9 @@ public class CharacterController3D : MonoBehaviour
     public bool canMove = true;
     public bool enableJump = false;
 
+    // Enable this in test scenes to ignore GameState restrictions
+    public bool ignoreGameState = false;
+
     public Vector3 CurrentMoveDirection { get; private set; }
 
     // Expose grounded state to other scripts
@@ -41,8 +44,22 @@ public class CharacterController3D : MonoBehaviour
         if (controller == null || !controller.enabled)
             return;
 
-        if (!canMove)
+        // Only allow movement during the Overworld state
+        if (!ignoreGameState &&
+            GameManager.currentGameState != GameState.Overworld)
+        {
+            CurrentMoveDirection = Vector3.zero;
+            velocity = Vector3.zero;
+            airMoveDirection = Vector3.zero;
+            airSpeed = 0f;
             return;
+        }
+
+        if (!canMove)
+        {
+            CurrentMoveDirection = Vector3.zero;
+            return;
+        }
 
         // Ground check
         isGrounded = controller.isGrounded ||
@@ -73,7 +90,7 @@ public class CharacterController3D : MonoBehaviour
             if (isGrounded)
             {
                 airMoveDirection = moveDirection;
-                airSpeed = moveSpeed;
+                airSpeed = currentSpeed;
             }
 
             CurrentMoveDirection = moveDirection;
@@ -105,7 +122,7 @@ public class CharacterController3D : MonoBehaviour
         if (enableJump && Input.GetButtonDown("Jump") && isGrounded)
         {
             airMoveDirection = CurrentMoveDirection;
-            airSpeed = moveSpeed;
+            airSpeed = currentSpeed;
 
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         }

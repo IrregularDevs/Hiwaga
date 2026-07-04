@@ -5,6 +5,7 @@ public class PlayerRespawn : MonoBehaviour
 {
     public float fallThreshold = -10f;
     public float respawnDelay = 1f;
+    public float respawnHeightOffset = 0.2f;
 
     private CharacterController controller;
 
@@ -23,16 +24,20 @@ public class PlayerRespawn : MonoBehaviour
 
     void Update()
     {
-        positionHistory.Enqueue(new PositionRecord
+        // Only save positions while the player is grounded
+        if (controller != null && controller.isGrounded)
         {
-            position = transform.position,
-            time = Time.time
-        });
+            positionHistory.Enqueue(new PositionRecord
+            {
+                position = transform.position,
+                time = Time.time
+            });
 
-        while (positionHistory.Count > 0 &&
-               Time.time - positionHistory.Peek().time > respawnDelay)
-        {
-            positionHistory.Dequeue();
+            while (positionHistory.Count > 0 &&
+                   Time.time - positionHistory.Peek().time > respawnDelay)
+            {
+                positionHistory.Dequeue();
+            }
         }
 
         if (transform.position.y < fallThreshold)
@@ -53,7 +58,8 @@ public class PlayerRespawn : MonoBehaviour
         if (controller != null)
             controller.enabled = false;
 
-        transform.position = respawnPosition;
+        // Spawn slightly above the saved grounded position
+        transform.position = respawnPosition + Vector3.up * respawnHeightOffset;
 
         if (controller != null)
             controller.enabled = true;

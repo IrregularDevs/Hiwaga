@@ -125,6 +125,9 @@ public class DialogueManager : MonoBehaviour
         nameText.text = currentDialogue.dialogueLines[0].character.npcName.Replace("&name", Player.Instance.playerName);
         portraitImage.sprite = currentDialogue.dialogueLines[0].character.npcPortrait;
 
+        GameManager.ChangeGameState(GameState.Dialogue);
+
+
         PauseManager.SetPause(true);
         StartCoroutine(TypeLine());
     }
@@ -181,6 +184,9 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
         isdialogueActive = false;
         dialoguePanel.SetActive(false);
+
+        GameManager.ChangeGameState(GameState.Overworld);
+
         PauseManager.SetPause(false);
         dialogueLineIndex = 0;
 
