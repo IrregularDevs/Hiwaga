@@ -1582,8 +1582,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7413953359446234778, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 774673131}
   m_SourcePrefab: {fileID: 100100000, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
+--- !u!1 &774673130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7413953359446234778, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
+  m_PrefabInstance: {fileID: 774673129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &774673131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774673130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f7fcf9929601b47bd7a6a15746d6e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallThreshold: -10
+  respawnDelay: 1.5
 --- !u!4 &886065169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cb0e8c881894f4c42a46a8a081665141, type: 3}
@@ -1974,7 +1996,7 @@ Transform:
   m_GameObject: {fileID: 961739749}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1736481, y: -0.00000001504035, z: 0.0000000026520184, w: 0.9848078}
-  m_LocalPosition: {x: -26, y: 30.187973, z: -40.99165}
+  m_LocalPosition: {x: 1.9865823, y: 47.74637, z: 537.8643}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3640,7 +3662,7 @@ MonoBehaviour:
   requiredGameStage: 2
   newGameStage: 2
   requiredItem: {fileID: 0}
-  sceneName: Gallery_NEW
+  sceneName: Sea
 --- !u!114 &1735766539
 MonoBehaviour:
   m_ObjectHideFlags: 0

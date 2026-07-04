@@ -303,6 +303,10 @@ PrefabInstance:
       propertyPath: ignoreGameState
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4150958785743684493, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
+      propertyPath: sprintMultiplier
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4568056551466318074, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: mouseSensitivity
       value: 10
