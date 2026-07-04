@@ -19875,8 +19875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f7fcf9929601b47bd7a6a15746d6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallThreshold: -10
-  respawnDelay: 1.5
+  fallThreshold: -5
+  respawnDelay: 2
 --- !u!114 &1912735790
 MonoBehaviour:
   m_ObjectHideFlags: 0
