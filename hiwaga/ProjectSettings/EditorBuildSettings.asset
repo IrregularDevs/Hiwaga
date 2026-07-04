@@ -44,6 +44,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Book 1.unity
     guid: df3c65b6534fffc43aa30e5645bfead1
+  - enabled: 1
+    path: Assets/Scenes/Sea.unity
+    guid: af4744113b480a94ba0ab37f8f7dbbb5
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: 709526b23411d6346865eb820e2bf608
+  - enabled: 1
+    path: Assets/Scenes/Heaven.unity
+    guid: d462f603d8fd05d40b5adb2803451e98
+  - enabled: 1
+    path: Assets/Scenes/Netherworld.unity
+    guid: 86c40c9742c4bae45a79286961f446f2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
