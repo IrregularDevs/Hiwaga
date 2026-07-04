@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class Barry_Bubuyog : MonoBehaviour
+public class Barry_Bubuyog : NPC
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Lock barryLock;
+    private bool isCollecting = false;
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact()
     {
-        
+        if(!isCollecting)
+        {
+            base.Interact();
+        }
+        else
+        {
+
+        }
     }
 }

@@ -124,7 +124,8 @@ MonoBehaviour:
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 3
-  - dialogueLine: And would you like to help me, my dear new friend?
+  - dialogueLine: And would you like to help me with my collection of my harvest
+      of honeys, pollen, and flower seeds?
     character: {fileID: 11400000, guid: 3a5d0522172121944bc0a66bf6b35cc2, type: 2}
     typingSpeed: 0.05
     autoProgressDelayFast: 1
