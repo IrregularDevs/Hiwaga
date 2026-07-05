@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Book_Outline
+  m_Name: Book_Outline 1
   m_Shader: {fileID: -6465566751694194690, guid: 4e29578c39da48447b6c967ae13f4aee, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -38,14 +38,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Outline_Size: 1.01
+    - _Outline_Size: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &298019832821509952
+--- !u!114 &577735022439432553
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
