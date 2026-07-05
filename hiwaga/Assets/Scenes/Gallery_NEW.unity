@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 9022746ff6ba58d4bad30fb571d4308d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1168,6 +1168,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreeStump_Placeholder (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8121238141097365086, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121238141097365086, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f6b585ef6ebd0e947ace542362dbbb81, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1807,6 +1815,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -42.031
       objectReference: {fileID: 0}
+    - target: {fileID: -5979636666242002980, guid: 3cc8c566da66c704ea9e04233984e68b, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5979636666242002980, guid: 3cc8c566da66c704ea9e04233984e68b, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 063499be46651b24ea1754116165c6ba, type: 2}
     - target: {fileID: 919132149155446097, guid: 3cc8c566da66c704ea9e04233984e68b, type: 3}
       propertyPath: m_Name
       value: Portal_PlaceHolder
@@ -16636,7 +16652,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallThreshold: -5
   respawnDelay: 2
-  respawnHeightOffset: 0.2
 --- !u!1 &1784967220
 GameObject:
   m_ObjectHideFlags: 0
@@ -16973,10 +16988,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1924330416772942832, guid: 1d9dd9fdf07bf464fbd7de998e8f5463, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1924330416772942832, guid: 1d9dd9fdf07bf464fbd7de998e8f5463, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5112af764a11bd1439d87186197707d5, type: 2}
     - target: {fileID: 919132149155446097, guid: 1d9dd9fdf07bf464fbd7de998e8f5463, type: 3}
       propertyPath: m_Name
       value: Librarian_Placeholder
       objectReference: {fileID: 0}
+    - target: {fileID: 6435320000920075851, guid: 1d9dd9fdf07bf464fbd7de998e8f5463, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435320000920075851, guid: 1d9dd9fdf07bf464fbd7de998e8f5463, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5112af764a11bd1439d87186197707d5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17419,6 +17450,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreeStump_Placeholder
       objectReference: {fileID: 0}
+    - target: {fileID: 8121238141097365086, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121238141097365086, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f6b585ef6ebd0e947ace542362dbbb81, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

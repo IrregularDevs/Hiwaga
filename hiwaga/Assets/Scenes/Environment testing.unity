@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 9022746ff6ba58d4bad30fb571d4308d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -321,6 +321,76 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2882325011855227731, guid: 68768a193109f1e4e9595c44221c01f4, type: 3}
   m_PrefabInstance: {fileID: 1205415552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &161668484
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 910655433}
+    m_Modifications:
+    - target: {fileID: 5985731999994805073, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+      propertyPath: m_Name
+      value: Rock 8(Polybrush Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146248232253287054, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 99.99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146248232253287054, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 99.99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146248232253287054, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.5406559
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146248232253287054, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1566248
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146248232253287054, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.05663842
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146248232253287054, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9900776
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146248232253287054, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1.0770645e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146248232253287054, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146248232253287054, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.14052153
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146248232253287054, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146248232253287054, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146248232253287054, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+--- !u!4 &161668485 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9146248232253287054, guid: 47171e6a8d81f624bafdfbc9f961d0a4, type: 3}
+  m_PrefabInstance: {fileID: 161668484}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &168373963 stripped
 Transform:
@@ -722,6 +792,76 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6222346228065797174, guid: 8ddce1b1dc1755e45b1bf11912c9a360, type: 3}
   m_PrefabInstance: {fileID: 1026746285}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &349994520
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 910655433}
+    m_Modifications:
+    - target: {fileID: 2361791947715953133, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_Name
+      value: Rock 1(Polybrush Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.3213676
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.06543064
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.4016798
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98703104
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.11351154
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.11351157
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+--- !u!4 &349994521 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+  m_PrefabInstance: {fileID: 349994520}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &355957147 stripped
 Transform:
@@ -1671,7 +1811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PolyMesh:
-    name: PolybrushMesh-62422
+    name: PolybrushMesh112186
     vertices:
     - {x: 5, y: -1.110223e-16, z: 5}
     - {x: 4, y: -1.110223e-16, z: 5}
@@ -2420,6 +2560,10 @@ Transform:
   - {fileID: 680913524}
   - {fileID: 631310429}
   - {fileID: 591836985}
+  - {fileID: 349994521}
+  - {fileID: 1094856775}
+  - {fileID: 161668485}
+  - {fileID: 1292660345}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &925002978 stripped
@@ -2741,6 +2885,68 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1001 &1094856774
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 910655433}
+    m_Modifications:
+    - target: {fileID: 2361791947715953133, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_Name
+      value: Rock 1(Polybrush Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.89759445
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.04238987
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.7206905
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9808071
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1.0458809e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.19498049
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+--- !u!4 &1094856775 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9038671966792526176, guid: bab3eb997ec0c1a4b833a8cf68553541, type: 3}
+  m_PrefabInstance: {fileID: 1094856774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1097673956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2863,13 +3069,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68768a193109f1e4e9595c44221c01f4, type: 3}
+--- !u!1001 &1292660344
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 910655433}
+    m_Modifications:
+    - target: {fileID: 3721869722040523399, guid: 118c8056a7bc54c47939018f207c801d, type: 3}
+      propertyPath: m_Name
+      value: Rock 10(Polybrush Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152535432448234832, guid: 118c8056a7bc54c47939018f207c801d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.5196066
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152535432448234832, guid: 118c8056a7bc54c47939018f207c801d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152535432448234832, guid: 118c8056a7bc54c47939018f207c801d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08056152
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152535432448234832, guid: 118c8056a7bc54c47939018f207c801d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152535432448234832, guid: 118c8056a7bc54c47939018f207c801d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152535432448234832, guid: 118c8056a7bc54c47939018f207c801d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152535432448234832, guid: 118c8056a7bc54c47939018f207c801d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152535432448234832, guid: 118c8056a7bc54c47939018f207c801d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152535432448234832, guid: 118c8056a7bc54c47939018f207c801d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152535432448234832, guid: 118c8056a7bc54c47939018f207c801d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 118c8056a7bc54c47939018f207c801d, type: 3}
+--- !u!4 &1292660345 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4152535432448234832, guid: 118c8056a7bc54c47939018f207c801d, type: 3}
+  m_PrefabInstance: {fileID: 1292660344}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1296007725
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PolybrushMesh-62422
+  m_Name: PolybrushMesh112186
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3576,13 +3844,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855146912}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.20628949, z: 0, w: 0.97849107}
-  m_LocalPosition: {x: 3.14, y: 1.53, z: -6.92}
+  m_LocalRotation: {x: -0.07537893, y: -0.18554679, z: -0.014277057, w: 0.979636}
+  m_LocalPosition: {x: 5.7, y: 2.71, z: -12.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -23.81, z: 0}
+  m_LocalEulerAnglesHint: {x: -8.8, y: -21.45, z: 0}
 --- !u!114 &1855146916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3780,6 +4048,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 910655433}
     m_Modifications:
+    - target: {fileID: 2603066247913364417, guid: 210284482f48c6b4c8e147759587eb18, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603066247913364417, guid: 210284482f48c6b4c8e147759587eb18, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 98bf48afbae6f8b44b5d1cb2fc3f0427, type: 2}
     - target: {fileID: 3770883057128612014, guid: 210284482f48c6b4c8e147759587eb18, type: 3}
       propertyPath: m_LocalScale.x
       value: 100.00001
