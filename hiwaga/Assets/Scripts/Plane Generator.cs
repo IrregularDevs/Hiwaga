@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Plane Generator that works with Polybrush. Generates a plane mesh with a given size and resolution. The mesh is generated in the XZ plane, with the Y axis being up. The mesh is generated in the local space of the GameObject, so it can be rotated and scaled as needed. The mesh is generated in the Awake method, so it will be available in the editor and at runtime. The mesh is regenerated when the size or resolution is changed in the inspector.
+
 [ExecuteAlways]
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(MeshFilter))]
