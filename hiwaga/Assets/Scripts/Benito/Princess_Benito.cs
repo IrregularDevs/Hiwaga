@@ -7,15 +7,16 @@ public class Princess_Benito : NPC
     protected override void Start()
     {
         base.Start();
-        GameManager.onChangeGameStage += ChangeIndex;
+        onEndDialogue -= ChangeIndex;
+        onEndDialogue += ChangeIndex;
     }
 
     private void OnDisable()
     {
-        GameManager.onChangeGameStage -= ChangeIndex;
+        onEndDialogue -= ChangeIndex;
     }
 
-    private void ChangeIndex(GameStage gameStage)
+    private void ChangeIndex()
     {
         /*SaveData saveData = LoadSystem.LoadGameData();
         if (saveData != null)
@@ -29,11 +30,15 @@ public class Princess_Benito : NPC
         /*PlayerPrefs.SetInt("Librarian_Testing", 2);
         PlayerPrefs.Save();*/
         //DialogueManager.Instance.UpdateDialogue("Librarian_Testing", 2);
-        if (GameManager.currentGameStage < GameStage.BenitoFinish)
+        if (GameManager.currentGameStage <= GameStage.BenitoFinish)
         {
             Debug.Log("Pricness Benito called");
-            GameManager.ChangeGameStage(GameStage.BenitoFinish);
+            CutsceneManager.Instance.PlayPrincessCutscene(this);
         }
+    }
+
+    public void StartGate()
+    {
         gate.SwitchScene();
     }
 }
