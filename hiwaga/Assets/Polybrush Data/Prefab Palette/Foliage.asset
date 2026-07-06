@@ -47,7 +47,7 @@ MonoBehaviour:
     name: Bush_New
   - gameObject: {fileID: 830472458137818562, guid: 68768a193109f1e4e9595c44221c01f4, type: 3}
     settings:
-      m_Strength: 12.791411
+      m_Strength: 15.185608
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -63,7 +63,7 @@ MonoBehaviour:
     name: Flower 1
   - gameObject: {fileID: 2798391586481995492, guid: 8ddce1b1dc1755e45b1bf11912c9a360, type: 3}
     settings:
-      m_Strength: 29.193678
+      m_Strength: 31.944984
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
