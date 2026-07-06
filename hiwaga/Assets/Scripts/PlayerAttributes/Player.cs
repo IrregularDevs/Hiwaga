@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        playerName = "Muad'Dib";
+        playerName = "Sabel";
         controls = new InputSystem_Actions();
     }
 
