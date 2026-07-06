@@ -18244,7 +18244,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -86829370314283933, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
       propertyPath: sceneName
-      value: Benito_Quest_Area6to8
+      value: Sea
       objectReference: {fileID: 0}
     - target: {fileID: -86829370314283933, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
       propertyPath: newGameStage

@@ -30,7 +30,7 @@ public class Princess_Benito : NPC
         /*PlayerPrefs.SetInt("Librarian_Testing", 2);
         PlayerPrefs.Save();*/
         //DialogueManager.Instance.UpdateDialogue("Librarian_Testing", 2);
-        if (GameManager.currentGameStage <= GameStage.BenitoFinish)
+        if (GameManager.currentGameStage <= GameStage.Benito)
         {
             Debug.Log("Pricness Benito called");
             CutsceneManager.Instance.PlayPrincessCutscene(this);

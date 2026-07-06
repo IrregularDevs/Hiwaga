@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HiddenFishObject : MonoBehaviour
+public class HiddenFishObject : Interactable
 {
     [Header("Set in Inspector")]
     public bool isCorrectFish = false;
