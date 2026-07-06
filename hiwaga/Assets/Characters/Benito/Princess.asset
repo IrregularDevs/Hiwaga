@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Princess
   m_EditorClassIdentifier: 
   npcName: Princess
-  npcPortrait: {fileID: 21300000, guid: 75563812d9c1ee540a172740ad7c286a, type: 3}
+  npcPortrait: {fileID: 21300000, guid: ed97f411cf2e031439b8044f2dd78792, type: 3}

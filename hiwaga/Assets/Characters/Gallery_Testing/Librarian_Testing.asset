@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c023ca5b3b4eef47af587f9644813bc, type: 3}
   m_Name: Librarian_Testing
   m_EditorClassIdentifier: 
-  npcName: THE LIBRARIAN
-  npcPortrait: {fileID: 58138736, guid: d71f8deccb684534e9ae411aebeedfea, type: 3}
+  npcName: The Librarian
+  npcPortrait: {fileID: 21300000, guid: 0bd6bf1a2d0c18841849451310506e56, type: 3}

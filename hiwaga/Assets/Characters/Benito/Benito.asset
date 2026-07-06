@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Benito
   m_EditorClassIdentifier: 
   npcName: Benito
-  npcPortrait: {fileID: 21300000, guid: e320bd66bccc4ca479cacd3dc1b46f74, type: 3}
+  npcPortrait: {fileID: 21300000, guid: 7eb018364cf3aa84daa5187814466203, type: 3}

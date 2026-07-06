@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bird
   m_EditorClassIdentifier: 
   npcName: Bird
-  npcPortrait: {fileID: 21300000, guid: a72ddfb0f4f86e34baa39f7eecd0a2c3, type: 3}
+  npcPortrait: {fileID: 21300000, guid: bdeebd5171790d04cb7b01fb3ee6dd8a, type: 3}
