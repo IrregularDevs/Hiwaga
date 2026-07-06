@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 116110247}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000015865497, y: 0.98836154, z: -0.15212333, w: 0.00000010307982}
-  m_LocalPosition: {x: -0.00000083376585, y: 27.853851, z: 35.05717}
+  m_LocalPosition: {x: -0.00000083376585, y: 32.944225, z: 35.05717}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -673,7 +673,7 @@ Transform:
   m_GameObject: {fileID: 1626999296}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000015865501, y: 0.98836154, z: -0.15212335, w: 0.000000103079834}
-  m_LocalPosition: {x: -0.00000083376585, y: 4.7038503, z: 9.537171}
+  m_LocalPosition: {x: -0.00000083376585, y: 9.794226, z: 9.53717}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1237,6 +1237,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 17475089140042035, guid: 5adde58cd14f43f499364bf780df8cd0, type: 3}
+      propertyPath: m_Size.x
+      value: 9.670603
+      objectReference: {fileID: 0}
+    - target: {fileID: 17475089140042035, guid: 5adde58cd14f43f499364bf780df8cd0, type: 3}
+      propertyPath: m_Size.z
+      value: 9.050119
+      objectReference: {fileID: 0}
+    - target: {fileID: 17475089140042035, guid: 5adde58cd14f43f499364bf780df8cd0, type: 3}
+      propertyPath: m_Center.x
+      value: 0.05165291
+      objectReference: {fileID: 0}
+    - target: {fileID: 17475089140042035, guid: 5adde58cd14f43f499364bf780df8cd0, type: 3}
+      propertyPath: m_Center.z
+      value: -0.08219743
+      objectReference: {fileID: 0}
     - target: {fileID: 5360248983813892215, guid: 5adde58cd14f43f499364bf780df8cd0, type: 3}
       propertyPath: m_Name
       value: Coral_Placeholder
@@ -1366,6 +1382,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Placeholder
       objectReference: {fileID: 0}
+    - target: {fileID: 5764662229029836219, guid: 31609d41a0bdc0644bc5936ad6a84f35, type: 3}
+      propertyPath: m_Size.x
+      value: 9.962253
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764662229029836219, guid: 31609d41a0bdc0644bc5936ad6a84f35, type: 3}
+      propertyPath: m_Size.z
+      value: 8.827934
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764662229029836219, guid: 31609d41a0bdc0644bc5936ad6a84f35, type: 3}
+      propertyPath: m_Center.x
+      value: 0.11070967
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764662229029836219, guid: 31609d41a0bdc0644bc5936ad6a84f35, type: 3}
+      propertyPath: m_Center.z
+      value: 0.18442154
+      objectReference: {fileID: 0}
     - target: {fileID: 7446473660357773333, guid: 31609d41a0bdc0644bc5936ad6a84f35, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1455,6 +1487,22 @@ PrefabInstance:
       propertyPath: fishServant
       value: 
       objectReference: {fileID: 1856159800141847624}
+    - target: {fileID: 9008686221432875643, guid: b797b59dd72cb0a4a8e648aa644dbb69, type: 3}
+      propertyPath: m_Size.x
+      value: 9.869127
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008686221432875643, guid: b797b59dd72cb0a4a8e648aa644dbb69, type: 3}
+      propertyPath: m_Size.z
+      value: 9.166462
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008686221432875643, guid: b797b59dd72cb0a4a8e648aa644dbb69, type: 3}
+      propertyPath: m_Center.x
+      value: -0.13464832
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008686221432875643, guid: b797b59dd72cb0a4a8e648aa644dbb69, type: 3}
+      propertyPath: m_Center.z
+      value: 0.17235184
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
