@@ -3,8 +3,10 @@ using UnityEngine;
 public class CutsceneManager : MonoBehaviour
 {
     public static CutsceneManager Instance;
-    [SerializeField] private Animator cutsceneAnimator;
+    [SerializeField] private Animator princessCutsceneAnimator;
+    [SerializeField] private Animator fishCutsceneAnimator;
     private Princess_Benito princess;
+    private FishServant_Benito fish;
 
     private void Awake()
     {
@@ -20,21 +22,37 @@ public class CutsceneManager : MonoBehaviour
 
     private void Start()
     {
-        cutsceneAnimator.gameObject.SetActive(false);
+        princessCutsceneAnimator.gameObject.SetActive(false);
+        fishCutsceneAnimator.gameObject.SetActive(false);
     }
 
     public void PlayPrincessCutscene(Princess_Benito newPrincess)
     {
-        cutsceneAnimator.gameObject.SetActive(true);
+        princessCutsceneAnimator.gameObject.SetActive(true);
         princess = newPrincess;
-        cutsceneAnimator.Play("Test_Cutscene");
+        princessCutsceneAnimator.Play("Test_Cutscene");
     }
 
     public void EndPrincessCutscene()
     {
         Debug.Log("Wallah");
-        cutsceneAnimator.gameObject.SetActive(false);
+        princessCutsceneAnimator.gameObject.SetActive(false);
         Debug.Log("EUIOPQ");
         princess.StartGate();
+    }
+
+    public void PlayFishCutscene(FishServant_Benito newFish)
+    {
+        fishCutsceneAnimator.gameObject.SetActive(true);
+        fish = newFish;
+        fishCutsceneAnimator.Play("Test_Cutscene3");
+    }
+
+    public void EndFishCutscene()
+    {
+        Debug.Log("er");
+        fishCutsceneAnimator.gameObject.SetActive(false);
+        Debug.Log("th");
+        fish.SwitchScene();
     }
 }

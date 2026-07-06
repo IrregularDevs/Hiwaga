@@ -29,7 +29,7 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (prompt != null)
         {

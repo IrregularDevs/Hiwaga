@@ -10,7 +10,7 @@ public class Lock : Interactable
 
     public override void SetActivePrompt(bool state)
     {
-        if(Player.Instance.HasItem(requiredItem))
+        if(Player.Instance.HasItem(requiredItem) || requiredItem == null)
         {
             base.SetActivePrompt(state);
         }
@@ -18,7 +18,7 @@ public class Lock : Interactable
 
     public override void Interact()
     {
-        if (Player.Instance.HasItem(requiredItem))
+        if (Player.Instance.HasItem(requiredItem) || requiredItem == null)
         {
             onInteract?.Invoke();
         }

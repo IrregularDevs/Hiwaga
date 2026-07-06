@@ -4,7 +4,7 @@ public class Gate_Benito : Lock
 {
     [SerializeField] private string sceneName;
 
-    private void Start()
+    protected virtual void Start()
     {
         onInteract += SwitchScene;
     }

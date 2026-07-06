@@ -1,17 +1,16 @@
 using UnityEngine;
 
-public class FishServant_Benito : NPC
+public class FishServant_Benito : Gate_Benito
 {
     private bool hasTalked = false;
     private bool isHidden = true;
 
     protected override void Start()
     {
-        base.Start();
-
         gameObject.SetActive(false); // hidden at start
     }
-       public void RevealFish()
+
+    public void RevealFish()
     {
         isHidden = false;
         gameObject.SetActive(true);
@@ -29,8 +28,9 @@ public class FishServant_Benito : NPC
 
         if (!hasTalked)
         {
-            DialogueManager.Instance.UpdateDialogue(GetRefName(), 1);
-            hasTalked = true;
+            CutsceneManager.Instance.PlayFishCutscene(this);
+            /*DialogueManager.Instance.UpdateDialogue(GetRefName(), 1);
+            hasTalked = true;*/
         }
 
         base.Interact();
