@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water Shader
+  m_Name: River
   m_Shader: {fileID: -6465566751694194690, guid: d670affce170c5a4cb36cfba138749d2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -51,14 +51,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CausticSize: 5.36
+    - _CausticSize: 11.35
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ScrollSpeed: 0
+    - _ScrollSpeed: 0.5
     - _Transparency: 0.8
     m_Colors:
-    - _BaseColor: {r: 0.19607843, g: 0.5137255, b: 0.8207547, a: 0}
-    - _CausticColor: {r: 0.56078434, g: 0.9490196, b: 1, a: 0}
-    - _Direction: {r: 0, g: 0, b: 0, a: 0}
+    - _BaseColor: {r: 0.19752549, g: 0.51179105, b: 0.81960785, a: 0}
+    - _CausticColor: {r: 0.5613208, g: 0.9483906, b: 1, a: 0}
+    - _Direction: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
