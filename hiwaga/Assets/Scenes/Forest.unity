@@ -222,6 +222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MousePlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8987683138765864619, guid: 2872f187e8df4c64bb4e8f922bab97b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -357,7 +361,7 @@ Transform:
   m_GameObject: {fileID: 242916293}
   serializedVersion: 2
   m_LocalRotation: {x: -4.407972e-16, y: 0.9673613, z: -0.25340134, w: -8.027994e-16}
-  m_LocalPosition: {x: -0.00000047683716, y: 3.5300007, z: 9.5}
+  m_LocalPosition: {x: -0.0000009536743, y: 3.5300007, z: 9.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -549,7 +553,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 167956163}
+    TrackingTarget: {fileID: 1035808420}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -755,6 +759,68 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1001 &1035808419
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1069642696}
+    m_Modifications:
+    - target: {fileID: 103910779411383350, guid: d1e01ad6a1bfbac4183721ae816b3e3f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 103910779411383350, guid: d1e01ad6a1bfbac4183721ae816b3e3f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 103910779411383350, guid: d1e01ad6a1bfbac4183721ae816b3e3f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 103910779411383350, guid: d1e01ad6a1bfbac4183721ae816b3e3f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 103910779411383350, guid: d1e01ad6a1bfbac4183721ae816b3e3f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 103910779411383350, guid: d1e01ad6a1bfbac4183721ae816b3e3f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 103910779411383350, guid: d1e01ad6a1bfbac4183721ae816b3e3f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 103910779411383350, guid: d1e01ad6a1bfbac4183721ae816b3e3f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 103910779411383350, guid: d1e01ad6a1bfbac4183721ae816b3e3f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 103910779411383350, guid: d1e01ad6a1bfbac4183721ae816b3e3f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737177334336331404, guid: d1e01ad6a1bfbac4183721ae816b3e3f, type: 3}
+      propertyPath: m_Name
+      value: Mouse Player New
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d1e01ad6a1bfbac4183721ae816b3e3f, type: 3}
+--- !u!4 &1035808420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 103910779411383350, guid: d1e01ad6a1bfbac4183721ae816b3e3f, type: 3}
+  m_PrefabInstance: {fileID: 1035808419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1069642693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -806,7 +872,7 @@ PrefabInstance:
     - target: {fileID: 7668719934374607576, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: model
       value: 
-      objectReference: {fileID: 167956163}
+      objectReference: {fileID: 1035808420}
     - target: {fileID: 7901697350876990496, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -864,6 +930,9 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7901697350876990496, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
       insertIndex: 1
+      addedObject: {fileID: 1035808420}
+    - targetCorrespondingSourceObject: {fileID: 7901697350876990496, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
+      insertIndex: 2
       addedObject: {fileID: 167956163}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7413953359446234778, guid: 73374fda38beed64e956d9e3d0cdb6fc, type: 3}
@@ -1549,6 +1618,14 @@ PrefabInstance:
       propertyPath: fishModel
       value: 
       objectReference: {fileID: 1431138222102515462}
+    - target: {fileID: 3675118521443819492, guid: d75992db16d895f45aa8a1a58a728f99, type: 3}
+      propertyPath: newGameStage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3675118521443819492, guid: d75992db16d895f45aa8a1a58a728f99, type: 3}
+      propertyPath: requiredGameStage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3724623576657988158, guid: d75992db16d895f45aa8a1a58a728f99, type: 3}
       propertyPath: m_text
       value: Just a very deep hole...
@@ -1639,6 +1716,14 @@ PrefabInstance:
       propertyPath: fishServant
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1011383804051286877, guid: 1c72474bd4dff12429fcb02b7ca5c0a0, type: 3}
+      propertyPath: newGameStage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1011383804051286877, guid: 1c72474bd4dff12429fcb02b7ca5c0a0, type: 3}
+      propertyPath: requiredGameStage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4776719545506808945, guid: 1c72474bd4dff12429fcb02b7ca5c0a0, type: 3}
       propertyPath: m_Name
       value: Tree_Placeholder
@@ -1704,6 +1789,14 @@ PrefabInstance:
       propertyPath: fishServant
       value: 
       objectReference: {fileID: 1431138222102515465}
+    - target: {fileID: 3157349625274695361, guid: db05373201351a04c8822330a7dd3e4c, type: 3}
+      propertyPath: newGameStage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157349625274695361, guid: db05373201351a04c8822330a7dd3e4c, type: 3}
+      propertyPath: requiredGameStage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4522636630185274308, guid: db05373201351a04c8822330a7dd3e4c, type: 3}
       propertyPath: m_Name
       value: BambooTrees_Placeholder
@@ -1817,6 +1910,18 @@ PrefabInstance:
       propertyPath: fishModel
       value: 
       objectReference: {fileID: 1431138222102515462}
+    - target: {fileID: 7143391924682403862, guid: a78238b0f2edc0e4ebcdc029e23c97bf, type: 3}
+      propertyPath: newGameStage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143391924682403862, guid: a78238b0f2edc0e4ebcdc029e23c97bf, type: 3}
+      propertyPath: isCorrectFish
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143391924682403862, guid: a78238b0f2edc0e4ebcdc029e23c97bf, type: 3}
+      propertyPath: requiredGameStage
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1878,6 +1983,14 @@ PrefabInstance:
       propertyPath: fishModel
       value: 
       objectReference: {fileID: 1431138222102515462}
+    - target: {fileID: 7554111764774343377, guid: bb5d680ae008d104fb3fe22f367870d3, type: 3}
+      propertyPath: newGameStage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7554111764774343377, guid: bb5d680ae008d104fb3fe22f367870d3, type: 3}
+      propertyPath: requiredGameStage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7741842738149396748, guid: bb5d680ae008d104fb3fe22f367870d3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.608

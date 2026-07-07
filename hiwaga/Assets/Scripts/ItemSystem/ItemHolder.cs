@@ -24,7 +24,7 @@ public class ItemHolder : Interactable
 
     //When holder is no longer in use
     public delegate void OnInvalidHolder();
-    public static OnInvalidHolder onInvalidHolder;
+    public OnInvalidHolder onInvalidHolder;
 
     //Count uses
     public void AddCurrentUses(int i)
@@ -44,4 +44,12 @@ public class ItemHolder : Interactable
         return currentUses;
     }
 
+    public override void SetActivePrompt(bool state)
+    {
+        base.SetActivePrompt(state);
+        if (currentUses >= maxUses && maxUses > 0)
+        {
+            base.SetActivePrompt(false);
+        }
+    }
 }

@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c023ca5b3b4eef47af587f9644813bc, type: 3}
-  m_Name: Fish
+  m_Script: {fileID: 11500000, guid: 77bbc02c5820d3449aa36e0cc19f2980, type: 3}
+  m_Name: Water
   m_EditorClassIdentifier: 
-  npcName: King Of Fishes
-  npcPortrait: {fileID: 21300000, guid: a1639e97287853b4d82245c701bc523a, type: 3}
+  itemName: Water
