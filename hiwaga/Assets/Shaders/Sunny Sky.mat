@@ -57,9 +57,9 @@ Material:
     - _QueueOffset: 0
     - _Star_Scale: 5539
     m_Colors:
-    - _Bottom_Color: {r: 0.624, g: 0.8677517, b: 1, a: 0}
+    - _Bottom_Color: {r: 0.5647059, g: 0.7731083, b: 0.99215686, a: 0}
     - _Cloud_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Star_Color: {r: 1, g: 1, b: 1, a: 0}
-    - _Top_Color: {r: 0.8582157, g: 0.8947451, b: 0.99215686, a: 0}
+    - _Top_Color: {r: 0.81960785, g: 0.8669384, b: 0.99215686, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -51,14 +51,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CausticSize: 32.69
+    - _CausticSize: 5.36
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ScrollSpeed: 0
     - _Transparency: 0.8
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.43751243, b: 0.81960785, a: 0}
-    - _CausticColor: {r: 0, g: 1, b: 0.8355701, a: 0}
+    - _BaseColor: {r: 0, g: 0.01989276, b: 0.8207547, a: 0}
+    - _CausticColor: {r: 0, g: 0.8842337, b: 1, a: 0}
     - _Direction: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
