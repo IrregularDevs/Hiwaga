@@ -110,5 +110,4 @@ public class HiddenFishObject : Interactable
         popup.transform.position = new Vector3(playerLoc.x, playerLoc.y + 3f, playerLoc.z);
         popup.transform.LookAt(Camera.main.transform.position, -Vector3.up);
     }
-
 }

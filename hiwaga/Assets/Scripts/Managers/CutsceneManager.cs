@@ -6,8 +6,9 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private Animator princessCutsceneAnimator;
     [SerializeField] private Animator fishCutsceneAnimator;
     [SerializeField] private Animator galleryCutsceneAnimator;
+    [SerializeField] private Animator forestCutsceneAnimator;
     private Princess_Benito princess;
-    private FishServant_Benito fish;
+    private FishServant_Benito fish, rat;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class CutsceneManager : MonoBehaviour
         princessCutsceneAnimator.gameObject.SetActive(false);
         fishCutsceneAnimator.gameObject.SetActive(false);
         galleryCutsceneAnimator.gameObject.SetActive(false);
+        forestCutsceneAnimator.gameObject.SetActive(false);
     }
 
     public void PlayPrincessCutscene(Princess_Benito newPrincess)
@@ -65,4 +67,18 @@ public class CutsceneManager : MonoBehaviour
         galleryCutsceneAnimator.gameObject.SetActive(false);
         ScreenManager.Instance.NewGame("Gallery_NEW");
     }
+
+    public void PlayForestCutscene(FishServant_Benito newRat)
+    {
+        forestCutsceneAnimator.gameObject.SetActive(true);
+        rat = newRat;
+        forestCutsceneAnimator.Play("ForestCutscene");
+    }
+
+    public void EndForestCutscene()
+    {
+        forestCutsceneAnimator.gameObject.SetActive(false);
+        rat.SwitchScene();
+    }
+
 }

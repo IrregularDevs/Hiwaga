@@ -4,6 +4,7 @@ public class FishServant_Benito : Gate_Benito
 {
     private bool hasTalked = false;
     private bool isHidden = true;
+    [SerializeField] private bool isRat;
 
     protected override void Start()
     {
@@ -28,7 +29,14 @@ public class FishServant_Benito : Gate_Benito
 
         if (!hasTalked)
         {
-            CutsceneManager.Instance.PlayFishCutscene(this);
+            if(isRat)
+            {
+                CutsceneManager.Instance.PlayForestCutscene(this);
+            }
+            else
+            {
+                CutsceneManager.Instance.PlayFishCutscene(this);
+            }
             /*DialogueManager.Instance.UpdateDialogue(GetRefName(), 1);
             hasTalked = true;*/
         }

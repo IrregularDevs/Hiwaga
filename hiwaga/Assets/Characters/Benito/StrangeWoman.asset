@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: StrangeWoman
   m_EditorClassIdentifier: 
   npcName: Strange Woman
-  npcPortrait: {fileID: 21300000, guid: 92d167f6887dfe14eabdd4e525d993da, type: 3}
+  npcPortrait: {fileID: 21300000, guid: f903a411c7d562449834d5e8b8d89f9e, type: 3}
