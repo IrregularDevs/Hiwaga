@@ -5,6 +5,7 @@ public class CutsceneManager : MonoBehaviour
     public static CutsceneManager Instance;
     [SerializeField] private Animator princessCutsceneAnimator;
     [SerializeField] private Animator fishCutsceneAnimator;
+    [SerializeField] private Animator galleryCutsceneAnimator;
     private Princess_Benito princess;
     private FishServant_Benito fish;
 
@@ -24,6 +25,7 @@ public class CutsceneManager : MonoBehaviour
     {
         princessCutsceneAnimator.gameObject.SetActive(false);
         fishCutsceneAnimator.gameObject.SetActive(false);
+        galleryCutsceneAnimator.gameObject.SetActive(false);
     }
 
     public void PlayPrincessCutscene(Princess_Benito newPrincess)
@@ -35,9 +37,7 @@ public class CutsceneManager : MonoBehaviour
 
     public void EndPrincessCutscene()
     {
-        Debug.Log("Wallah");
         princessCutsceneAnimator.gameObject.SetActive(false);
-        Debug.Log("EUIOPQ");
         princess.StartGate();
     }
 
@@ -50,9 +50,19 @@ public class CutsceneManager : MonoBehaviour
 
     public void EndFishCutscene()
     {
-        Debug.Log("er");
         fishCutsceneAnimator.gameObject.SetActive(false);
-        Debug.Log("th");
         fish.SwitchScene();
+    }
+
+    public void PlayGalleryCutscene()
+    {
+        galleryCutsceneAnimator.gameObject.SetActive(true);
+        galleryCutsceneAnimator.Play("GalleryCutscene_Test");
+    }
+
+    public void EndGalleryCutscene()
+    {
+        galleryCutsceneAnimator.gameObject.SetActive(false);
+        ScreenManager.Instance.NewGame("Gallery_NEW");
     }
 }
