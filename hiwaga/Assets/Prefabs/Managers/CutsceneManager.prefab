@@ -855,7 +855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'KING OF MICE: What troubles you, my dear friend, Benito?'
+  m_text: 'KING OF FISHES: What troubles you, my dear friend, Benito?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d33a0be217d479a4bb7b89d37da396ce, type: 2}
   m_sharedMaterial: {fileID: 2268012830207550039, guid: d33a0be217d479a4bb7b89d37da396ce, type: 2}
@@ -1448,7 +1448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'KING OF MICE: I will see if I can be of help.
+  m_text: 'KING OF FISHES: I will see if I can be of help.
 
 '
   m_isRightToLeft: 0
@@ -1724,7 +1724,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'KING OF MICE: Why do you seem so distraught?'
+  m_text: 'KING OF FISHES: Why do you seem so distraught?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d33a0be217d479a4bb7b89d37da396ce, type: 2}
   m_sharedMaterial: {fileID: 2268012830207550039, guid: d33a0be217d479a4bb7b89d37da396ce, type: 2}
@@ -2242,7 +2242,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'KING OF MICE: Do not worry my dear friend Benito.'
+  m_text: 'KING OF FISHES: Do not worry my dear friend Benito.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d33a0be217d479a4bb7b89d37da396ce, type: 2}
   m_sharedMaterial: {fileID: 2268012830207550039, guid: d33a0be217d479a4bb7b89d37da396ce, type: 2}

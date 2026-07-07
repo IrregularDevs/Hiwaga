@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Sparrowhawk
   m_EditorClassIdentifier: 
   npcName: Sparrowhawk
-  npcPortrait: {fileID: 21300000, guid: 0bd6bf1a2d0c18841849451310506e56, type: 3}
+  npcPortrait: {fileID: 21300000, guid: bdeebd5171790d04cb7b01fb3ee6dd8a, type: 3}
