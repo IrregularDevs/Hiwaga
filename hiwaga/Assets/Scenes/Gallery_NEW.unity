@@ -1664,7 +1664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961739749}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1736481, y: -0.00000001504035, z: 0.0000000026520184, w: 0.9848078}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
   m_LocalPosition: {x: 0, y: 17.047773, z: -69.79078}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18120,7 +18120,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -86829370314283933, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
       propertyPath: sceneName
-      value: Forest
+      value: Netherworld
       objectReference: {fileID: 0}
     - target: {fileID: -86829370314283933, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
       propertyPath: newGameStage
@@ -18128,7 +18128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -86829370314283933, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
       propertyPath: requiredGameStage
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7088999960865092630, guid: 649b3363b7b533642902d6ad57c5ebcb, type: 3}
       propertyPath: m_LocalPosition.x

@@ -7756,6 +7756,7 @@ MonoBehaviour:
   fishCutsceneAnimator: {fileID: 4721028472581910800}
   galleryCutsceneAnimator: {fileID: 198044079405172808}
   forestCutsceneAnimator: {fileID: 5638089654501830619}
+  finalCutsceneAnimator: {fileID: 1585255375342181910}
 --- !u!1 &5119946697085013851
 GameObject:
   m_ObjectHideFlags: 0

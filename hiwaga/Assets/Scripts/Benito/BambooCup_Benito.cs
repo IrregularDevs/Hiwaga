@@ -3,10 +3,11 @@ using UnityEngine;
 public class BambooCup_Benito : ItemReceiver
 {
     [SerializeField] private Bird_Benito bird;
+    [SerializeField] private int initialDialogue, newDialogue;
 
     private void Start()
     {
-        DialogueManager.Instance.UpdateDialogue("Sparrowhawk", 3);
+        DialogueManager.Instance.UpdateDialogue("Sparrowhawk", initialDialogue);
         onInvalidHolder -= CheckGoal;
         onInvalidHolder += CheckGoal;
     }
@@ -18,7 +19,7 @@ public class BambooCup_Benito : ItemReceiver
 
     private void CheckGoal()
     {
-        DialogueManager.Instance.UpdateDialogue("Sparrowhawk", 4);
+        DialogueManager.Instance.UpdateDialogue("Sparrowhawk", newDialogue);
         bird.ProgressStory(true);
     }
 }

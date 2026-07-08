@@ -61,9 +61,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2c10bc8e03760d247bec5763b6b355e7, type: 2}
   - {fileID: 11400000, guid: 55d9ecca69bb3b945a0ecf0454bbd8fc, type: 2}
   - {fileID: 11400000, guid: f21170e762f6df644a59580cebecc0cd, type: 2}
+  - {fileID: 11400000, guid: 17949eedc431bd1478cbd6bdeb24e472, type: 2}
+  - {fileID: 11400000, guid: 9bf5223ae9a8bc441a78d2de887b4087, type: 2}
+  - {fileID: 11400000, guid: fbc6e7df0aafecd4bb374d8a45a5d4b6, type: 2}
   - {fileID: 11400000, guid: 83f05f32b5c58df4ba79dfccb2435653, type: 2}
   - {fileID: 11400000, guid: 77e69699510bdb040ab5879745f6793e, type: 2}
-  - {fileID: 11400000, guid: fbc6e7df0aafecd4bb374d8a45a5d4b6, type: 2}
   npc_List: []
   currentNPC: {fileID: 0}
   currentDialogue: {fileID: 0}

@@ -41,6 +41,7 @@ public class ItemSource : ItemHolder
             }
             //return;
         }
+        SetActivePrompt(true);
     }
 
     /*public int GetUses()

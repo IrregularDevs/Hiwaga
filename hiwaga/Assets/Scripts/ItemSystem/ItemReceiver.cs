@@ -43,8 +43,8 @@ public class ItemReceiver : ItemHolder
             {
                 onInvalidHolder?.Invoke();
             }
-            return;
         }
+        SetActivePrompt(true);
     }
 
     /*public int GetUses()

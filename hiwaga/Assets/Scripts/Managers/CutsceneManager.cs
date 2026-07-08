@@ -7,8 +7,10 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private Animator fishCutsceneAnimator;
     [SerializeField] private Animator galleryCutsceneAnimator;
     [SerializeField] private Animator forestCutsceneAnimator;
+    [SerializeField] private Animator finalCutsceneAnimator;
     private Princess_Benito princess;
     private FishServant_Benito fish, rat;
+    private Bird_Benito bird;
 
     private void Awake()
     {
@@ -81,4 +83,17 @@ public class CutsceneManager : MonoBehaviour
         rat.SwitchScene();
     }
 
+    public void PlayFinalCutscene(Bird_Benito newBird)
+    {
+        finalCutsceneAnimator.gameObject.SetActive(true);
+        bird = newBird;
+        finalCutsceneAnimator.Play("FinalCutscene");
+    }
+
+    public void EndFinalCutscene()
+    {
+        DialogueManager.Instance.UpdateDialogue("Librarian_Testing", 2);
+        finalCutsceneAnimator.gameObject.SetActive(false);
+        bird.OnGate();
+    }
 }

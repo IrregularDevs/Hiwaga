@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 6502963639059451137}
-  requiredGameStage: 0
-  newGameStage: 0
+  requiredGameStage: 2
+  newGameStage: 2
   itemHeld: {fileID: 11400000, guid: 856fcdc3211c7a34cb32a190df2c46fc, type: 2}
   maxUses: 1
   currentUses: 0

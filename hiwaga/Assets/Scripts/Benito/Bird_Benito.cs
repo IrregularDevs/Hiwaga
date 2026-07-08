@@ -67,12 +67,18 @@ public class Bird_Benito : NPC
     {
         if (canLeave)
         {
-            gate?.SwitchScene();
+            CutsceneManager.Instance.PlayFinalCutscene(this);
+            //gate?.SwitchScene();
         }
     }
 
     public void ProgressStory(bool state)
     {
         canLeave = state;
+    }
+
+    public void OnGate()
+    {
+        gate?.SwitchScene();
     }
 }

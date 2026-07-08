@@ -413,16 +413,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1572839434}
-        m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
-        m_MethodName: PlayGalleryCutscene
-        m_Mode: 1
+      - m_Target: {fileID: 1811015139}
+        m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
+        m_MethodName: NewGame
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Gallery_NEW
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &19992275
@@ -3159,17 +3159,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 743554387310246123, guid: 58519bbf1140fc54781603db5e779db9, type: 3}
   m_PrefabInstance: {fileID: 1572839432}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1572839434 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7469979439409743594, guid: 58519bbf1140fc54781603db5e779db9, type: 3}
-  m_PrefabInstance: {fileID: 1572839432}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f01c1537f2fb104da995370202cd171, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1611107515
 GameObject:
   m_ObjectHideFlags: 0
