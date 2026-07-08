@@ -42,6 +42,27 @@ MonoBehaviour:
     typingSpeed: 0.05
     autoProgressDelayFast: 1
     autoProgressDelaySlow: 3
+  - dialogueLine: I hope this epic adventure is one that you will never forget and
+      always bring with you no matter where life takes you.
+    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: A way home will now open for you.
+    character: {fileID: 11400000, guid: 72026ee90f07baf4aa120533f2a6578e, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: Thank you.
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
+  - dialogueLine: ' will never forget this day. '
+    character: {fileID: 11400000, guid: ba529eb23a50322489b9aededacb9480, type: 2}
+    typingSpeed: 0.05
+    autoProgressDelayFast: 1
+    autoProgressDelaySlow: 3
   autoProgressLines: 
-  loops: 0
+  loops: 1
   questToGive: {fileID: 0}

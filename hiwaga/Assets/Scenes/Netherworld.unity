@@ -893,7 +893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5597147779095725807, guid: 7320bd200ccd7144dad090b8975327a4, type: 3}
       propertyPath: requiredGameStage
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7248198339042947507, guid: 7320bd200ccd7144dad090b8975327a4, type: 3}
       propertyPath: m_Size.x
@@ -1952,7 +1952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5458969391123559369, guid: 100efb99cc4d1d449b373bb3eb268ff5, type: 3}
       propertyPath: requiredGameStage
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6535722534256689625, guid: 100efb99cc4d1d449b373bb3eb268ff5, type: 3}
       propertyPath: m_Size.x
@@ -3116,7 +3116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6003036654605218840, guid: 1f5240c25200d3840a51364e2f48b0ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37.3
+      value: 68.8
       objectReference: {fileID: 0}
     - target: {fileID: 6003036654605218840, guid: 1f5240c25200d3840a51364e2f48b0ce, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3124,7 +3124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6003036654605218840, guid: 1f5240c25200d3840a51364e2f48b0ce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -80.88
+      value: -133.8
       objectReference: {fileID: 0}
     - target: {fileID: 6003036654605218840, guid: 1f5240c25200d3840a51364e2f48b0ce, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3220,7 +3220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 1501756386}
-  requiredGameStage: 0
+  requiredGameStage: 2
   newGameStage: 2
   itemHeld: {fileID: 11400000, guid: 856fcdc3211c7a34cb32a190df2c46fc, type: 2}
   maxUses: 1
@@ -3427,7 +3427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 1168158243}
-  requiredGameStage: 0
+  requiredGameStage: 2
   newGameStage: 2
   itemHeld: {fileID: 11400000, guid: 856fcdc3211c7a34cb32a190df2c46fc, type: 2}
   maxUses: 1
@@ -3634,7 +3634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 304739688}
-  requiredGameStage: 0
+  requiredGameStage: 2
   newGameStage: 2
   itemHeld: {fileID: 11400000, guid: 856fcdc3211c7a34cb32a190df2c46fc, type: 2}
   maxUses: 1
@@ -3769,7 +3769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 1299712566}
-  requiredGameStage: 0
+  requiredGameStage: 2
   newGameStage: 2
   itemHeld: {fileID: 11400000, guid: 856fcdc3211c7a34cb32a190df2c46fc, type: 2}
   maxUses: 1
@@ -3976,7 +3976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 1315553534}
-  requiredGameStage: 0
+  requiredGameStage: 2
   newGameStage: 2
   itemHeld: {fileID: 11400000, guid: 856fcdc3211c7a34cb32a190df2c46fc, type: 2}
   maxUses: 1

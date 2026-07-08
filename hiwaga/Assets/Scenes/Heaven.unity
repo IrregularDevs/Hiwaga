@@ -1092,7 +1092,7 @@ MonoBehaviour:
   requiredGameStage: 2
   newGameStage: 2
   requiredItem: {fileID: 0}
-  sceneName: Hell
+  sceneName: Netherworld
 --- !u!1001 &1603737220
 PrefabInstance:
   m_ObjectHideFlags: 0
